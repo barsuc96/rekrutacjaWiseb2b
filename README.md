@@ -3,7 +3,6 @@
 Witaj! Bardzo się cieszymy, że chcesz dołączyć do zespołu WiseB2B.
 Poniżej znajdziesz zadanie rekrutacyjne, które pozwoli nam poznać Twoje umiejętności programistyczne.
 
-
 ## DODATKOWE INFORMACJE:
 
 ### Dokumentacja
@@ -66,7 +65,7 @@ Nelmio jest dostępne pod adresem:
 http://localhost:8080/ui-api/nelmio
 ```
 
-### Dane do autoryzacji w ADMIN API - nelmio
+### Dane do autoryzacji w ADMIN API - NELMIO
 
 1. Wejdź do nelmio ADMIN API
 ```
