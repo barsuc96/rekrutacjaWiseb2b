@@ -1,0 +1,121 @@
+parameters:
+    client_status_entity: Wise\Client\Domain\ClientStatus\ClientStatus
+    client_entity: Wise\Client\Domain\Client\Client
+    client_group_entity: Wise\Client\Domain\ClientGroup\ClientGroup
+    client_group_price_list_entity: Wise\Client\Domain\ClientPriceList\ClientPriceList
+    client_delivery_method_entity: Wise\Client\Domain\ClientDeliveryMethod\ClientDeliveryMethod
+    client_payment_method_entity: Wise\Client\Domain\ClientPaymentMethod\ClientPaymentMethod
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $defaultContentLanguage: '%env(DEFAULT_LANGUAGE)%'
+
+    Wise\Client\:
+        resource: '../../'
+        exclude:
+            - '../../WiseClientBundle.php'
+            - '../../WiseClientConfiguration.php'
+            - '../../WiseClientExtension.php'
+
+
+    ###>>> Listeners
+    Wise\Client\Domain\ClientCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\Client\Domain\DeliveryMethodCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\Client\Domain\PaymentMethodCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\Client\Domain\PriceListCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\Client\Domain\TraderCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\Client\Domain\UpdateViesInformationOnLoggedInUserListener:
+        tags:
+            - { name: kernel.event_listener, event: user.logged.in }
+    Wise\Client\Domain\ClientUniqueTaxNumberListener:
+        tags:
+            - { name: kernel.event_listener, event: client.tax_numer.changed }
+
+    ###>>> Providers
+    Wise\Client\Service\Client\DataProvider\ClientApartamentProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientBuildingProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientCityProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientContactPersonFirstNameProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientContactPersonLastNameProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientCountryCodeProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientCountryProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientOffersCountProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientOrdersCountProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientStreetProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientPostalCodeProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientLastNameProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientFirstNameProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\Client\DataProvider\ClientStoreProvider:
+        tags:
+            - { name: details_provider.client, priority: 0 }
+    Wise\Client\Service\ClientGroup\DataProvider\ClientGroupPriceListsProvider:
+        tags:
+            - { name: details_provider.client_group, priority: 0 }
+
+
+    Wise\Client\Service\Client\Handler\ClientViesRecalculateHandler:
+        tags: [ messenger.message_handler ]
+
+    ###>>> Factories
+    Wise\Client\Domain\ClientStatus\Factory\ClientStatusFactory:
+        arguments:
+            $entity: '%client_status_entity%'
+
+    Wise\Client\Domain\Client\Factory\ClientFactory:
+        arguments:
+            $entity: '%client_entity%'
+
+    Wise\Client\Domain\ClientGroup\Factory\ClientGroupFactory:
+        arguments:
+            $entity: '%client_group_entity%'
+
+    Wise\Client\Domain\ClientPriceList\Factory\ClientPriceListFactory:
+        arguments:
+            $entity: '%client_group_price_list_entity%'
+
+    Wise\Client\Domain\ClientDeliveryMethod\Factory\ClientDeliveryMethodFactory:
+        arguments:
+            $entity: '%client_delivery_method_entity%'
+
+    Wise\Client\Domain\ClientPaymentMethod\Factory\ClientPaymentMethodFactory:
+        arguments:
+            $entity: '%client_payment_method_entity%'

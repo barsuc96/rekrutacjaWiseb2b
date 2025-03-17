@@ -1,0 +1,14 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  width: 100%;
+  padding-bottom: 20px;
+  background: $color-gray-background;
+
+  .menuWrapper {
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+client:
+    panel:
+        success_update_address: "The address has been updated."
+
+exceptions:
+    client:
+        not_accepted: "The customer is not activated. Wait for the Administrator to activate the client, or contact him."

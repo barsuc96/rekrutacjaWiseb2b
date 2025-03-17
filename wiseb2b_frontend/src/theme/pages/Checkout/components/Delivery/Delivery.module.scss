@@ -1,0 +1,129 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+
+  @include breakpoint(md) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  padding: 18px;
+  border: 1px solid $color-gray-border;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: flex-start;
+
+  @include breakpoint(sm) {
+    flex-wrap: wrap;
+  }
+
+  &:hover,
+  &.active {
+    border-color: $color-secondary;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-left: 16px;
+}
+
+.image {
+  display: block;
+  max-height: 24px;
+  margin-right: 16px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: $color-text-dark;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+
+  &.styleType-HIGHLIGHTED {
+    color: $color-secondary;
+    font-weight: 700;
+  }
+
+  svg {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  color: $color-text;
+
+  svg {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+}
+
+.price {
+  display: flex;
+  flex-flow: wrap column;
+  margin-left: auto;
+}
+
+.priceGross {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: right;
+  color: $color-text-dark;
+
+  span {
+    display: inline;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 120%;
+    color: $color-text;
+  }
+}
+
+.priceNet {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  color: $color-text-dark;
+  text-align: right;
+
+  span {
+    display: inline;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 120%;
+    color: $color-text;
+  }
+}

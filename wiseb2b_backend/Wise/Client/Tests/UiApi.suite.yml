@@ -1,0 +1,15 @@
+actor: UiApiTester
+suite_namespace: Wise\Client\Tests\UiApi
+step_decorators:
+    - \Codeception\Step\AsJson
+modules:
+    enabled:
+        - Symfony:
+              app_path: ../../src
+              environment: test
+        - Doctrine2:
+              depends: Symfony
+              cleanup: true
+        - REST:
+              depends: Symfony
+              url: /api/ui/

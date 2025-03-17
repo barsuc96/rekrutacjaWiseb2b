@@ -1,0 +1,7 @@
+{
+    "symbol": "FIELD_1",
+    "label": "Nazwa 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non elementum dui. Integer condimentum imperdiet vestibulum. Ut lorem arcu, eleifend.",
+    "type": "bool",
+    "is_active": true
+  }

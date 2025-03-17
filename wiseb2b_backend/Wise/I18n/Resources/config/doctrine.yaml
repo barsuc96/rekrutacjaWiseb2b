@@ -1,0 +1,8 @@
+doctrine:
+    orm:
+        mappings:
+            I18n:
+                is_bundle: false
+                dir: '%wiseb2b_dir%/Wise/I18n/Domain'
+                prefix: 'Wise\I18n\Domain'
+                alias: I18n

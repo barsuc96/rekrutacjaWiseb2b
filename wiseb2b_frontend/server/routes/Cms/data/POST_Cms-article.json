@@ -1,0 +1,10 @@
+{
+    "status": 1,
+    "message": "Artykuł stworzony pomyślnie",
+    "show_message": true,
+    "data": {
+        "symbol": "FAQ"
+    },
+    "error_fields": null,
+    "show_modal": false
+  }

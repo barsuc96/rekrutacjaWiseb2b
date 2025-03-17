@@ -1,0 +1,16 @@
+export { ReactComponent as AngleDownIcon } from './angle-down-cc.svg';
+export { ReactComponent as ArrowDropdown } from './arrow-dropdown.svg';
+export { ReactComponent as ArrowIcon } from './arrow.svg';
+export { ReactComponent as ArrowLongIcon } from './arrow-long.svg';
+export { ReactComponent as ArrowLongThinIcon } from './arrow-long-thin.svg';
+export { ReactComponent as CartIcon } from './cart-cc.svg';
+export { ReactComponent as ClipboardIcon } from './clipboard-list.svg';
+export { ReactComponent as FileExportIcon } from './file-export.svg';
+export { ReactComponent as FileImportIcon } from './file-import.svg';
+export { ReactComponent as FolderOpenIcon } from './folder-open.svg';
+export { ReactComponent as PaperclipIcon } from './paperclip.svg';
+export { ReactComponent as TrashIcon } from './trash.svg';
+export { ReactComponent as CloseIcon } from './close-icon.svg';
+export { ReactComponent as ChevronDownIcon } from './chevron-down.svg';
+export { ReactComponent as SearchIcon } from './search.svg';
+export { ReactComponent as XIcon } from './x.svg';

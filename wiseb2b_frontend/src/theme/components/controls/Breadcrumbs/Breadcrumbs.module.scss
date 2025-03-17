@@ -1,0 +1,43 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .home {
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    .arrow {
+      margin-right: 10px;
+    }
+
+    .name {
+      font-weight: 700;
+      color: $color-primary;
+      cursor: pointer;
+
+      &.disabled {
+        font-weight: 400;
+        color: $color-label;
+        cursor: default;
+      }
+    }
+  }
+}

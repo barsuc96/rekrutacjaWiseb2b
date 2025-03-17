@@ -1,0 +1,38 @@
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 650px;
+
+  @include breakpoint(md) {
+    width: auto;
+  }
+}
+
+.formElement {
+  width: 100%;
+  &.formElementHalfWidth {
+    width: calc(50% - 10px);
+  }
+
+  margin-bottom: 12px;
+
+  label {
+    font-weight: 700;
+  }
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}

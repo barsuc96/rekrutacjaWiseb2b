@@ -1,0 +1,11 @@
+imports:
+    - { resource: ../Wise/I18n/Resources/config/services.yaml }
+    - { resource: ../Wise/Receiver/Resources/config/services.yaml }
+    - { resource: ../Wise/Service/Resources/config/services.yaml }
+    - { resource: ../Wise/User/Resources/config/services.yaml }
+    - { resource: ../Wise/Client/Resources/config/services.yaml }
+    - { resource: ../Wise/Security/Resources/config/services.yaml }
+    - { resource: ../Wise/Core/Resources/config/services.yaml }
+    - { resource: ../Wise/MultiStore/Resources/config/services.yaml }
+    - { resource: ../Wise/Agreement/Resources/config/services.yaml }
+    - { resource: ../Wise/GPSR/Resources/config/services.yaml }

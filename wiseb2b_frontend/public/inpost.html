@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inpost Widget</title>
+
+    <script async src="https://geowidget.easypack24.net/js/sdk-for-javascript.js"></script>
+    <link rel="stylesheet" href="https://geowidget.easypack24.net/css/easypack.css" />
+
+    <script type="text/javascript">
+      window.easyPackAsyncInit = function () {
+        easyPack.init({
+          display: {
+            showTypesFilters: false
+          }
+        });
+        easyPack.mapWidget('easypack-map', function (point) {
+          window.top.postMessage({ payload: point, source: 'inpost-widget' }, '*');
+          const closeButton = document.querySelector('.leaflet-popup-close-button');
+          closeButton?.click();
+        });
+      };
+    </script>
+  </head>
+  <body style="margin: 0">
+    <div id="easypack-map"></div>
+  </body>
+</html>

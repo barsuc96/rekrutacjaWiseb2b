@@ -1,0 +1,8 @@
+nelmio_api_doc:
+  models:
+    names:
+
+    - { alias: PostNewsletterRegisterRequestDto, type: Wise\Message\ApiUi\Dto\Newsletter\PostNewsletterRegisterRequestDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostNewsletterRegisterResponseDto, type: Wise\Message\ApiUi\Dto\Newsletter\PostNewsletterRegisterResponseDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostNewsletterConfirmRequestDto, type: Wise\Message\ApiUi\Dto\Newsletter\PostNewsletterConfirmRequestDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostNewsletterConfirmResponseDto, type: Wise\Message\ApiUi\Dto\Newsletter\PostNewsletterConfirmResponseDto, areas: [ 'api_ui_v2' ] }

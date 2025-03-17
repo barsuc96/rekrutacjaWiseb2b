@@ -1,0 +1,9 @@
+put:
+    success: ""
+
+replication_request:
+    stats_email:
+        subject: '[%installation_name%] Nightly replication statistics'
+        header: '[%installation_name%]<br/>Replication statistics from the last period'
+        content: '%stats%'
+

@@ -1,0 +1,89 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.attributeList {
+  .listContainer {
+    .item {
+      padding-bottom: 18px;
+    }
+
+    @include breakpoint(lg) {
+      .item {
+        padding-top: unset;
+        border-right: 1px dashed $color-collapsed-border;
+
+        &:nth-child(3n) {
+          border-right: none;
+        }
+      }
+    }
+
+    @include breakpoint(md) {
+      .item {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.attributeItem {
+  display: flex;
+  justify-content: space-between;
+
+  @include breakpoint(lg) {
+    :last-child {
+      padding-bottom: unset;
+    }
+  }
+}
+
+.attributeFile {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+
+  svg {
+    font-size: 20px;
+    color: $color-primary;
+    margin: 0 4px;
+  }
+}
+
+.attributeName {
+  padding-right: 10px;
+}
+
+.attributeValue {
+  min-width: 150px;
+  max-width: 150px;
+  padding-right: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+
+  .green {
+    color: $color-success;
+  }
+
+  .red {
+    color: $color-error;
+  }
+
+  img {
+    margin-right: 8px;
+  }
+
+  svg {
+    font-size: 20px;
+  }
+}
+
+.link {
+  color: $color-primary;
+  text-decoration: none;
+
+  strong {
+    display: inline;
+    font-weight: 700;
+  }
+}

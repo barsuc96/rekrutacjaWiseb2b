@@ -1,0 +1,105 @@
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include breakpoint(sm) {
+    display: block;
+  }
+}
+
+.formElement {
+  width: 100%;
+  margin-bottom: 12px;
+
+  label {
+    font-weight: 700;
+  }
+
+  &.halfWidth {
+    width: calc(50% - 10px);
+  }
+}
+
+//`;
+
+.actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}
+
+.half {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: flex-start;
+  padding: 0 10px;
+  width: 50%;
+
+  @include breakpoint(sm) {
+    width: 100%;
+  }
+}
+
+.halfElement {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  > * {
+    width: calc(50% - 10px);
+  }
+}
+
+.clientApiTitle {
+  line-height: 140%;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  font-family: Poppins, sans-serif;
+}
+
+.accountWrapper {
+  width: 100%;
+  padding: 0 10px;
+
+  .formElement {
+    margin-bottom: 0;
+  }
+}
+
+.tokenWrapper {
+  display: flex;
+  align-items: flex-end;
+
+  > div {
+    flex: 1;
+    margin-right: 10px;
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 8px;
+      bottom: 7px;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    font-size: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+  }
+}

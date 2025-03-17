@@ -1,0 +1,3 @@
+service:
+  success_update: 'Service updated successfully'
+  success_create: 'Service created successfully'

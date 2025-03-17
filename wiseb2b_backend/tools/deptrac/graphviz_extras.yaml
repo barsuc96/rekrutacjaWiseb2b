@@ -1,0 +1,29 @@
+deptrac:
+  formatters:
+    graphviz:
+      hidden_layers:
+      - _Api Doc
+      - _Assert
+      - _CLI
+      - _Collections
+      - _DBAL
+      - _DI
+      - _Event
+      - _HTTP
+      - _Lock
+      - _OAuth
+      - _ORM
+      - _Open API
+      - _PSR Event
+      - _PSR Log
+      - _Password Hasher
+      - _PhpStorm
+      - _Property Info
+      - _Security
+      - _Serializer
+      - _SwiftMailer
+      - _Translation
+      - _Twig
+      - _UUID
+      - _Validator
+      - _YAML

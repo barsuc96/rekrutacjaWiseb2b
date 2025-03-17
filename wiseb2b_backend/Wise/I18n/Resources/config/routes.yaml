@@ -1,0 +1,19 @@
+wise_i18n_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/Countries
+  prefix: api/admin/countries
+  type: annotation
+
+wise_i18n_currency_exchange_api_admin_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiAdmin/Controller/CurrencyExchanges
+    prefix: api/admin/currency-exchanges
+    type: annotation
+
+###>>> UI API Routes >>>
+wise_i18n_layout_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/Layout/
+    prefix: api/ui/layout
+    type: annotation
+###<<< UI API Routes <<<

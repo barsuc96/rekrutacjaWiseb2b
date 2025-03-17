@@ -1,0 +1,57 @@
+doctrine:
+    orm:
+        mappings:
+            Client:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/Client'
+                prefix: 'Wise\Client\Domain\Client'
+                alias: Client
+            ClientGroup:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientGroup'
+                prefix: 'Wise\Client\Domain\ClientGroup'
+                alias: Wise\Client\Domain\ClientGroup
+            ClientPriceList:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientPriceList'
+                prefix: 'Wise\Client\Domain\ClientPriceList'
+                alias: Wise\Client\Domain\ClientPriceList
+            ClientRepresentative:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientRepresentative'
+                prefix: 'Wise\Client\Domain\ClientRepresentative'
+                alias: ClientRepresentative
+            ClientDeliveryMethod:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientDeliveryMethod'
+                prefix: 'Wise\Client\Domain\ClientDeliveryMethod'
+                alias: ClientDeliveryMethod
+            ClientDocument:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientDocument'
+                prefix: 'Wise\Client\Domain\ClientDocument'
+                alias: ClientDocument
+            ClientDocumentDefinition:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientDocumentDefinition'
+                prefix: 'Wise\Client\Domain\ClientDocumentDefinition'
+                alias: ClientDocumentDefinition
+            ClientPayment:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientPayment'
+                prefix: 'Wise\Client\Domain\ClientPayment'
+                alias: ClientPayment
+            ClientPaymentMethod:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Client/Resources/entity/ClientPaymentMethod'
+                prefix: 'Wise\Client\Domain\ClientPaymentMethod'
+                alias: ClientPaymentMethod

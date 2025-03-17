@@ -1,0 +1,9 @@
+wise_service:
+    service_driver:
+      # Nazwa podstawowego drivera (użyta w sytuacji, kiedy nie zostanie znaleziony dedykowany)
+      default_driver_name: 'standard'
+
+    # Domyślne wartości id (delivery i payment method) dla providerów przeliczających ceny usług
+    service_cost_provider:
+        default_delivery_method_id: null
+        default_payment_method_id: null

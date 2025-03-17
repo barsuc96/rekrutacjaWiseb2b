@@ -1,0 +1,139 @@
+{
+  "page_symbol": "order_page",
+  "components": [
+    {
+      "fields": [
+        {
+          "type": "select",
+          "value": null,
+          "label": "Wybierz użytkownika",
+          "editable": true,
+          "dictionary": {
+            "values": [
+              {
+                "value": 3,
+                "text": "Agata Sęk"
+              },
+              {
+                "value": 4,
+                "text": "Jan kowalski"
+              },
+              {
+                "value": 5,
+                "text": "Tomasz Wójjcik"
+              },
+              {
+                "value": 6,
+                "text": "Robert Szymański"
+              }
+            ],
+            "multi_choice": false,
+            "values_get_u_i_api": null
+          },
+          "symbol": "user_ordering"
+        },
+        {
+          "type": "date",
+          "value": null,
+          "label": "Wybierz datę",
+          "editable": true,
+          "dictionary": null,
+          "symbol": "order_date_from;order_date_to"
+        },
+        {
+          "type": "search",
+          "value": null,
+          "label": "Szukaj",
+          "editable": true,
+          "dictionary": null,
+          "symbol": "search_keyword"
+        }
+      ],
+      "columns": [
+        {
+          "type": "text",
+          "label": "LP",
+          "field_symbol": "lp"
+        },
+        {
+          "type": "text",
+          "label": "ID",
+          "field_symbol": "id",
+          "context_action": "DISPLAY_ENTITY"
+        },
+        {
+          "type": "html",
+          "label": "Status",
+          "field_symbol": "status"
+        },
+        {
+          "type": "text",
+          "label": "Liczba produktów",
+          "field_symbol": "products_total_count"
+        },
+        {
+          "type": "text",
+          "label": "Data utworzenia",
+          "field_symbol": "create_date"
+        },
+        {
+          "type": "text",
+          "label": "Wartość netto",
+          "field_symbol": "value_net_formatted"
+        },
+        {
+          "type": "text",
+          "label": "Wartość brutto",
+          "field_symbol": "value_gross_formatted"
+        }
+      ],
+      "loadDataParams": {
+        "command_url": "/orders",
+        "params_list": null
+      },
+      "actions": [
+        {
+          "symbol": "EXPORT_ORDER",
+          "type": "CONTEXT_MAIN | CONTEXT_ADDITIONAL | NO_CONTEXT | CONTEXT_MULTICHOICE",
+          "method_params": {
+            "command_url": "/orders/:id/export",
+            "params_list": "export_type=pdf"
+          },
+          "refresh_data_mode": "ONSUCCESS",
+          "method": "CallCommand",
+          "label": ""
+        },
+        {
+          "symbol": "DISPLAY_ENTITY",
+          "method_params": {
+            "page": "/config/orders/:id"
+          },
+          "refresh_data_mode": "ONSUCCESS",
+          "method": "Redirect",
+          "label": ""
+        },
+        {
+          "method": "OpenEditPanel",
+          "label": "Utwórz",
+          "method_params": {
+            "command_url": "/orders/combining",
+            "params_list": "main_order;payment_method;delivery_method;manual_cash_on_delivery;orders_ids"
+          },
+          "refresh_data_mode": "ONSUCCESS"
+        }
+      ],
+      "type": "table",
+      "symbol": "TABLE",
+      "label": "Lista zamówień"
+    }
+  ],
+  "process_result": {
+    "fields_info": [],
+    "status": 1,
+    "message": null,
+    "message_style": "success",
+    "show_message": false,
+    "table_prefix": ""
+  },
+  "table_prefix": ""
+}

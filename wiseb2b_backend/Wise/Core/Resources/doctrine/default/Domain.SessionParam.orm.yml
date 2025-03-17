@@ -1,0 +1,16 @@
+Wise\Core\Domain\SessionParam:
+  type: entity
+  table: 'session_param'
+  repositoryClass: Wise\Core\Repository\Doctrine\SessionParamRepository
+  fields:
+    sessionId:
+      type: string
+      length: 80
+      nullable: false
+    symbol:
+      type: string
+      length: 80
+      nullable: false
+    value:
+      type: text
+      nullable: true

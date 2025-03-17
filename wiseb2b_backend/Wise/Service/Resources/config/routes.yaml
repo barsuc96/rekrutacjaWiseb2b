@@ -1,0 +1,5 @@
+wise_service_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/Services/
+  prefix: api/admin/services
+  type: annotation

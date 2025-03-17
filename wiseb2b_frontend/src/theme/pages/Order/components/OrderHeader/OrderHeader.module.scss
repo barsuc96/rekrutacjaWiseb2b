@@ -1,0 +1,33 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+
+.wrapperComponent {
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 18px;
+
+  > button {
+    padding: 10px 10px;
+    letter-spacing: 1px;
+
+    .label {
+      svg {
+        font-size: 20px;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+// h3
+.title {
+  display: inline-block;
+  font-size: 18px;
+  font-family: $font-poppins;
+  font-weight: 700;
+  color: $color-secondary;
+  margin: 5px;
+}

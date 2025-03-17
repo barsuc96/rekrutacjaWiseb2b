@@ -1,0 +1,97 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  .slider {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  .slide {
+    height: 200px;
+    outline: none;
+    margin: 3px 0;
+
+    .productWrapper {
+      height: 200px;
+      padding: 0 6px;
+    }
+  }
+
+  .navButton {
+    height: 44px;
+    width: 44px;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-product-bg;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 99;
+
+    &:disabled {
+      display: none;
+    }
+
+    &.back {
+      left: -22px;
+    }
+
+    &.next {
+      right: -22px;
+    }
+
+    svg {
+      font-size: 24px;
+    }
+  }
+}
+
+.title {
+  font-family: $font-poppins;
+  font-weight: 700;
+  color: $color-text-dark;
+  font-size: 32px;
+  margin-bottom: 45px;
+
+  @include breakpoint(md) {
+    font-size: 24px;
+    line-height: 120%;
+  }
+}
+
+.product {
+  height: 100%;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  color: initial;
+
+  &:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.1);
+    background: $color-white;
+  }
+
+  .product-image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    background-size: contain;
+    background: center center no-repeat;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    width: 100%;
+    font-size: 12px;
+    color: $color-label;
+  }
+}

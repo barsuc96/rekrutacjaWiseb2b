@@ -1,0 +1,8 @@
+nelmio_api_doc:
+  models:
+    names:
+      # UI API
+      - { alias: DeletePanelManagementUsersTypesDto, type: Wise\User\ApiUi\Dto\PanelManagement\Users\DeletePanelManagementUsersTypesDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementUsersDictionaryDto, type: Wise\User\ApiUi\Dto\PanelManagement\Users\GetPanelManagementUsersDictionaryDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementTradersDto, type: Wise\User\ApiUi\Dto\PanelManagement\Traders\GetPanelManagementTradersDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementTradersDictionaryDto, type: Wise\User\ApiUi\Dto\PanelManagement\Traders\GetPanelManagementTradersDictionaryDto, areas: [ 'api_ui_v2' ] }

@@ -1,0 +1,21 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+    border-radius: 0;
+    border: 1px solid $color-gray-border;
+    background: $color-white;
+    color: $color-text;
+    outline: none;
+
+    &.error {
+      border: 1px solid $color-error;
+    }
+  }
+}

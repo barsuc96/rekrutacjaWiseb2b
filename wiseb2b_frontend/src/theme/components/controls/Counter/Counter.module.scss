@@ -1,0 +1,46 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+
+.wrapperComponent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-counter;
+}
+
+.input {
+  width: calc(100% - 88px);
+  height: 44px;
+  border: 0;
+  flex: 1;
+  font-family: $font-poppins;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: $color-text-dark;
+  background-color: $color-counter;
+  -webkit-appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  color: $color-primary;
+
+  &:disabled {
+    color: $color-text-light;
+  }
+}

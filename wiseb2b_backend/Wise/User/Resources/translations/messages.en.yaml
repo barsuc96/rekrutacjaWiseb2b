@@ -1,0 +1,20 @@
+countries:
+  pl: Poland
+  de: Germany
+
+user:
+  success_create: 'User has been successfully created.'
+  success_update: 'User has been successfully updated.'
+  success_send_password_reset: 'The link to reset the password has been sent to the user email.'
+
+exceptions:
+  register:
+    agreement_required: 'You cannot proceed because you have not given all the required consents. Please complete them to continue.'
+  user:
+    password:
+      password_empty: "The password must not be empty."
+      password_confirm_empty: 'You need to confirm the password.'
+      password_not_same_with_password_confirm: 'The passwords are not the same.'
+    unique_constraint_violation: 'A user with the given data already exists. If necessary, contact the administrator.'
+    exists_login: 'The user with the given data already exists. If necessary, contact the administrator.'
+    mail_confirmed_false: 'Your e-mail is not confirmed. An e-mail has been sent again to your mailbox to confirm your address. Log in after confirming your e-mail address.'

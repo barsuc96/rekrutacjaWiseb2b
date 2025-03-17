@@ -1,0 +1,113 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  .slider {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  .slide {
+    height: 120px;
+    outline: none;
+    margin: 3px 0;
+
+    .productWrapper {
+      height: 120px;
+      padding: 0 6px;
+    }
+  }
+
+  .navButton {
+    height: 44px;
+    width: 44px;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-product-bg;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 99;
+
+    &:disabled {
+      display: none;
+    }
+
+    &.back {
+      left: -22px;
+    }
+
+    &.next {
+      right: -22px;
+    }
+
+    svg {
+      font-size: 24px;
+    }
+  }
+}
+
+.title {
+  font-family: $font-poppins;
+  font-weight: 700;
+  color: $color-primary;
+  font-size: 18px;
+  margin-bottom: 16px;
+
+  @include breakpoint(md) {
+    margin-left: 8px;
+  }
+}
+
+.product {
+  height: 100%;
+  padding: 10px 14px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  cursor: pointer;
+  text-decoration: none;
+  color: initial;
+
+  &:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-image {
+    width: 95px;
+    height: 100px;
+    flex-shrink: 0;
+    margin-right: 32px;
+    background-size: contain;
+    background: center center no-repeat;
+  }
+
+  .description {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 1;
+
+    .prices {
+      align-self: flex-end;
+      color: $color-text-light;
+      text-align: right;
+
+      .net {
+        font-size: 16px;
+        color: $color-text-dark;
+
+        strong {
+          font-size: 18px;
+          font-family: $font-poppins;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+Wise\Client\Domain\ClientDocument\ClientDocument:
+  type: entity
+  table: client_document
+  repositoryClass: Wise\Client\Repository\Doctrine\ClientDocumentRepository
+
+  fields:
+    clientId: { type: integer }
+    clientDocumentDefinitionId: { type: integer }
+    symbol: { type: string, length: 300, nullable: true }
+    path: { type: string, length: 255, nullable: true }

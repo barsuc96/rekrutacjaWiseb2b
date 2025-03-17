@@ -1,0 +1,14 @@
+# Konfiguracja związana z GPSR
+
+wise_gpsr:
+
+  # =========================================
+  # Konfiguracja GPSR
+  # =========================================
+
+  # Symbol atrybutu, który przechowuje informacje o odpowiedzialności producenta
+  gpsr_liability_attribute_symbol: 'GPSR_PRODUCT_SUPPLIER'
+
+  # Tworzy nowego pustego dostawce przy dodaniu nowego atrybutu do produktu, gdy symbol dostawcy do tej pory nie istniał
+  # Gdy zostanie dodany do ProductAttribute GPSR z symbolem dostawcy, który nigdy wcześniej nie istniał, zostanie utworzony nowy dostawca, aby można było uzupełnić jego dane w panelu administracyjnym
+  create_empty_supplier_on_new_attribute: false

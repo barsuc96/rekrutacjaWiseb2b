@@ -1,0 +1,22 @@
+Wise\Client\Domain\ClientPriceList\ClientPriceList:
+    type: entity
+    table: client_price_list
+    repositoryClass: Wise\Client\Repository\Doctrine\ClientPriceListRepository
+
+    id:
+        clientGroupId:
+            type: integer
+        priority:
+            type: integer
+
+    fields:
+        priceListId: { type: integer, nullable: true }
+        storeId: { type: integer, nullable: true }
+
+    manyToOne:
+        clientGroup:
+            targetEntity: Wise\Client\Domain\ClientGroup\ClientGroup
+            inversedBy: priceLists
+            joinColumn:
+                name: client_group_id
+                referencedColumnName: id

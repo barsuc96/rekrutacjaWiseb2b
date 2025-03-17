@@ -1,0 +1,80 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+
+.wrapperComponent {
+  position: relative;
+  padding: 0 8px;
+
+  .navButton {
+    height: 44px;
+    width: 44px;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-product-bg;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 99;
+
+    &:disabled {
+      display: none;
+    }
+
+    &.back {
+      left: -22px;
+    }
+
+    &.next {
+      right: -22px;
+    }
+
+    svg {
+      font-size: 24px;
+    }
+  }
+
+  .trayBar {
+    display: flex;
+    margin-top: 27px;
+    border: none;
+
+    button {
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      height: 4px;
+      border-top: none;
+      border-bottom: none;
+      
+
+      &:first-child {
+        border-radius: 100px 0 0 100px;
+      }
+
+      &:last-child {
+        border-radius: 0 100px 100px 0;
+      }
+
+
+      &:disabled {
+        background-color: $color-faq-active;
+        border-radius: 100px;
+      }
+    }
+  }
+
+  .slide {
+    height: 570px;
+    outline: none;
+
+    .productWrapper {
+      height: 570px;
+      padding: 6px;
+    }
+  }
+};

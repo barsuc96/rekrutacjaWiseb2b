@@ -1,0 +1,23 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 6px 10px;
+  background: $color-primary;
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-white;
+
+  &.new {
+    background: $color-accent;
+  }
+
+  &.bestseller {
+    background: $color-bestseller;
+  }
+
+  &.promotion {
+    background: $color-violet;
+  }
+}

@@ -1,0 +1,59 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    # Katalog główny projektu WiseB2B - potrzebne w celu poprawnej konfiguracji dla klienta
+    wiseb2b_dir: '%kernel.project_dir%'
+
+    images_file_path: '%env(resolve:IMAGES_FILE_PATH)%'
+    products_file_path: '%env(resolve:PRODUCTS_FILE_PATH)%'
+    products_file_path_url: '%env(resolve:PRODUCTS_FILE_PATH_URL)%'
+    tmp_file_path: '%env(resolve:TMP_FILE_PATH)%'
+    tmp_file_path_api: '%env(resolve:TMP_FILE_PATH_API)%'
+    orders_file_path: '%env(resolve:ORDERS_FILE_PATH)%'
+    orders_file_path_api: '%env(resolve:ORDERS_FILE_PATH_API)%'
+    carts_file_path: '%env(resolve:CARTS_FILE_PATH)%'
+    carts_file_path_api: '%env(resolve:CARTS_FILE_PATH_API)%'
+    icons_file_path_api: '%env(resolve:ICONS_FILE_PATH_API)%'
+    document_file_path: '%env(resolve:DOCUMENT_FILE_PATH)%'
+    document_file_url: '%env(resolve:DOCUMENT_FILE_URL)%'
+    app_project_dir: '%env(resolve:APP_PROJECT_DIR)%'
+    languages: '%env(resolve:LANGUAGES)%'
+    db_bulk_insert_batch_size: '%env(resolve:DB_BULK_INSERT_BATCH_SIZE)%'
+    article_field_file_path: '%env(resolve:ARTICLE_FIELD_FILE_PATH)%'
+    article_field_file_url: '%env(resolve:ARTICLE_FIELD_FILE_URL)%'
+    categories_file_path: '%env(resolve:CATEGORIES_FILE_PATH)%'
+    categories_file_url: '%env(resolve:CATEGORIES_FILE_URL)%'
+    cms_media_file_path: '%env(resolve:CMS_MEDIA_FILE_PATH)%'
+    cms_media_file_url: '%env(resolve:CMS_MEDIA_FILE_URL)%'
+    front_host: '%env(resolve:FRONT_HOST)%'
+    app_channel: '%env(resolve:APP_CHANNEL)%'
+    web_port: '%env(resolve:WEB_PORT)%'
+    api_trusted_host: '%env(resolve:API_TRUSTED_HOST)%'
+    images_file_path_api: '%env(resolve:IMAGES_FILE_PATH_API)%'
+    search_reset_cache: '%env(resolve:SEARCH_RESET_CACHE)%'
+    remove_port_from_url: '%env(resolve:REMOVE_PORT_FROM_URL)%'
+    backend_dictionary: '%env(resolve:BACKEND_DICTIONARY)%'
+    store_file_path: '%env(resolve:STORE_FILE_PATH)%'
+    store_file_url: '%env(resolve:STORE_FILE_URL)%'
+
+imports:
+    - { resource: wise-services.yaml }
+    - { resource: wise-configs.yaml }
+    - { resource: ../Wise/MultiStore/Resources/config/stores_config/*.yaml }
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Symfony\Component\DependencyInjection\Container: ~
+
+    League\Bundle\OAuth2ServerBundle\Security\Authenticator\OAuth2Authenticator:
+        arguments:
+            $httpMessageFactory: '@league.oauth2_server.factory.psr_http'
+            $userProvider: '@Wise\Security\Domain\Provider\UserProvider'
+            $rolePrefix: 'ROLE_OAUTH2_'

@@ -1,0 +1,79 @@
+@import 'src/theme/color';
+
+.container {
+  height: 100%;
+  .control {
+    height: 100%;
+    min-height: 20;
+    font-size: 10;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    background-color: $color-product-bg;
+    flex-wrap: nowrap !important;
+
+    svg {
+      transform: rotateX(0);
+    }
+
+    &.controlOpen {
+      svg {
+        transform: rotateX(180deg);
+      }
+    }
+
+    &:hover {
+      border-color: $color-product-bg;
+    }
+  }
+
+  .option {
+    padding: 4px 8px;
+
+    color: $color-label;
+    background-color: $color-white;
+    &.optionSelected {
+      color: $color-secondary;
+      background-color: $color-gray-background;
+    }
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  .indicatorSeparator {
+    display: none;
+  }
+
+  .dropdownIndicator {
+    color: $color-text;
+
+    &:hover {
+      color: $color-text;
+    }
+
+    > svg {
+      width: 12;
+      height: 12;
+    }
+  }
+
+  .indicatorsContainer {
+    padding: 0 10px 0 2px;
+  }
+
+  .menu {
+    margin-bottom: 0;
+    margin-top: 0;
+    width: max-content;
+    min-width: 100%;
+    box-shadow: none;
+    border: 1px solid $color-table-border;
+    border-radius: 0;
+  }
+  .menuList {
+    padding: 0;
+  }
+}

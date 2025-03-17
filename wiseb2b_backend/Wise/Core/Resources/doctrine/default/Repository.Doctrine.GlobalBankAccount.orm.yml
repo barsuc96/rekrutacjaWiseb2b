@@ -1,0 +1,13 @@
+Wise\Core\Repository\Doctrine\GlobalBankAccount:
+  type: entity
+  table: global_bank_account
+  repositoryClass: Wise\Core\Repository\Doctrine\GlobalBankAccountRepository
+  fields:
+    entityName: { type: string }
+    filedName: { type: string }
+    entityId: { type: integer }
+    ownerName: { type: string }
+    account: { type: string }
+    bankCountryId: { type: integer }
+    bankAddress: { type: string }
+    bankName: { type: string }

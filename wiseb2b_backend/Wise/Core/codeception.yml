@@ -1,0 +1,13 @@
+namespace: Wise\Core\Tests
+support_namespace: Support
+paths:
+  tests: Tests
+  output: ../../tests/_output
+  data: Tests/Support/Data
+  support: Tests/Support
+actor_suffix: Tester
+extensions:
+  enabled:
+    - Wise\Core\Tests\Support\Events\PrepareDatabaseForTest
+    - Wise\Core\Tests\Support\Events\CheckDomainEventsWereFlushed
+    - Codeception\Extension\RunFailed

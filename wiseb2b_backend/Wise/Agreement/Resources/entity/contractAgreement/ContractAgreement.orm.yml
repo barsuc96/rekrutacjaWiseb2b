@@ -1,0 +1,46 @@
+Wise\Agreement\Domain\ContractAgreement\ContractAgreement:
+  type: entity
+  table: contract_agreement
+  inheritanceType: SINGLE_TABLE
+  repositoryClass: Wise\Agreement\Domain\ContractAgreement\ContractAgreementRepositoryInterface
+
+  indexes:
+    contract_agreement_user_contract_idx:
+      columns: [ user_id, contract_id ]
+    contract_agreement_contract_id_idx:
+      columns: [ contract_id ]
+    contract_agreement_external_id_idx:
+      columns: [ id_external ]
+
+  fields:
+    idExternal:
+      type: string
+      nullable: true
+    userId:
+      type: integer
+      nullable: true
+    clientId:
+      type: integer
+      nullable: true
+    cartId:
+      type: integer
+      nullable: true
+    contractId:
+      type: integer
+    contextAgreement:
+      type: text
+      nullable: true
+    agreeIp:
+      type: string
+      length: 60
+      nullable: true
+    agreeDate:
+      type: datetime
+      nullable: true
+    disagreeIp:
+      type: string
+      length: 60
+      nullable: true
+    disagreeDate:
+      type: datetime
+      nullable: true

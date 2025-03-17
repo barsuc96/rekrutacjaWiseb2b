@@ -1,0 +1,19 @@
+nelmio_api_doc:
+  models:
+    names:
+    # Common
+
+    # Admin API
+    - { alias: GetShoppingListResponseDto, type: Wise\ShoppingList\ApiAdmin\Dto\ShoppingLists\GetShoppingListResponseDto, areas: [ api_admin_v2 ] }
+    - { alias: GetShoppingListsResponseDto, type: Wise\ShoppingList\ApiAdmin\Dto\ShoppingLists\GetShoppingListsResponseDto, areas: [ api_admin_v2 ] }
+    - { alias: GetShoppingListsQueryParametersDto, type: Wise\ShoppingList\ApiAdmin\Dto\ShoppingLists\GetShoppingListsQueryParametersDto, areas: [ api_admin_v2 ] }
+    - { alias: PutShoppingListDto, type: Wise\ShoppingList\ApiAdmin\Dto\ShoppingLists\PutShoppingListDto, areas: [ api_admin_v2 ] }
+    - { alias: PutShoppingListsDto, type: Wise\ShoppingList\ApiAdmin\Dto\ShoppingLists\PutShoppingListsDto, areas: [ api_admin_v2 ] }
+
+    # UI API
+    - { alias: GetShoppingListsResponseDto, type: Wise\ShoppingList\ApiUi\Dto\ShoppingLists\GetShoppingListsResponseDto, areas: [ 'api_ui_v2' ] }
+    - { alias: GetShoppingListsPositionsResponseDto, type: Wise\ShoppingList\ApiUi\Dto\ShoppingLists\GetShoppingListsPositionsResponseDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PutShoppingListsPositionsRequestDto, type: Wise\ShoppingList\ApiUi\Dto\ShoppingLists\PutShoppingListsPositionsRequestDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostShoppingListsRequestDto, type: Wise\ShoppingList\ApiUi\Dto\ShoppingLists\PostShoppingListsRequestDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostShoppingListsExportRequestDto, type: Wise\ShoppingList\ApiUi\Dto\ShoppingLists\PostShoppingListsExportRequestDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostShoppingListsPositionsRequestDto, type: Wise\ShoppingList\ApiUi\Dto\ShoppingLists\PostShoppingListsPositionsRequestDto, areas: [ 'api_ui_v2' ] }

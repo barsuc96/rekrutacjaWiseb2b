@@ -1,0 +1,14 @@
+Wise\Client\Domain\ClientPaymentMethod\ClientPaymentMethod:
+  type: entity
+  table: client_payment_method
+  repositoryClass: Wise\Client\Repository\Doctrine\ClientPaymentMethodRepository
+
+  indexes:
+    client_id_index:
+      columns: [ client_id ]
+    payment_method_id_index:
+      columns: [ payment_method_id ]
+
+  fields:
+    clientId: { type: integer, nullable: true }
+    paymentMethodId: { type: integer, nullable: true }

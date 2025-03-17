@@ -1,0 +1,76 @@
+version: '3'
+
+services:
+  web:
+    ports:
+      - 443:443
+  frontend:
+    ports:
+      - 5000:5000
+  app:
+    labels:
+      ofelia.enabled: 'true'
+      ofelia.job-exec.vmp-report-generate-report_clients.schedule: "0 15 5 * * *"
+      ofelia.job-exec.vmp-report-generate-report_clients.command: |
+        php bin/console vmp:generate:raport:data report_clients
+#      ofelia.job-exec.vmp-report-generate-report_categories.schedule: "0 16 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_categories.command: |
+#        php bin/console vmp:generate:raport:data report_categories
+#      ofelia.job-exec.vmp-report-generate-report_attributes.schedule: "0 17 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_attributes.command: |
+#        php bin/console vmp:generate:raport:data report_attributes
+#      ofelia.job-exec.vmp-report-generate-report_product_prices.schedule: "0 18 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_product_prices.command: |
+#        php bin/console vmp:generate:raport:data report_product_prices
+#      ofelia.job-exec.vmp-report-generate-report_product_stocks.schedule: "0 19 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_product_stocks.command: |
+#        php bin/console vmp:generate:raport:data report_product_stocks
+#      ofelia.job-exec.vmp-report-generate-report_product_images.schedule: "0 20 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_product_images.command: |
+#        php bin/console vmp:generate:raport:data report_product_images
+#      ofelia.job-exec.vmp-report-generate-report_product_attachments.schedule: "0 21 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_product_attachments.command: |
+#        php bin/console vmp:generate:raport:data report_product_attachments
+#      ofelia.job-exec.vmp-report-generate-report_product_attributes.schedule: "0 22 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_product_attributes.command: |
+#        php bin/console vmp:generate:raport:data report_product_attributes
+#      ofelia.job-exec.vmp-report-generate-report_variant.schedule: "0 23 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_variant.command: |
+#        php bin/console vmp:generate:raport:data report_variant
+#      ofelia.job-exec.vmp-report-generate-report_variant_simple_type.schedule: "0 25 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_variant_simple_type.command: |
+#        php bin/console vmp:generate:raport:data report_variant_simple_type
+#      ofelia.job-exec.vmp-report-generate-report_products.schedule: "0 27 5 * * *"
+#      ofelia.job-exec.vmp-report-generate-report_products.command: |
+#        php bin/console vmp:generate:raport:data report_products
+#      ofelia.job-exec.wise-search_product-calculate.schedule: "0 */3 * * * *"
+#      ofelia.job-exec.wise-search_product-calculate.command: |
+#        php bin/console wise:search_product:calculate
+#      ofelia.job-exec.wise-search_product-price_catalog_recalculate.schedule: "0 15 */6 * * *"
+#      ofelia.job-exec.wise-search_product-price_catalog_recalculate.command: |
+#        php -d memory_limit=20G bin/console wise:search_product:price_catalog_recalculate
+#      ofelia.job-exec.vmp-integration-file-generate-integration-products.schedule: "0 10 1 * * *"
+#      ofelia.job-exec.vmp-integration-file-generate-integration-products.command: |
+#        php bin/console vmp:generate:integration:file integration_products
+#      ofelia.job-exec.vmp-integration-file-generate-integration-images.schedule: "0 15 1 * * *"
+#      ofelia.job-exec.vmp-integration-file-generate-integration-images.command: |
+#        php bin/console vmp:generate:integration:file integration_images
+#      ofelia.job-exec.vmp-integration-file-generate-integration-warehouse-en.schedule: "0 20 1 * * *"
+#      ofelia.job-exec.vmp-integration-file-generate-integration-warehouse-en.command: |
+#        php bin/console vmp:generate:integration:file integration_warehouseEN
+#      ofelia.job-exec.vmp-integration-file-generate-integration-other.schedule: "0 25 1 * * *"
+#      ofelia.job-exec.vmp-integration-file-generate-integration-other.command: |
+#        php bin/console vmp:generate:integration:file integration_other
+#      ofelia.job-exec.vmp-product-set_as_new.schedule: "0 3 * * * *"
+#      ofelia.job-exec.vmp-product-set_as_new.command: |
+#        php bin/console vmp:product:set-as-new
+#      ofelia.job-exec.vmp-product-category_virtual.schedule: "0 3 * * * *"
+#      ofelia.job-exec.vmp-product-category_virtual.command: |
+#        php bin/console wise:category-virtual-recalculate
+#      ofelia.job-exec.vmp-product-set_as_contracting.schedule: "0 6 * * * *"
+#      ofelia.job-exec.vmp-product-set_as_contracting.command: |
+#        php bin/console vmp:product:set-as-contracting
+#      ofelia.job-exec.messenger-consume.schedule: "*/10 * * * * *"
+#      ofelia.job-exec.messenger-consume.command: |
+#        php bin/console messenger:consume async_priority_high async_priority_low --time-limit=10
+

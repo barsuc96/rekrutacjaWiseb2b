@@ -1,0 +1,479 @@
+imports:
+  - resource: ./nelmio_api_doc/core.yaml
+  - resource: ./nelmio_api_doc/user.yaml
+  - resource: ./nelmio_api_doc/supplier.yaml
+  - resource: ./nelmio_api_doc/security.yaml
+  - resource: ./nelmio_api_doc/replication.yaml
+  - resource: ./nelmio_api_doc/store.yaml
+  - resource: ./nelmio_api_doc/base.yaml
+  - resource: ./nelmio_api_doc/extends.yaml
+  - resource: ./nelmio_api_doc/agreement.yaml
+  - resource: ./nelmio_api_doc/client.yaml
+nelmio_api_doc:
+  documentation:
+    info:
+      title: WiseB2B v2.0
+      description: null
+      version: 1.0.0
+  areas:
+    default:
+      path_patterns:
+        - ^/api/not_used
+    api_admin_v2:
+      path_patterns:
+        - ^/api/admin/(?!(nelmio|doc.json$|doc$))
+      documentation:
+        info:
+          title: WiseB2B ADMIN API
+          version: '2.0'
+        components:
+          securitySchemes:
+            Bearer:
+              type: apiKey
+              description: Bearer (JWT)
+              name: Authorization
+              in: header
+        security:
+          - Bearer: {}
+        tags:
+          - name: AccessToken
+            description: >-
+              Token służy do autoryzacji podczas zapytań do pozostałych
+              endpointów.
+    api_ui_v2:
+      path_patterns:
+        - ^/api/ui(?!(/nelmio|/doc.json$|/doc$))
+      documentation:
+        info:
+          title: WiseB2B UI API
+          version: '2.0'
+        components:
+          securitySchemes:
+            Bearer:
+              type: apiKey
+              description: Bearer (JWT)
+              name: Authorization
+              in: header
+        security:
+          - Bearer: {}
+  models:
+    names:
+      - alias: CommonAdminApiDeleteParametersDto
+        type: Wise\Core\ApiAdmin\Dto\CommonAdminApiDeleteParametersDto
+        areas:
+          - api_admin_v2
+      - alias: PutCountriesDto
+        type: Wise\I18n\ApiAdmin\Dto\Countries\PutCountriesDto
+        areas:
+          - api_admin_v2
+      - alias: PutCountryDto
+        type: Wise\I18n\ApiAdmin\Dto\Countries\PutCountryDto
+        areas:
+          - api_admin_v2
+      - alias: PutCountryNameTranslationDto
+        type: Wise\I18n\ApiAdmin\Dto\Countries\PutCountryNameTranslationDto
+        areas:
+          - api_admin_v2
+      - alias: GetCountriesResponseDto
+        type: Wise\I18n\ApiAdmin\Dto\Countries\GetCountriesResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutCurrencyExchangeDto
+        type: Wise\I18n\ApiAdmin\Dto\CurrencyExchanges\PutCurrencyExchangeDto
+        areas:
+          - api_admin_v2
+      - alias: PutCurrencyExchangesDto
+        type: Wise\I18n\ApiAdmin\Dto\CurrencyExchanges\PutCurrencyExchangesDto
+        areas:
+          - api_admin_v2
+      - alias: GetCurrencyExchangesResponseDto
+        type: >-
+          Wise\I18n\ApiAdmin\Dto\CurrencyExchanges\GetCurrencyExchangesResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutServiceDto
+        type: Wise\Service\ApiAdmin\Dto\Services\PutServiceDto
+        areas:
+          - api_admin_v2
+      - alias: PutServicesDto
+        type: Wise\Service\ApiAdmin\Dto\Services\PutServicesDto
+        areas:
+          - api_admin_v2
+      - alias: GetServicesResponseDto
+        type: Wise\Service\ApiAdmin\Dto\Services\GetServicesResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutReceiversDto
+        type: Wise\Receiver\ApiAdmin\Dto\Receivers\PutReceiversDto
+        areas:
+          - api_admin_v2
+      - alias: GetReceiversResponseDto
+        type: Wise\Receiver\ApiAdmin\Dto\Receivers\GetReceiversResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutReceiversRequestDto
+        type: Wise\Receiver\ApiUi\Dto\PutReceiversRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PutClientsDto
+        type: Wise\Client\ApiAdmin\Dto\Clients\PutClientsDto
+        areas:
+          - api_admin_v2
+      - alias: PutClientDto
+        type: Wise\Client\ApiAdmin\Dto\Clients\PutClientDto
+        areas:
+          - api_admin_v2
+      - alias: GetClientsResponseDto
+        type: Wise\Client\ApiAdmin\Dto\Clients\GetClientsResponseDto
+        areas:
+          - api_admin_v2
+      - alias: GetClientDto
+        type: Wise\Client\ApiAdmin\Dto\Clients\GetClientDto
+        areas:
+          - api_admin_v2
+      - alias: GetClientsParametersDto
+        type: Wise\Client\ApiAdmin\Dto\Clients\GetClientsParametersDto
+        areas:
+          - api_admin_v2
+      - alias: GetClientParametersDto
+        type: Wise\Client\ApiAdmin\Dto\Clients\GetClientParametersDto
+        areas:
+          - api_admin_v2
+      - alias: GetClientGroupResponseDto
+        type: Wise\Client\ApiAdmin\Dto\ClientGroups\GetClientGroupResponseDto
+        areas:
+          - api_admin_v2
+      - alias: GetClientGroupsResponseDto
+        type: Wise\Client\ApiAdmin\Dto\ClientGroups\GetClientGroupsResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutClientGroupDto
+        type: Wise\Client\ApiAdmin\Dto\ClientGroups\PutClientGroupDto
+        areas:
+          - api_admin_v2
+      - alias: PutClientGroupsDto
+        type: Wise\Client\ApiAdmin\Dto\ClientGroups\PutClientGroupsDto
+        areas:
+          - api_admin_v2
+      - alias: PutClientPaymentMethodsDto
+        type: >-
+          Wise\Client\ApiAdmin\Dto\ClientPaymentMethods\PutClientPaymentMethodsDto
+        areas:
+          - api_admin_v2
+      - alias: PutClientDeliveryMethodsDto
+        type: >-
+          Wise\Client\ApiAdmin\Dto\ClientDeliveryMethods\PutClientDeliveryMethodsDto
+        areas:
+          - api_admin_v2
+      - alias: PutUserDto
+        type: Wise\User\ApiAdmin\Dto\Users\PutUserDto
+        areas:
+          - api_admin_v2
+      - alias: PutUsersDto
+        type: Wise\User\ApiAdmin\Dto\Users\PutUsersDto
+        areas:
+          - api_admin_v2
+      - alias: GetUsersResponseDto
+        type: Wise\User\ApiAdmin\Dto\Users\GetUsersResponseDto
+        areas:
+          - api_admin_v2
+      - alias: GetTraderResponseDto
+        type: Wise\User\ApiAdmin\Dto\Traders\GetTraderResponseDto
+        areas:
+          - api_admin_v2
+      - alias: GetTradersResponseDto
+        type: Wise\User\ApiAdmin\Dto\Traders\GetTradersResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutTraderDto
+        type: Wise\User\ApiAdmin\Dto\Traders\PutTraderDto
+        areas:
+          - api_admin_v2
+      - alias: PutTradersDto
+        type: Wise\User\ApiAdmin\Dto\Traders\PutTradersDto
+        areas:
+          - api_admin_v2
+      - alias: GetAgreementsResponseDto
+        type: Wise\User\ApiAdmin\Dto\Agreements\GetAgreementsResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutAgreementsDto
+        type: Wise\User\ApiAdmin\Dto\Agreements\PutAgreementsDto
+        areas:
+          - api_admin_v2
+      - alias: GetUserAgreementsResponseDto
+        type: Wise\User\ApiAdmin\Dto\UserAgreements\GetUserAgreementsResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutUserAgreementsDto
+        type: Wise\User\ApiAdmin\Dto\UserAgreements\PutUserAgreementsDto
+        areas:
+          - api_admin_v2
+      - alias: GetAgreementsResponseDto
+        type: Wise\User\ApiAdmin\Dto\Agreements\GetAgreementsResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutAgreementsDto
+        type: Wise\User\ApiAdmin\Dto\Agreements\PutAgreementsDto
+        areas:
+          - api_admin_v2
+      - alias: GetUserAgreementsResponseDto
+        type: Wise\User\ApiAdmin\Dto\UserAgreements\GetUserAgreementsResponseDto
+        areas:
+          - api_admin_v2
+      - alias: PutUserAgreementsDto
+        type: Wise\User\ApiAdmin\Dto\UserAgreements\PutUserAgreementsDto
+        areas:
+          - api_admin_v2
+      - alias: CommonParametersDto
+        type: Wise\Core\ApiUi\Dto\CommonParameters\CommonPutParametersDto
+        areas:
+          - api_ui_v2
+      - alias: CommonPutParametersDto
+        type: Wise\Core\ApiUi\Dto\CommonParameters\CommonPutParametersDto
+        areas:
+          - api_ui_v2
+      - alias: CommonCommandParametersDto
+        type: Wise\Core\Api\Dto\CommonCommandParametersDto
+        areas:
+          - api_ui_v2
+      - alias: GetReceiversResponseDto
+        type: Wise\Receiver\ApiUi\Dto\GetReceiversResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetReceiverResponseDto
+        type: Wise\Receiver\ApiAdmin\Dto\Receivers\GetReceiverResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetReceiversCountriesResponseDto
+        type: Wise\Receiver\ApiUi\Dto\GetReceiversCountriesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: PostReceiversDto
+        type: Wise\Receiver\ApiUi\Dto\PostReceiversDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsResponseDto
+        type: Wise\Client\ApiUi\Dto\GetClientsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: ClientsResponseDto
+        type: Wise\Client\ApiUi\Dto\ClientsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsQueryParametersDto
+        type: Wise\Client\ApiUi\Dto\GetClientsQueryParametersDto
+        areas:
+          - api_ui_v2
+      - alias: DeleteClientParametersDto
+        type: Wise\Client\ApiUi\Dto\Clients\DeleteClientParametersDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsCountriesResponseDto
+        type: Wise\Client\ApiUi\Dto\GetClientsCountriesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsDetailsResponseDto
+        type: Wise\Client\ApiUi\Dto\GetClientsDetailsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: PutClientsRequestDto
+        type: Wise\Client\ApiUi\Dto\PutClientsRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PostClientsRequestDto
+        type: Wise\Client\ApiUi\Dto\PostClientsRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PostClientAcceptRequestDto
+        type: Wise\Client\ApiUi\Dto\PostClientAcceptRequestDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientStatusesResponseDto
+        type: Wise\Client\ApiUi\Dto\GetClientStatusesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientStatusesParametersDto
+        type: Wise\Client\ApiUi\Dto\GetClientStatusesParametersDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsCountryParametersDto
+        type: Wise\Client\ApiUi\Dto\GetClientsCountryParametersDto
+        areas:
+          - api_ui_v2
+      - alias: ClientResponseDto
+        type: Wise\Client\ApiUi\Dto\ClientResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetNewClientQueryParametersDto
+        type: Wise\Client\ApiUi\Dto\GetNewClientQueryParametersDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsParametersDto
+        type: Wise\Client\ApiUi\Dto\Clients\GetClientsParametersDto
+        areas:
+          - api_ui_v2
+      - alias: GetClientsCountryParametersDto
+        type: Wise\Client\ApiUi\Dto\GetClientsCountryParametersDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementReceiversResponseDto
+        type: >-
+          Wise\Receiver\ApiUi\Dto\PanelManagement\GetPanelManagementReceiversResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementServicesResponseDto
+        type: >-
+          Wise\Service\ApiUi\Dto\PanelManagement\GetPanelManagementServicesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementUsersResponseDto
+        type: >-
+          Wise\User\ApiUi\Dto\PanelManagement\Users\GetPanelManagementUsersResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementUserResponseDto
+        type: >-
+          Wise\User\ApiUi\Dto\PanelManagement\Users\GetPanelManagementUserResponseDto
+        areas:
+          - api_ui_v2
+      - alias: PostPanelManagementUserDto
+        type: Wise\User\ApiUi\Dto\PanelManagement\Users\PostPanelManagementUserDto
+        areas:
+          - api_ui_v2
+      - alias: PutPanelManagementUserDto
+        type: Wise\User\ApiUi\Dto\PanelManagement\Users\PutPanelManagementUserDto
+        areas:
+          - api_ui_v2
+      - alias: PostPanelManagementUserPasswordResetDto
+        type: >-
+          Wise\User\ApiUi\Dto\PanelManagement\Users\PostPanelManagementUserPasswordResetDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementUserAgreementsDto
+        type: >-
+          Wise\User\ApiUi\Dto\PanelManagement\Users\GetPanelManagementUserAgreementsDto
+        areas:
+          - api_ui_v2
+      - alias: PostPanelManagementUserAgreeContractDto
+        type: >-
+          Wise\User\ApiUi\Dto\PanelManagement\Users\PostPanelManagementUserAgreeContractDto
+        areas:
+          - api_ui_v2
+      - alias: PostPanelManagementUserDisagreeContractDto
+        type: >-
+          Wise\User\ApiUi\Dto\PanelManagement\Users\PostPanelManagementUserDisagreeContractDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementClientsResponseDto
+        type: >-
+          Wise\Client\ApiUi\Dto\PanelManagement\GetPanelManagementClientsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementClientsGroupsResponseDto
+        type: >-
+          Wise\Client\ApiUi\Dto\PanelManagement\GetPanelManagementClientsGroupsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementClientsGroupsDictionaryResponseDto
+        type: >-
+          Wise\Client\ApiUi\Dto\PanelManagement\GetPanelManagementClientsGroupsDictionaryResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementClientsDictionaryResponseDto
+        type: >-
+          Wise\Client\ApiUi\Dto\PanelManagement\GetPanelManagementClientsDictionaryResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetLayoutLanguagesResponseDto
+        type: Wise\I18n\ApiUi\Dto\Layout\GetLayoutLanguagesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetTermsResponseDto
+        type: Wise\User\ApiUi\Dto\GetTermsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetCountryCodesDto
+        type: Wise\User\ApiUi\Dto\CountryCodes\GetCountryCodesDto
+        areas:
+          - api_ui_v2
+      - alias: CountryCodeDto
+        type: Wise\User\ApiUi\Dto\CountryCodes\CountryCodeDto
+        areas:
+          - api_ui_v2
+      - alias: PostUserRequestDto
+        type: Wise\User\ApiUi\Dto\Users\PostUserRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PostUserRegisterRequestDto
+        type: Wise\User\ApiUi\Dto\Users\PostUserRegisterRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PostUserRegisterEmailConfirmRequestDto
+        type: Wise\User\ApiUi\Dto\Users\PostUserRegisterEmailConfirmRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PutUserAgreementsRequestDto
+        type: Wise\User\ApiUi\Dto\Users\PutUserAgreementsRequestDto
+        areas:
+          - api_ui_v2
+      - alias: PutUserChangeStatusDto
+        type: Wise\User\ApiUi\Dto\Users\PutUserChangeStatusDto
+        areas:
+          - api_ui_v2
+      - alias: PostUserChangePasswordRequestDto
+        type: Wise\User\ApiUi\Dto\Users\PostUserChangePasswordRequestDto
+        areas:
+          - api_ui_v2
+      - alias: GetUsersResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUsersResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetUsersCountriesResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUsersCountriesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetUsersTradersResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUsersTradersResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetUsersRolesResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUsersRolesResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetUserAgreementsResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUserAgreementsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: GetUserMessageSettingsResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUserMessageSettingsResponseDto
+        areas:
+          - api_ui_v2
+      - alias: PutUsersMessageSettingsRequestDto
+        type: Wise\User\ApiUi\Dto\Users\PutUsersMessageSettingsRequestDto
+        areas:
+          - api_ui_v2
+      - alias: GetUserProfileResponseDto
+        type: Wise\User\ApiUi\Dto\Users\GetUserProfileResponseDto
+        areas:
+          - api_ui_v2
+      - alias: PutUserProfileDto
+        type: Wise\User\ApiUi\Dto\Users\PutUserProfileDto
+        areas:
+          - api_ui_v2
+      - alias: GetPanelManagementClientDto
+        type: Wise\Client\ApiUi\Dto\PanelManagement\GetPanelManagementClientDto
+        areas:
+          - api_ui_v2
+      - alias: PostPanelManagementClientDto
+        type: Wise\Client\ApiUi\Dto\PanelManagement\PostPanelManagementClientDto
+        areas:
+          - api_ui_v2
+      - alias: CommonUiApiDeleteParametersDto
+        type: Wise\Core\ApiUi\Dto\CommonUiApiDeleteParametersDto
+        areas:
+          - api_ui_v2
+      - alias: PutPanelManagementClientDto
+        type: Wise\Client\ApiUi\Dto\PanelManagement\PutPanelManagementClientDto
+        areas:
+          - api_ui_v2

@@ -1,0 +1,122 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: flex;
+}
+
+.listWrapper {
+  min-width: 500px;
+
+  .listTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 12px;
+    font-size: 14px;
+    color: $color-label;
+    line-height: 140%;
+
+    border: 1px solid #f3f4f7;
+    /* Elements Shadow(down)/2dp */
+
+    box-shadow: 0px 2px 5px rgba(6, 25, 56, 0.06);
+
+    span {
+      font-size: 16px;
+      font-weight: 800;
+      color: $color-text-dark;
+    }
+  }
+
+  .list {
+    padding: 15px 20px 37px;
+
+    .listItem {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+
+      .description {
+        color: $color-label;
+        font-size: 16px;
+
+        .datetime {
+          font-size: 12px;
+          line-height: 120%;
+          font-weight: 300;
+        }
+      }
+
+      .actions {
+        display: flex;
+        gap: 40px;
+
+        .cart {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          padding: 10px 12px;
+          cursor: pointer;
+          border: 1px solid $color-primary;
+          border-radius: 4px;
+          background-color: $color-white;
+          color: $color-primary;
+
+          svg {
+            &:first-child {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .seeMore {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 18px 0;
+    background-color: $color-gray;
+    text-decoration: none;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-dark;
+  text-decoration: none;
+  margin-right: 40px;
+  font-size: 12px;
+  cursor: pointer;
+
+  &.active {
+    color: $color-primary;
+  }
+
+  svg {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+}
+
+.confirmationModal {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.confirmationModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}

@@ -1,0 +1,56 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  .main-image {
+    width: 100%;
+    background: center center no-repeat;
+    background-size: contain;
+
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  .thumb {
+    padding: 5px;
+    width: 85px;
+    height: 85px;
+
+    .image {
+      height: 100%;
+      background: center center no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      border: 1px solid transparent;
+
+      &.active,
+      &:hover {
+        border-color: $color-gray-border;
+      }
+    }
+  }
+}
+
+.label {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 6px 10px;
+  background: $color-primary;
+  font-size: 12px;
+  font-weight: 700;
+  color: $color-white;
+
+  &.new {
+    background: $color-accent;
+  }
+
+  &.bestseller {
+    background: $color-bestseller;
+  }
+
+  &.promotion {
+    background: $color-violet;
+  }
+}

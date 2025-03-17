@@ -1,0 +1,21 @@
+Wise\Agreement\Repository\Doctrine\ContractTranslation\ContractTranslation:
+  type: entity
+  table: 'contract_translation'
+  repositoryClass: Wise\Agreement\Repository\Doctrine\ContractTranslationRepository
+
+  fields:
+    contractId:
+      type: integer
+    language:
+      type: string
+      length: 3
+    name:
+      type: string
+      length: 255
+      nullable: true
+    content:
+      type: text
+      nullable: true
+    testimony:
+      type: text
+      nullable: true

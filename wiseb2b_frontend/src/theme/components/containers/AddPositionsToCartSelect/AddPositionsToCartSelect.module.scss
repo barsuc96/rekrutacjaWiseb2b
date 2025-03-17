@@ -1,0 +1,28 @@
+.wrapperComponent {
+}
+
+.confirmationModal {
+  width: 100%;
+  padding: 0 10px;
+
+  .confirmationModalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 32px;
+
+    button + button {
+      margin-left: 16px;
+    }
+  }
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+
+  > svg {
+    margin-right: 12px;
+    transform: unset;
+  }
+}

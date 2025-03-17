@@ -1,0 +1,12 @@
+nelmio_api_doc:
+  models:
+    names:
+      # UI API
+      - { alias: GetPanelManagementReplicationObjectsDto, type: Wise\Core\ApiUi\Dto\PanelManagement\GetPanelManagementReplicationObjectsDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: GetPanelManagementReplicationObjectsFailedDto, type: Wise\Core\ApiUi\Dto\PanelManagement\GetPanelManagementReplicationObjectsFailedDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: GetPanelManagementReplicationObjectDto, type: Wise\Core\ApiUi\Dto\PanelManagement\GetPanelManagementReplicationObjectDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: GetPanelManagementReplicationRequestDto, type: Wise\Core\ApiUi\Dto\PanelManagement\GetPanelManagementReplicationRequestDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: GetPanelManagementReplicationRequestsDto, type: Wise\Core\ApiUi\Dto\PanelManagement\GetPanelManagementReplicationRequestsDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: ReplicationRequestRetryWithBodyDto, type: Wise\Core\ApiUi\Dto\PanelManagement\ReplicationRequestRetryWithBodyDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: ReplicationRequestObjectRetryWithBodyDto, type: Wise\Core\ApiUi\Dto\PanelManagement\ReplicationRequestObjectRetryWithBodyDto, areas: [ 'api_ui_v2' ] } }
+      - { alias: GetPanelManagementStatisticsDto, type: Wise\Core\ApiUi\Dto\PanelManagement\GetPanelManagementStatisticsDto, areas: [ 'api_ui_v2' ] } }

@@ -1,0 +1,158 @@
+@import "src/theme/color";
+
+.wrapperComponent {
+}
+
+.productThumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.productInfo {
+  font-weight: 500;
+
+  .grey {
+    font-weight: 400;
+    color: $color-text;
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+}
+
+.quantityCellWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  > div + div {
+    margin-top: 10px;
+  }
+}
+
+.productPrice {
+  font-weight: 500;
+
+  .small {
+    font-weight: 400;
+    color: $color-text;
+    font-size: 10px;
+  }
+}
+
+.productTotalPrice {
+  font-weight: 700;
+
+  .suffix {
+    font-weight: 400;
+    color: $color-text;
+    font-size: 11px;
+  }
+
+  .small {
+    font-weight: 500;
+    color: $color-text;
+    font-size: 11px;
+  }
+}
+
+.productUnit {
+  color: $color-text;
+
+  .descriptionLine {
+    display: block;
+    font-size: 10px;
+  }
+}
+
+.actionsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  color: $color-text-light;
+
+  > svg {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &:first-child {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.confirmationModal {
+  text-align: left;
+}
+
+.confirmationModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}
+
+.dropdownButton {
+  border: none;
+  background: transparent;
+  padding: 0 30px 0 0;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5px 6px 5px;
+    border-color: transparent transparent $color-gray-border transparent;
+    position: absolute;
+    top: 18px;
+    right: 14px;
+    transform: rotate(180deg);
+  }
+
+  &.open:after {
+    transform: rotate(0);
+    border-color: transparent transparent $color-secondary transparent;
+  }
+}
+
+.menu {
+  .MuiPaper-root {
+    box-shadow: none;
+    border: 1px solid $color-secondary-border;
+  }
+}
+
+.menuItem {
+  &.MuiMenuItem-root {
+    color: $color-text;
+  }
+
+  &.MuiMenuItem-root:hover {
+    color: $color-secondary;
+    background-color: $color-gray-background;
+  }
+
+  > svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}

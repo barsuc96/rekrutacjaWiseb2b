@@ -1,0 +1,35 @@
+{
+  "page": 1,
+  "total_count": 1,
+  "total_pages": 1,
+  "items": [
+    {
+      "id": 1,
+      "lp": 1,
+      "name": "Nazwa 1",
+      "description": "Lorem Ipsum",
+      "url": "https://vmp-devel.wiseb2b.eu/files/images/2023_08_04_14_02_33_8b9b4b4a101612311e8bdd88bb3f139f.jpeg"
+    },
+    {
+      "id": 2,
+      "lp": 2,
+      "name": "Nazwa 2",
+      "description": "Lorem Ipsum",
+      "url": "https://vmp-devel.wiseb2b.eu/files/images/2023_08_04_14_02_33_8b9b4b4a101612311e8bdd88bb3f139f.jpeg"
+    },
+    {
+      "id": 3,
+      "lp": 3,
+      "name": "Nazwa 3",
+      "description": "Lorem Ipsum",
+      "url": "https://vmp-devel.wiseb2b.eu/files/images/2023_08_04_14_02_33_8b9b4b4a101612311e8bdd88bb3f139f.jpeg"
+    },
+    {
+      "id": 4,
+      "lp": 4,
+      "name": "Nazwa 4",
+      "description": "Lorem Ipsum",
+      "url": "https://vmp-devel.wiseb2b.eu/files/images/2023_08_04_14_02_33_8b9b4b4a101612311e8bdd88bb3f139f.jpeg"
+    }
+  ]
+}

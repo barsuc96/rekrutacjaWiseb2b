@@ -1,0 +1,19 @@
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  textarea {
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  button:nth-child(2) {
+    margin-left: 20px;
+  }
+}

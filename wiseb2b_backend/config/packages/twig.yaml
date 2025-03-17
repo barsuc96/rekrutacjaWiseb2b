@@ -1,0 +1,11 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    paths:
+        'Wise/User/Resources/template': ~
+        'Wise/Core/Generator/Generators/EndpointFileGenerator/Templates/ApiUi': ~
+        'Wise/Core/Generator/Generators/EndpointFileGenerator/Templates/ApiAdmin': ~
+        'Wise/Core/Generator/Generators/ServiceFileGenerator/Templates': ~
+
+when@test:
+    twig:
+        strict_variables: true

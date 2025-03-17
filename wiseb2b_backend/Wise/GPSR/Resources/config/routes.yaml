@@ -1,0 +1,12 @@
+wise_supplier_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/GpsrSupplier/
+  prefix: api/admin/suppliers
+  type: annotation
+
+
+wise_gpsr_panel_ui_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/PanelManagement
+  prefix: api/ui/panel/gpsr
+  type: annotation

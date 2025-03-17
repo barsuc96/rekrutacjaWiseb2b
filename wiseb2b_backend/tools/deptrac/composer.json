@@ -1,0 +1,14 @@
+{
+  "require": {
+    "qossmic/deptrac-shim": "^1.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "scripts": {
+    "_prepare": "apt-get update && apt-get install -y graphviz",
+    "analyse": "deptrac analyse --config-file=config.yaml --no-progress --report-uncovered --report-skipped",
+    "graph-full": "deptrac analyse --config-file=config.yaml --no-progress --formatter=graphviz-image --output=graph.full.png",
+    "graph-app": "deptrac analyse --config-file=config.graphviz_extras.yaml --no-progress --formatter=graphviz-image --output=graph.app.png"
+  }
+}

@@ -1,0 +1,95 @@
+@import 'src/theme/color';
+
+.container {
+  height: 100%;
+  .control {
+    height: 100%;
+    min-height: 40px;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: $color-white;
+    border: none;
+    border-width: 0 !important;
+    padding-right: 13px;
+    flex-wrap: nowrap !important;
+
+    svg {
+      transform: rotateX(0);
+    }
+
+    &.controlOpen {
+      background-color: $color-gray-background;
+      svg {
+        transform: rotateX(180deg);
+      }
+    }
+    &:hover {
+      border-color: $color-table-border;
+    }
+  }
+
+  .option {
+    font-size: 16;
+    padding: 8px 16px;
+
+    color: $color-label;
+    background-color: $color-white;
+    margin: 0;
+
+    &.optionSelected {
+      color: $color-secondary;
+      background-color: $color-gray-background;
+      margin: 8px 0;
+    }
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  .indicatorSeparator {
+    display: none;
+  }
+
+  .indicatorsContainer {
+    padding: 0 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-secondary;
+  }
+  .dropdownIndicator {
+    color: $color-secondary;
+    background-color: $color-white;
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+  .valueContainer {
+    padding-left: 8px;
+    padding-right: 12px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .singleValue {
+    font-size: 14;
+    color: $color-text;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .menu {
+    margin-bottom: 0;
+    margin-top: 0;
+    width: max-content;
+    min-width: 100%;
+    box-shadow: none;
+    border: 1px solid $color-search-border;
+    border-radius: 0;
+  }
+  .menuList {
+    padding: 0;
+  }
+}

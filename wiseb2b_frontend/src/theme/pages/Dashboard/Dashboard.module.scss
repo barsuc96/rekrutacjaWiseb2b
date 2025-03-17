@@ -1,0 +1,306 @@
+@import 'src/theme/color';
+@import "src/theme/breakpoints";
+@import "src/theme/font";
+
+.componentWrapper {
+  .summary {
+    background: $color-white;
+    padding: 20px 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    @include breakpoint(md) {
+      padding: 0;
+      flex-wrap: wrap;
+      margin: 0 16px;
+    }
+
+    .box {
+      padding: 0 15px;
+      border-right: 1px solid $color-gray-border;
+      width: 25%;
+      color: $color-text;
+
+      @include breakpoint(md) {
+        padding: 8px;
+        width: 50%;
+        height: 91px;
+        border-right: none;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          border-bottom: 1px solid $color-gray-border;
+        }
+
+        &:nth-child(odd) {
+          border-right: 1px solid $color-gray-border;
+        }
+      }
+
+      &:last-of-type {
+        border-right: none;
+      }
+
+      .value {
+        display: block;
+        font-size: 24px;
+        font-family: $font-poppins;
+        font-weight: 800;
+        color: $color-text-dark;
+        line-height: 2em;
+
+        @include breakpoint(md) {
+          text-align: right;
+        }
+
+        &.red {
+          color: $color-error;
+        }
+      }
+    }
+  }
+
+  .listWrapper {
+    margin: 15px 0;
+    background: $color-white;
+
+    &.invoices {
+      margin-top: 0;
+    }
+
+    .listHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(89.98deg, #757575 0.02%, #939393 99.99%);
+      border-radius: 4px 4px 0 0;
+      height: 42px;
+      padding: 0 16px;
+      color: $color-white;
+      font-size: 16px;
+
+      &.blue {
+        background: linear-gradient(89.98deg, #1436ad 0.02%, #6d96ff 99.99%);
+      }
+
+      &.orange {
+        background: linear-gradient(89.98deg, #f49120 0.02%, #ffab6d 99.99%);
+      }
+
+      &.violet {
+        background: linear-gradient(89.98deg, #ae5fed 0.02%, #a78bf5 99.99%);
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-white;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 2em;
+
+        svg {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .listTabs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+
+      @include breakpoint(md) {
+        border-bottom: 1px solid $color-gray-border;
+      }
+
+      .tab {
+        background: $color-gray-border;
+        width: calc(100% / 3 - 10px);
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-text;
+        border-bottom: 3px solid $color-gray-border;
+        cursor: pointer;
+
+        &.active {
+          background: $color-white;
+          border-color: $color-orange;
+          color: $color-text-dark;
+          font-weight: 600;
+        }
+      }
+    }
+
+
+    .tableWrapper {
+      th {
+        padding: 8px 16px;
+      }
+
+      td {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .primaryText {
+        color: $color-primary;
+      }
+
+      .grayText {
+        color: $color-text;
+      }
+
+      .redText {
+        color: $color-error;
+      }
+    }
+
+    .mobileListItem {
+      .itemHeader {
+        color: $color-primary;
+        border-bottom: 1px solid $color-gray-border;
+        height: 36px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+      }
+
+      .details {
+        border-bottom: 1px solid $color-gray-border;
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+
+        > div {
+          width: 100%;
+          padding: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-right: 1px solid $color-gray-border;
+
+          &:last-child {
+            border-right: none;
+          }
+
+          .label {
+            color: $color-text-light;
+          }
+        }
+      }
+    }
+
+    .listFooter {
+      padding: 16px;
+
+      .summary {
+        margin: 0;
+
+        .title {
+          margin-top: 16px;
+          font-size: 16px;
+          color: $color-secondary;
+          font-weight: 500;
+        }
+
+        .items {
+          padding: 15px 0;
+          display: flex;
+          align-items: center;
+
+          > div {
+            margin-right: 16px;
+            color: $color-text-dark;
+            font-weight: 700;
+
+            span {
+              color: $color-text;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      .total {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        border-top: 1px solid $color-gray-border;
+        padding-top: 12px;
+
+        .title {
+          color: $color-text;
+          font-weight: 700;
+        }
+
+        .prices {
+          display: flex;
+          align-items: flex-end;
+          flex-direction: column;
+          color: $color-text;
+
+          .gross {
+            font-size: 16px;
+            color: $color-secondary;
+          }
+        }
+      }
+    }
+  }
+
+  .invoice {
+    margin: 0 16px;
+    border-bottom: 1px dashed $color-gray-border;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .header {
+      cursor: pointer;
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: $color-text;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      &.expanded {
+        color: $color-primary;
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-bottom: 12px;
+
+      .box {
+        text-align: center;
+        padding: 0 4px;
+        color: $color-text;
+
+        .label {
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

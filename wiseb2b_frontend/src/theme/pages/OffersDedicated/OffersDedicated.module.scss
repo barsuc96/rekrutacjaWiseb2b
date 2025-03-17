@@ -1,0 +1,27 @@
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+
+  @include breakpoint(md) {
+    > :last-child {
+      display: none;
+    }
+
+    padding: 0 16px 16px;
+  }
+}
+
+.searchFormWrapper {
+  width: 400px;
+  @include breakpoint(md) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+nelmio_api_doc:
+  models:
+    names:
+      - { alias: GetDictionaryForeignDeliveryResponseDto, type: Wise\ClientApi\ApiClient\Dto\GetDictionaryForeignDeliveryResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: GetDictionaryDeliveryResponseDto, type: Wise\ClientApi\ApiClient\Dto\GetDictionaryDeliveryResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: GetDictionaryPaymentResponseDto, type: Wise\ClientApi\ApiClient\Dto\GetDictionaryPaymentResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: GetDictionaryDeliveryOptionsResponseDto, type: Wise\ClientApi\ApiClient\Dto\GetDictionaryDeliveryOptionsResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: PutOrderStoppedRequestDto, type: Wise\ClientApi\ApiClient\Dto\PutOrderStoppedRequestDto, areas: [ 'api_client_v2' ] }
+      - { alias: GetOrderStateResponseDto, type: Wise\ClientApi\ApiClient\Dto\GetOrderStateResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: PostOrderClientApiDto, type: Wise\ClientApi\ApiClient\Dto\PostOrderClientApiDto, areas: [ 'api_client_v2' ] }
+

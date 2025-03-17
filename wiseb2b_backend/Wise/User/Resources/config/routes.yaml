@@ -1,0 +1,68 @@
+wise_user_users_api_admin_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiAdmin/Controller/Users
+    prefix: api/admin/users
+    type: annotation
+
+wise_user_traders_api_admin_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiAdmin/Controller/Traders
+    prefix: api/admin/traders
+    type: annotation
+
+wise_user_agreements_api_admin_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiAdmin/Controller/Agreements
+    prefix: api/admin/agreements
+    type: annotation
+
+wise_user_user_agreements_api_admin_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiAdmin/Controller/UserAgreements
+    prefix: api/admin/user-agreements
+    type: annotation
+
+###>>> UI API
+wise_terms_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/Terms
+    prefix: api/ui
+    type: annotation
+
+wise_country_codes_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/CountryCodes
+    prefix: api/ui
+    type: annotation
+
+wise_user_users_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/Users
+    prefix: api/ui/users
+    type: annotation
+
+
+wise_user_users_message_settings_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/UsersMessageSettings
+    prefix: api/ui/users
+    type: annotation
+
+wise_user_contract_settings_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/Contract
+    prefix: api/ui/users/contract
+    type: annotation
+
+wise_panel_users_api_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/PanelManagement/Users/
+    prefix: api/ui/panel/users
+    type: annotation
+
+wise_panel_users_trader_ui_v2:
+    trailing_slash_on_root: false
+    resource: ../../ApiUi/Controller/PanelManagement/Traders/
+    prefix: api/ui/panel/users/traders
+    type: annotation
+###<<<

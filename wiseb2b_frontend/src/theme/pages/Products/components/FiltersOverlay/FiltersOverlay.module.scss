@@ -1,0 +1,117 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-product-bg;
+  z-index: 140;
+  
+  .content {
+    margin-top: 53px;
+    margin-bottom: 86px;
+    overflow-y: auto;
+    height: calc(100% - 140px);
+  }
+
+  .topBar {
+    position: fixed;
+    z-index: 20;
+    background-color: inherit;
+    width: 100%;
+    padding: 16px 13px 16px;
+    display: flex;
+    justify-content: space-between;
+
+    color: $color-text-dark;
+    font-size: 14px;
+    line-height: 140%;
+
+    border-bottom: 1px solid $color-tab-border;
+    box-shadow: 0px 1px 2px rgba(6, 25, 56, 0.05);
+
+    .exit {
+      font-size: 40px;
+      font-weight: 200;
+      cursor: pointer;
+    }
+
+    .header {
+      font-weight: 700;
+    }
+
+    .clear {
+      color: $color-gray-border;
+      cursor: pointer;
+    }
+  }
+
+  .sortWrapper {
+    padding: 22px 0 31px 9px;
+    .sortHeader {
+      padding-bottom: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 140%;
+    }
+
+    .sort {
+      display: flex;
+      overflow-x: auto;
+      gap: 8px;
+
+      .sortButton {
+        background-color: transparent;
+        color: $color-label;
+        padding: 12px 16px;
+        white-space: nowrap;
+        border: 1px solid $color-status;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 140%;
+
+        &.active {
+          color: $color-sort-active;
+        }
+      }
+    }
+  }
+
+  .filterWrapper {
+    padding: 22px 0 31px 9px;
+    .filterHeader {
+      padding-bottom: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 140%;
+    }
+
+    .filter {
+      padding-bottom: 8px;
+      padding-right: 8px;
+    }
+  }
+
+  .bottomBar {
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    background: $color-product-bg;
+
+    box-shadow: 0px -2px 5px rgba(6, 25, 56, 0.06);
+
+    .filterButton {
+      cursor: pointer;
+      padding: 10px 74px;
+      font-size: 16px;
+      line-height: 140%;
+      background-color: $color-secondary;
+      color: $color-white;
+    }
+  }
+}

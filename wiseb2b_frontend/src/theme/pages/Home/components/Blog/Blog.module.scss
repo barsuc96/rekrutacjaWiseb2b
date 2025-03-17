@@ -1,0 +1,103 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+  padding: 53px 0;
+
+  @include breakpoint(md) {
+    padding: 45px 0;
+  }
+}
+.strong {
+  display: inline;
+  font-family: $font-poppins;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 110%;
+  color: $color-primary;
+
+  @include breakpoint(md) {
+    font-size: 24px;
+  }
+}
+
+.sliderWrapper {
+  position: relative;
+  padding: 0 8px;
+
+  .trayBar {
+    align-items: center;
+    display: flex;
+    border: none;
+    margin-top: 9px;
+    margin-bottom: 45px;
+    justify-content: center;
+    gap: 12px;
+
+    button {
+      padding: 0;
+      border-left: none;
+      border-right: none;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      border-top: none;
+      border-bottom: none;
+      &:nth-child(even) {
+        display: none;
+      }
+
+      &:disabled {
+        background-color: $color-faq-active;
+        width: 9px;
+        height: 9px;
+      }
+    }
+  }
+
+  .slide {
+    height: 540px;
+    outline: none;
+
+    @include breakpoint(md) {
+      height: 230px;
+    }
+
+    .productWrapper {
+      height: 100%;
+      padding: 6px;
+
+      @include breakpoint(md) {
+        // display: flex;
+        // width: 100%;
+        padding: 0px;
+        margin-right: 4px;
+
+        &.mainProductWrapper {
+          div {
+            div {
+              padding: 11px 8px 11px 5px;
+              height: 104px;
+            }
+          }
+        }
+        
+        div {
+          div {
+            flex-wrap: wrap;
+            padding: 5px 8px 11px 5px;
+            height: 104px;
+            > span {
+              font-size: 14px;
+              line-height: 140%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: $font-poppins;
+  color: $color-secondary;
+  margin-bottom: 16px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  @include breakpoint(md) {
+    background: $color-white;
+    height: 60px;
+    padding: 16px;
+  }
+
+  .backArrow {
+    display: none;
+    margin-right: 12px;
+
+    @include breakpoint(md) {
+      display: inline-block;
+    }
+  }
+
+  .title {
+    flex: 1;
+
+    @include breakpoint(md) {
+      text-align: center;
+    }
+  }
+
+  .thin {
+    font-weight: 400;
+  }
+}

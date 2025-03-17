@@ -1,0 +1,7 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      - { alias: GetPanelManagementOrderResponseDto, type: Wise\Order\ApiUi\Dto\PanelManagement\Orders\GetPanelManagementOrderResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementOrdersResponseDto, type: Wise\Order\ApiUi\Dto\PanelManagement\Orders\GetPanelManagementOrdersResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementOrderPositionResponseDto, type: Wise\Order\ApiUi\Dto\PanelManagement\Orders\Details\GetPanelManagementOrderPositionResponseDto, areas: [ 'api_ui_v2' ] }

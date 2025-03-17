@@ -1,0 +1,23 @@
+parameters:
+  gpsr_supplier_entity: 'Wise\GPSR\Domain\GpsrSupplier\GpsrSupplier'
+
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  ## Config for autoconfigure
+  Wise\GPSR\:
+    resource: '../../'
+    exclude:
+      - '../../WiseGPSRBundle.php'
+      - '../../WiseGPSRConfiguration.php'
+      - '../../WiseGPSRExtension.php'
+
+  Wise\GPSR\Service\ProductFullInfoDataProvider\GpsrProductFullInfoDataProvider:
+    tags:
+      - { name: product_full_info_builder.provider, priority: 9000 }
+
+  Wise\GPSR\Domain\GpsrSupplier\Factory\GpsrSupplierFactory:
+    arguments:
+      $entity: '%gpsr_supplier_entity%'

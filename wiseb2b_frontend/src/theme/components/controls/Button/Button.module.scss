@@ -1,0 +1,95 @@
+@import 'src/theme/color';
+
+.button {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  color: $color-white;
+  background: $color-primary;
+  border: 1px solid $color-primary;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+
+    svg {
+      margin: 0 4px;
+    }
+  }
+
+  &.secondary {
+    background: $color-secondary;
+    border: 1px solid $color-secondary;
+  }
+
+  &.danger {
+    background: $color-red;
+    border: 1px solid $color-red;
+  }
+
+  &.gray {
+    background: darken($color: $color-gray-border, $amount: 18%);
+    border: 1px solid darken($color: $color-gray-border, $amount: 18%);
+  }
+
+  &.large {
+    height: 50px;
+    font-size: 18px;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  &.loading {
+    .label {
+      visibility: hidden;
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+    border: 1px solid $color-primary;
+    color: $color-primary;
+
+    &.secondary {
+      border: 1px solid $color-secondary;
+      color: $color-secondary;
+    }
+
+    &.danger {
+      border: 1px solid $color-red;
+      color: $color-red;
+    }
+
+    &.gray {
+      border: 1px solid darken($color: $color-gray-border, $amount: 18%);
+      color: darken($color: $color-gray-border, $amount: 18%);
+    }
+  }
+
+  .progress {
+    color: $color-white;
+    position: absolute;
+    width: 25px !important;
+    height: 25px !important;
+
+    &.ghost {
+      color: $color-primary;
+
+      &.secondary {
+        color: $color-secondary;
+      }
+
+      &.danger {
+        color: $color-red;
+      }
+    }
+  }
+}

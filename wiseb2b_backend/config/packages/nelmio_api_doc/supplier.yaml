@@ -1,0 +1,11 @@
+nelmio_api_doc:
+  models:
+    names:
+
+    - { alias: PutGpsrSupplierDto, type: Wise\GPSR\ApiAdmin\Dto\GpsrSupplier\PutGpsrSupplierDto, areas: [ 'api_admin_v2' ] }
+    - { alias: PutGpsrSuppliersDto, type: Wise\GPSR\ApiAdmin\Dto\GpsrSupplier\PutGpsrSuppliersDto, areas: [ 'api_admin_v2' ] }
+
+    - { alias: GetPanelManagementSupplierDto, type: Wise\GPSR\ApiUi\Dto\PanelManagement\GetPanelManagementSupplierDto, areas: [ 'api_ui_v2' ] }
+    - { alias: GetPanelManagementSuppliersDto, type: Wise\GPSR\ApiUi\Dto\PanelManagement\GetPanelManagementSuppliersDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostPanelManagementSupplierDto, type: Wise\GPSR\ApiUi\Dto\PanelManagement\PostPanelManagementSupplierDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PutPanelManagementSupplierDto, type: Wise\GPSR\ApiUi\Dto\PanelManagement\PutPanelManagementSupplierDto, areas: [ 'api_ui_v2' ] }

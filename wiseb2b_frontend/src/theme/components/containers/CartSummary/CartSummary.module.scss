@@ -1,0 +1,100 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  border-left: 12px solid $color-primary;
+  padding: 48px 18px;
+  background: $color-white;
+  margin-bottom: 16px;
+
+  @include breakpoint(lg) {
+    padding: 21px 8px;
+    border-left: 8px solid $color-primary;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.labelBold {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.valueCartNet {
+  color: $color-label;
+
+  span {
+    color: $color-primary;
+    font-family: $font-poppins;
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 8px;
+  }
+}
+
+.valueCartGross {
+  color: $color-label;
+
+  span {
+    color: $color-text-dark;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 4px;
+  }
+}
+
+.valueTotalNet {
+  color: $color-label;
+
+  span {
+    color: $color-primary;
+    font-family: $font-poppins;
+    font-weight: 700;
+    font-size: 24px;
+    margin-right: 8px;
+  }
+}
+
+.valueTotalGross {
+  color: $color-label;
+
+  span {
+    color: $color-text-dark;
+    font-weight: 500;
+    font-size: 18px;
+    margin-right: 4px;
+  }
+}
+
+.shipmentSection {
+  border-top: 1px solid $color-summary-border;
+  border-bottom: 1px solid $color-summary-border;
+  margin: 12px 0;
+  padding: 12px 0;
+
+  > div:first-child {
+    margin-bottom: 10px;
+  }
+}
+
+.buttonWrapper {
+  margin-top: 32px;
+
+  button {
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 8px;
+
+    .buttonArrow {
+      font-size: 20px;
+      margin-left: 16px;
+    }
+  }
+}

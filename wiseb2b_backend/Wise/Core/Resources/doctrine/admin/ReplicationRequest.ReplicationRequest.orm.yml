@@ -1,0 +1,75 @@
+Wise\Core\Domain\Admin\ReplicationRequest\ReplicationRequest:
+  type: entity
+  table: 'replication_request'
+  repositoryClass: Wise\Core\Repository\Doctrine\ReplicationRequestRepository
+  indexes:
+    replication_request_id:
+      columns: [ id ]
+    replication_request_uuid:
+      columns: [ uuid ]
+    replication_request_method:
+      columns: [ method ]
+    replication_request_response_status:
+      columns: [ response_status ]
+    replication_request_sys_insert_date:
+      columns: [ sys_insert_date ]
+    replication_request_sys_update_date:
+      columns: [ sys_update_date ]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    uuid:
+      type: string(36)
+      nullable: false
+    endpoint:
+      type: string(255)
+      nullable: false
+    method:
+      type: string(10)
+      nullable: false
+    requestBody:
+      type: text
+      nullable: true
+    requestHeaders:
+      type: text
+      nullable: true
+    requestParams:
+      type: text
+      nullable: true
+    requestAttributes:
+      type: text
+      nullable: true
+    apiService:
+      type: text
+      nullable: true
+    dtoClass:
+      type: text
+      nullable: true
+    responseMessage:
+      type: text
+      nullable: true
+    responseBody:
+      type: text
+      nullable: true
+    responseStatus:
+      type: integer
+      nullable: true
+    processingTimeMilliseconds:
+      type: integer
+      nullable: true
+    sysInsertDate:
+      type: datetime
+      nullable: true
+      column: sys_insert_date
+      columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    sysUpdateDate:
+      type: datetime
+      nullable: true
+      column: sys_update_date
+      columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  lifecycleCallbacks:
+    prePersist: [ preInsert ]
+    preUpdate: [ preUpdate ]

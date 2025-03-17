@@ -1,0 +1,38 @@
+wise_user:
+    post_user_service:
+        welcome_msg:
+            template: '@WiseUser/after_add_user_welcome_msg.html.twig'
+
+
+    # ===== Kraje - Moje konto =====
+    country_codes_service:
+
+        # Lista krajów które można wybrać w formularzu (kody krajów)
+        available_countries:
+#            - 'PL'
+#            - 'DE'
+#            - 'GB'
+#            - 'FR'
+#            - 'IT'
+#            - 'ES'
+
+    # ======= REGULAMINY =======
+
+    section_agreement_symbol: 'USER_REGULATIONS'
+
+    # Lista symboli artykułów regulaminu, które mają być zwrócone w GET ui/terms
+    get_terms_agreements_to_show:
+        terms:
+            article_symbol: 'USER_AGREEMENT'
+        rodo:
+            article_symbol: 'USER_RODO_AGREEMENT'
+        privacy:
+            article_symbol: 'USER_DATA_PROCESSING_AGREEMENT'
+        cookies:
+            article_symbol: 'USER_COOOKIES_AGREEMENT'
+
+
+    get_users_profile_service:
+
+        # Email do właściciela sklepu (wykorzystywane na froncie)
+        contact_owner_email: 'kontakt@wiseb2b.eu'

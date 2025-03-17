@@ -1,0 +1,12 @@
+Wise\Core\Model\Address:
+  type: embeddable
+
+  fields:
+    name: { type: string, nullable: true }
+    street: { type: string, nullable: true }
+    houseNumber: { type: string, nullable: true }
+    apartmentNumber: { type: string, nullable: true }
+    city: { type: string, nullable: true }
+    postalCode: { type: string, nullable: true }
+    countryCode: { type: string, length: 2, nullable: true }
+    state: { type: string, nullable: true }

@@ -1,0 +1,39 @@
+@import 'src/theme/color';
+
+.componentWrapper {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  width: auto;
+
+  svg {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+
+  .label {
+    color: $color-label;
+    font-size: 11px;
+  }
+}
+
+.low-stock {
+  color: $color-stock-low;
+}
+.middle-stock {
+  color: $color-stock-middle;
+}
+.big-stock {
+  color: $color-stock-big;
+}
+
+.name {
+  display: inline;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: $color-label;
+  strong {
+    font-weight: 500;
+  }
+}

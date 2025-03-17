@@ -1,0 +1,40 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      - { alias: PutContractsDto, type: Wise\Agreement\ApiAdmin\Dto\Contract\PutContractsDto, areas: [ 'api_admin_v2' ] }
+      - { alias: PutContractDto, type: Wise\Agreement\ApiAdmin\Dto\Contract\PutContractDto, areas: [ 'api_admin_v2' ] }
+      - { alias: GetContractsDto, type: Wise\Agreement\ApiAdmin\Dto\Contract\GetContractsDto, areas: [ 'api_admin_v2' ] }
+      - { alias: GetContractDto, type: Wise\Agreement\ApiAdmin\Dto\Contract\GetContractDto, areas: [ 'api_admin_v2' ] }
+      - { alias: PutContractAgreementsDto, type: Wise\Agreement\ApiAdmin\Dto\ContractAgreement\PutContractAgreementsDto, areas: [ 'api_admin_v2' ] }
+      - { alias: PutContractAgreementDto, type: Wise\Agreement\ApiAdmin\Dto\ContractAgreement\PutContractAgreementDto, areas: [ 'api_admin_v2' ] }
+      - { alias: GetContractsAgreementsDto, type: Wise\Agreement\ApiAdmin\Dto\ContractAgreement\GetContractsAgreementsDto, areas: [ 'api_admin_v2' ] }
+      - { alias: GetContractsAgreementDto, type: Wise\Agreement\ApiAdmin\Dto\ContractAgreement\GetContractsAgreementDto, areas: [ 'api_admin_v2' ] }
+
+
+
+
+      - { alias: PostUserDisagreeContractDto, type: Wise\Agreement\ApiUi\Dto\ContractAgreement\PostUserDisagreeContractDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostUserDisagreesContractsDto, type: Wise\Agreement\ApiUi\Dto\ContractAgreement\PostUserDisagreesContractsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostUserAgreeContractDto, type: Wise\Agreement\ApiUi\Dto\ContractAgreement\PostUserAgreeContractDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostUserAgreesContractsDto, type: Wise\Agreement\ApiUi\Dto\ContractAgreement\PostUserAgreesContractsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostUserContractsToggleDto, type: Wise\Agreement\ApiUi\Dto\ContractAgreement\PostUserContractsToggleDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetContractsDto, type: Wise\Agreement\ApiUi\Dto\Contract\GetContractsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetContractDto, type: Wise\Agreement\ApiUi\Dto\Contract\GetContractDto, areas: [ 'api_ui_v2' ] }
+
+
+      - { alias: GetPanelManagementContractDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\GetPanelManagementContractDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementContractsDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\GetPanelManagementContractsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostPanelManagementContractsDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\PostPanelManagementContractsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PutPanelManagementContracts, type: Wise\Agreement\ApiUi\Dto\PanelManagement\PutPanelManagementContracts, areas: [ 'api_ui_v2' ] }
+      - { alias: PostPanelManagementWithdrawalContractDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\PostPanelManagementWithdrawalContractDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementContractsTypesDictionaryDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\GetPanelManagementContractsTypesDictionaryDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementContractsTypeDictionaryDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\GetPanelManagementContractsTypeDictionaryDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostPanelManagementContractsTypeDictionaryDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\PostPanelManagementContractsTypeDictionaryDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PutPanelManagementContractsTypeDictionaryDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\PutPanelManagementContractsTypeDictionaryDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementContractsTypesSystemDictionary, type: Wise\Agreement\ApiUi\Dto\PanelManagement\GetPanelManagementContractsTypesSystemDictionary, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementContractsTypeSystemDictionary, type: Wise\Agreement\ApiUi\Dto\PanelManagement\GetPanelManagementContractsTypeSystemDictionary, areas: [ 'api_ui_v2' ] }
+      - { alias: DeletePanelManagementContractsTypesDto, type: Wise\Agreement\ApiUi\Dto\PanelManagement\DeletePanelManagementContractsTypesDto, areas: [ 'api_ui_v2' ] }
+
+      - { alias: GetUserContractsDto, type: Wise\User\ApiUi\Dto\Contract\GetUserContractsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostUserContractsTogglesDto, type: Wise\User\ApiUi\Dto\Contract\PostUserContractsTogglesDto, areas: [ 'api_ui_v2' ] }

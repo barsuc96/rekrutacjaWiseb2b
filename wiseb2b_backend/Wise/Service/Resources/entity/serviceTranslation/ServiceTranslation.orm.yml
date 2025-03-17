@@ -1,0 +1,18 @@
+Wise\Service\Domain\ServiceTranslation\ServiceTranslation:
+  type: entity
+  table: 'service_translation'
+  repositoryClass: Wise\Service\Repository\Doctrine\ServiceTranslationRepository
+  fields:
+    serviceId:
+      type: integer
+    language:
+      type: string
+      length: 3
+    name:
+      type: string
+      length: 255
+      nullable: true
+    description:
+      type: string
+      length: 1000
+      nullable: true

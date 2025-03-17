@@ -1,0 +1,28 @@
+wise_client:
+
+  # Statusy klienta - Dbajmy oto, aby były poukładane w dobrej kolejności
+  client_status:
+    NEW:
+      status_number: 0
+    ACTIVE:
+      status_number: 1
+    ARCHIVE:
+      status_number: 2
+
+  # Domyślny status klienta
+  default_client_status: 0
+
+  # Statusy klienta, jaki zostanie ustawiony po zaakceptowaniu klienta
+  client_status_accepted: 1
+
+  # Tablica statusów klienta, która umożliwia zwrócenie oraz wygenerowanie danych do CLIENT API
+  client_statuses_to_get_client_api_data: [1]
+
+  # Czy weryfikować unikalność numerów NIP klienta (wartość true oznacza, że nie można dodać klienta z takim samym numerem NIP i zostanie w tym miejscu zwrócony błąd)
+  verify_client_unique_tax_number: true
+
+  # Podczas rejestracji klienta, do jakiej grupy klientów zostanie przypisany klient
+  default_register_client_group: 1
+
+  # Czy walidować numer telefonu
+  validate_phone_number: false

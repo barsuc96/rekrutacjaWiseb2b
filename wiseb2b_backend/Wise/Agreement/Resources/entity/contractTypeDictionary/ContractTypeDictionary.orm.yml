@@ -1,0 +1,14 @@
+Wise\Agreement\Domain\ContractTypeDictionary\ContractTypeDictionary:
+  type: entity
+  table: 'contract_type_dictionary'
+  repositoryClass: Wise\Agreement\Repository\Doctrine\ContractTypeDictionaryRepository
+
+  fields:
+    idExternal:
+      type: string
+      nullable: true
+    name:
+      type: string
+    symbol:
+      type: string
+      nullable: true

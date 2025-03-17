@@ -1,0 +1,31 @@
+{% autoescape false %}
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespace }}\Interfaces\{{ name }}Interface;
+
+{{ service }}
+
+class {{ name }} implements {{ name }}Interface
+{
+    public function __construct(
+
+    ){}
+
+    public function __invoke({{ params }}): {{ result }}
+    {
+
+{% if result == 'CommonServiceDto' %}
+        $result = new CommonServiceDto();
+        $result->writeAssociativeArray([]);
+
+        return $result;
+{% elseif result is not empty %}
+        $result = new {{ result }}();
+
+        return $result;
+{% endif %}
+   }
+}
+{% endautoescape %}

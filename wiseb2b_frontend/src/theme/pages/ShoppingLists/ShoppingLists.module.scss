@@ -1,0 +1,182 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+  width: 100%;
+}
+
+.tableWrapper {
+  display: block;
+  width: 100%;
+
+  table {
+    filter: drop-shadow(0px 2px 5px rgba(6, 25, 56, 0.06));
+  }
+
+  thead {
+    tr {
+      th {
+        padding: 10px 18px;
+        background-color: $color-white;
+        border-bottom: 1px solid $color-table-border;
+      }
+    }
+  }
+
+  tbody {
+    tr:nth-child(2n) {
+      td {
+        background-color: $color-gray;
+      }
+    }
+  }
+
+  tr {
+    td {
+      padding: 10px 18px;
+
+      .deleteButton {
+        font-size: 18px;
+        color: $color-label;
+        cursor: pointer;
+      }
+    }
+
+    td:first-child {
+      border-right: 1px dashed $color-table-border;
+    }
+  }
+}
+
+.titleWrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action {
+  display: block;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  &.mobileAction {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include breakpoint(md) {
+      display: flex;
+      margin: 0 16px 16px;
+    }
+  }
+
+  button {
+    padding: 0 12px;
+
+    .label {
+      svg {
+        font-size: 16px;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+.text {
+  display: block;
+  flex: 1;
+}
+
+.confirmationModal {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.confirmationModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}
+
+.mobileList {
+  .mobileListItem {
+    background: $color-white;
+    margin-bottom: 8px;
+
+    .itemHeader {
+      padding: 16px;
+      border-bottom: 1px solid $color-gray-border;
+      color: $color-text-dark;
+
+      .name {
+        color: $color-primary;
+        margin-left: 16px;
+      }
+    }
+
+    .itemBody {
+      padding: 16px;
+      border-bottom: 1px solid $color-gray-border;
+
+      .label {
+        color: $color-text-light;
+        margin-right: 8px;
+      }
+
+      > div {
+        display: flex;
+        padding: 4px 0;
+
+        &:first-child {
+          border-bottom: 1px solid $color-gray-border;
+          padding-bottom: 8px;
+          margin-bottom: 4px;
+        }
+      }
+    }
+
+    .itemFooter {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .deleteButton {
+        font-size: 18px;
+        color: $color-text-light;
+      }
+
+      .link {
+        display: inline-flex;
+        align-items: center;
+        color: $color-secondary;
+
+        svg {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+//button
+.link {
+  padding: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 120%;
+  color: $color-shopping-button;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}

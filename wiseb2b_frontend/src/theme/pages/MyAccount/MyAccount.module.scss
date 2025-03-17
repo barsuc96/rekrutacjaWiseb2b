@@ -1,0 +1,80 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+  max-width: 650px;
+
+  @include breakpoint(md) {
+    max-width: none;
+  }
+}
+
+.accountWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  width: 100%;
+  background: $color-white;
+  margin-bottom: 32px;
+}
+
+.login {
+  position: relative;
+  width: 100%;
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 22px;
+
+  svg {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 24px;
+
+  &.secondary {
+    margin-top: 32px;
+  }
+}
+
+.info {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.tokenWrapper {
+  display: flex;
+  align-items: flex-end;
+
+  label {
+    font-weight: 700;
+  }
+
+  > div {
+    flex: 1;
+    margin-right: 10px;
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 8px;
+      bottom: 7px;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    font-size: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+  }
+}

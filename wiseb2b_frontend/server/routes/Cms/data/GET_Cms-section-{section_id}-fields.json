@@ -1,0 +1,42 @@
+{
+    "page": 1,
+    "total_count": 1,
+    "total_pages": 1,
+    "items": [
+      {
+        "symbol": "FIELD_1",
+        "label": "Nazwa 1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non elementum dui. Integer condimentum imperdiet vestibulum. Ut lorem arcu, eleifend.",
+        "type": "bool",
+        "is_active": true
+      },
+      {
+        "symbol": "FIELD_2",
+        "label": "Nazwa 2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non elementum dui. Integer condimentum imperdiet vestibulum. Ut lorem arcu, eleifend.",
+        "type": "htmlblock",
+        "is_active": true
+      },
+      {
+        "symbol": "FIELD_3",
+        "label": "Nazwa 3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non elementum dui. Integer condimentum imperdiet vestibulum. Ut lorem arcu, eleifend.",
+        "type": "image",
+        "is_active": true
+      },
+      {
+        "symbol": "FIELD_4",
+        "label": "Nazwa 4",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non elementum dui. Integer condimentum imperdiet vestibulum. Ut lorem arcu, eleifend.",
+        "type": "integer",
+        "is_active": true
+      },
+      {
+        "symbol": "FIELD_5",
+        "label": "Nazwa 5",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non elementum dui. Integer condimentum imperdiet vestibulum. Ut lorem arcu, eleifend.",
+        "type": "decimal",
+        "is_active": true
+      }
+    ]
+}

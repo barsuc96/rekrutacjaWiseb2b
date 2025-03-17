@@ -1,0 +1,9 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  .radio {
+    &.checked {
+      color: $color-secondary;
+    }
+  }
+}

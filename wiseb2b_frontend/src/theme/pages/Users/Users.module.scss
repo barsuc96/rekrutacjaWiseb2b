@@ -1,0 +1,49 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+
+.filtersWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+
+  @include breakpoint(md) {
+    display: block;
+    padding: 0 16px 8px;
+    text-align: end;
+
+    > :first-child {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.selectWrapper {
+  display: flex;
+
+  > div:nth-child(2) {
+    min-width: 200px;
+    margin-left: 15px;
+  }
+}
+
+// span
+.colored {
+  &.primary {
+    color: $color-primary;
+  }
+  &.secondary {
+    color: $color-secondary;
+  }
+  &.success {
+    color: $color-success;
+  }
+  &.error {
+    color: $color-error;
+  }
+
+  &.agreements {
+    cursor: pointer;
+  }
+}

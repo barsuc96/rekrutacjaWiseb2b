@@ -1,0 +1,31 @@
+Wise\GPSR\Domain\GpsrSupplier\GpsrSupplier:
+  type: entity
+  table: supplier
+  inheritanceType: SINGLE_TABLE
+  repositoryClass: Wise\GPSR\Domain\GpsrSupplier\GpsrSupplierRepositoryInterface
+
+  indexes:
+    supplier_symbol_idx:
+      columns: [symbol]
+    supplier_external_id_idx:
+      columns: [ id_external ]
+
+  fields:
+    idExternal:
+      type: string
+      nullable: true
+    symbol:
+      type: string
+      nullable: true
+    taxNumber:
+      type: string
+      nullable: true
+    email:
+      type: string
+      nullable: true
+    phone:
+      type: string
+      nullable: true
+    registeredTradeName:
+      type: string
+      nullable: true

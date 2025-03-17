@@ -1,0 +1,55 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+
+.wrapperComponent {
+  margin-top: 45px;
+}
+
+.title {
+  font-family: $font-poppins;
+  font-weight: 700;
+  font-size: 18px;
+  color: $color-text-dark;
+  margin-bottom: 16px;
+}
+
+.info {
+  display: flex;
+  align-items: flex-start;
+  color: $color-info;
+  padding: 8px;
+  background: $color-gray-background;
+  border: 1px solid $color-secondary-background;
+  box-shadow: 0 1px 2px rgba(6, 25, 56, 0.05);
+  border-radius: 2px;
+
+  svg {
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+}
+
+.filtersWrapper {
+  .filter {
+    margin-bottom: 16px;
+  }
+
+  .unknownType {
+    border: 1px solid $color-error;
+    color: $color-error;
+    padding: 4px 8px;
+  }
+
+  .actions {
+    text-align: right;
+
+    button {
+      padding: 0 16px;
+    }
+
+    svg {
+      font-size: 24px;
+      margin-left: 8px;
+    }
+  }
+}

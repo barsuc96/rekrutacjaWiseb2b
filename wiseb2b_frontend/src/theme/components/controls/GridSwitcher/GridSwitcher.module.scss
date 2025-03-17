@@ -1,0 +1,25 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  .gridIcon {
+    width: 24px;
+    height: 24px;
+    color: $color-gray-border;
+    margin-left: 10px;
+    cursor: pointer;
+
+    &.active {
+      color: $color-text-dark;
+    }
+  }
+}
+
+.name {
+  font-weight: 400;
+  font-size: 14px;
+  color: $color-text-dark;
+}

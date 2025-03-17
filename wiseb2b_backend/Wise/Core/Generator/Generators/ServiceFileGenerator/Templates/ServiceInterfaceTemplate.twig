@@ -1,0 +1,14 @@
+{% autoescape false %}
+<?php
+
+namespace {{ namespace }};
+
+{{ serviceParams }}
+{{ serviceResult }}
+
+interface {{ name }}
+{
+    public function __invoke({{ params }}): {{ result }};
+}
+{% endautoescape %}
+

@@ -1,0 +1,147 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.tableWrapper {
+  margin-bottom: 30px;
+
+  .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  table {
+    filter: drop-shadow(0px 2px 5px rgba(6, 25, 56, 0.06));
+  }
+
+  thead {
+    tr {
+      th {
+        padding: 10px 18px;
+        background-color: $color-white;
+        border-bottom: 1px solid $color-table-border;
+      }
+    }
+  }
+
+  tbody {
+    tr:nth-child(2n) {
+      td {
+        background-color: $color-gray;
+      }
+    }
+  }
+
+  tr {
+    td {
+      padding: 10px 18px;
+
+      .deleteButton {
+        font-size: 18px;
+        color: $color-label;
+        cursor: pointer;
+      }
+    }
+
+    td:first-child {
+      border-right: 1px dashed $color-table-border;
+    }
+  }
+}
+
+.link {
+  padding: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 120%;
+  color: $color-shopping-button;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.filtersWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.selectWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.sectionSelectWrapper {
+  margin-left: 15px;
+  min-width: 200px;
+}
+
+.removeButton {
+  font-size: 18px;
+  color: $color-label;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  button:nth-child(2) {
+    margin-left: 20px;
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    width: 49%;
+  }
+
+  .link {
+    color: $color-primary;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+  }
+
+  table {
+    td {
+      padding-top: 0;
+      padding-bottom: 0;
+      background-color: transparent;
+      color: $color-black;
+    }
+
+    th {
+      padding-top: 0;
+      padding-bottom: 2px;
+      font-size: 14px;
+      font-weight: 700;
+      color: $color-black;
+    }
+  }
+}
+
+.activeRow {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.newSectionField {
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+
+  > div {
+    padding-left: 16px;
+    font-size: 12px;
+  }
+}
+
+.imageWrapper {
+  img {
+    max-width: 60px;
+  }
+}

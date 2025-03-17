@@ -1,0 +1,39 @@
+{% autoescape false %}
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use OpenApi\Attributes as OA;
+use Wise\Core\ApiUi\Attributes\OpenApi\EndpointType\OAGet;
+use Wise\Core\ApiUi\Controller\AbstractGetDetailsController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use Wise\Core\Api\Helper\Interfaces\ControllerShareMethodsHelperInterface;
+use {{ interfaceNamespace }};
+
+
+class {{ className }} extends AbstractGetDetailsController
+{
+    public function __construct(
+        private readonly ControllerShareMethodsHelperInterface $endpointShareMethodsHelper,
+        private readonly {{ interface }} $service,
+    ) {
+        parent::__construct($endpointShareMethodsHelper, $service);
+    }
+
+    #[Route(path: '/{id}', requirements: ['id' => '\d+'], methods: Request::METHOD_GET)]
+    #[OAGet(
+        description: 'OPIS ENDPOINTU',
+        tags: ['{{ tag }}'],
+        responseDto: new OA\JsonContent(ref: "#/components/schemas/{{ dtoName }}", type: "object")
+    )]
+    public function getAction(Request $request): JsonResponse
+    {
+        return parent::getAction($request);
+    }
+}
+
+{% endautoescape %}

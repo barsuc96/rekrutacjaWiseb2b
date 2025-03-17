@@ -1,0 +1,8 @@
+put:
+    success: "The information has been updated"
+
+replication_request:
+    stats_email:
+        subject: '[%installation_name%] Nocne statystyki replikacji'
+        header: '[%installation_name%]<br/>Statystyki replikacji z ostatniego okresu'
+        content: '%stats%'

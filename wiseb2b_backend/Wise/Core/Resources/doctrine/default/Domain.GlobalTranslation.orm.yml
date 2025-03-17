@@ -1,0 +1,25 @@
+Wise\Core\Domain\GlobalTranslation:
+  type: entity
+  table: 'global_translation'
+  repositoryClass: App\Repository\GlobalTranslationsRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    subjectReferenceName:
+      type: string
+      length: 60
+    subjectReferenceField:
+      type: string
+      length: 60
+    subjectReferenceRecordId:
+      type: string
+    language:
+      type: string
+      length: 3
+    translation:
+      type: string
+      length: 1000
+      nullable: true

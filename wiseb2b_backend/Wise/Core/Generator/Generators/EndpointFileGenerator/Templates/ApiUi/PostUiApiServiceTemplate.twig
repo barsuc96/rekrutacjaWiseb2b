@@ -1,0 +1,24 @@
+{% autoescape false %}
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Wise\Core\ApiUi\Service\AbstractPostUiApiService;
+use Wise\Core\ApiUi\Helper\UiApiShareMethodsHelper;
+use {{ interfaceNamespace }};
+
+class {{ className }} extends AbstractPostUiApiService implements {{ interface }}
+{
+
+    public function __construct(
+        UiApiShareMethodsHelper $sharedActionService,
+        private readonly {{ applicationInterface }} $service,
+    ){
+        parent::__construct($sharedActionService, $service);
+    }
+
+}
+
+{% endautoescape %}

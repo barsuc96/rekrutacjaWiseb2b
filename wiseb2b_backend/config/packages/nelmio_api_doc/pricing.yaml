@@ -1,0 +1,6 @@
+{ nelmio_api_doc: { models: { names: [
+  { alias: GetPanelManagementDeliveryPaymentCostsDto, type: Wise\Pricing\ApiUi\Dto\PanelManagement\DeliveryPaymentCost\GetPanelManagementDeliveryPaymentCostsDto, areas: [ api_ui_v2 ] },
+  { alias: GetPanelManagementDeliveryPaymentCostDto, type: Wise\Pricing\ApiUi\Dto\PanelManagement\DeliveryPaymentCost\GetPanelManagementDeliveryPaymentCostDto, areas: [ api_ui_v2 ] },
+  { alias: PostPanelManagementDeliveryPaymentCostDto, type: Wise\Pricing\ApiUi\Dto\PanelManagement\DeliveryPaymentCost\PostPanelManagementDeliveryPaymentCostDto, areas: [ api_ui_v2 ] },
+  { alias: PutPanelManagementDeliveryPaymentCostDto, type: Wise\Pricing\ApiUi\Dto\PanelManagement\DeliveryPaymentCost\PutPanelManagementDeliveryPaymentCostDto, areas: [ api_ui_v2 ] },
+  { alias: DeletePanelManagementDeliveryPaymentCostDto, type: Wise\Pricing\ApiUi\Dto\PanelManagement\DeliveryPaymentCost\DeletePanelManagementDeliveryPaymentCostDto, areas: [ api_ui_v2 ] } ] } } }

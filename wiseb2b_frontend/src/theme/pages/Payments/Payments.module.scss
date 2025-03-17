@@ -1,0 +1,354 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+}
+
+.summary {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 32px 0;
+
+  @include breakpoint(md) {
+    flex-direction: column;
+    margin: 16px 0;
+    align-items: center;
+  }
+
+  .box {
+    width: calc(100% / 3 - 10px);
+    padding: 16px;
+    border: 1px solid $color-text;
+    background: $color-white;
+
+    @include breakpoint(md) {
+      width: calc(100% - 16px);
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+
+      svg {
+        font-size: 20px;
+        margin-right: 8px;
+      }
+    }
+
+    .items {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      @include breakpoint(md) {
+        flex-wrap: wrap;
+      }
+
+      .item {
+        text-align: center;
+
+        @include breakpoint(md) {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          padding-bottom: 8px;
+          margin-bottom: 8px;
+          border-bottom: 1px solid rgba($color-text-search, 0.06);
+          justify-content: flex-end;
+
+          &:first-child {
+            justify-content: flex-start;
+          }
+        }
+
+        .label {
+          font-size: 13px;
+          padding: 5px 10px;
+          border-bottom: 1px solid rgba($color-text-search, 0.06);
+
+          @include breakpoint(md) {
+            border-bottom: none;
+            padding-left: 0;
+          }
+        }
+
+        .value {
+          font-size: 16px;
+          padding: 5px 10px;
+          font-weight: 700;
+
+          @include breakpoint(md) {
+            padding-right: 0;
+          }
+        }
+
+        &.amount {
+          flex: 1;
+          text-align: right;
+
+          @include breakpoint(md) {
+            flex-shrink: 0;
+            width: 100%;
+            justify-content: space-between;
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            align-items: flex-start;
+          }
+
+          .label {
+            padding: 5px 0;
+          }
+
+          .value {
+            font-size: 14px;
+            padding: 5px 0;
+            font-weight: 400;
+            color: $color-label;
+
+            .gross {
+              font-size: 16px;
+              color: $color-text;
+            }
+          }
+        }
+      }
+    }
+
+    &.orange {
+      border-color: $color-orange;
+
+      .title {
+        color: $color-orange;
+      }
+
+      .items {
+        .item {
+          &.amount {
+            .value {
+              .gross {
+                color: $color-orange;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.green {
+      border-color: $color-success;
+
+      .title {
+        color: $color-success;
+      }
+
+      .items {
+        .item {
+          &.amount {
+            .value {
+              .gross {
+                color: $color-success;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.red {
+      border-color: $color-error;
+
+      .title {
+        color: $color-error;
+      }
+
+      .items {
+        .item {
+          &.amount {
+            .value {
+              .gross {
+                color: $color-error;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.filtersWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  @include breakpoint(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px 8px;
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//span
+.symbol {
+  color: $color-primary;
+}
+
+//span
+.days {
+  &.red {
+    color: $color-error;
+  }
+}
+
+.tableWrapper {
+  thead {
+    border-bottom: 1px solid $color-table-border;
+    box-shadow: 0 1px 2px rgba(6, 25, 56, 0.05);
+
+    th {
+      background: $color-white;
+    }
+  }
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include breakpoint(md) {
+    box-shadow: 0 1px 2px rgba(6, 25, 56, 0.05);
+    justify-content: flex-start;
+    overflow: auto;
+    margin-bottom: 8px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 43px;
+    width: calc(100% / 3 - 5px);
+    background: $color-tab-bg;
+    border: 1px solid $color-tab-border;
+    color: $color-label;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+
+    @include breakpoint(md) {
+      width: auto;
+      padding: 0 16px;
+      white-space: nowrap;
+      margin: 0 4px;
+    }
+
+    &.active {
+      cursor: default;
+      color: $color-text;
+      font-weight: 700;
+      border-color: $color-white;
+      background: $color-white;
+      box-shadow: 0 -2px 5px rgba(6, 25, 56, 0.06);
+
+      @include breakpoint(md) {
+        color: $color-secondary;
+      }
+    }
+  }
+}
+
+.arrow {
+  color: $color-secondary;
+  cursor: pointer;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.mobileList {
+  .mobileListItem {
+    width: 100%;
+    background: $color-white;
+    margin-bottom: 8px;
+
+    .itemHeader {
+      padding: 8px 16px;
+      color: $color-primary;
+      border-bottom: 1px dashed $color-gray-border;
+    }
+
+    .itemBody {
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid $color-gray-border;
+
+      > div {
+        width: 50%;
+        border-right: 1px solid $color-gray-border;
+        border-bottom: 1px dashed $color-gray-border;
+        padding: 16px;
+
+        &:nth-child(even) {
+          border-right: none;
+          text-align: right;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          border-bottom: none;
+        }
+
+        .label {
+          display: block;
+          color: $color-text-light;
+        }
+      }
+    }
+
+    .itemFooter {
+      padding: 16px;
+      text-align: right;
+
+      button {
+        background: none;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        color: $color-secondary;
+
+        svg {
+          margin-left: 8px;
+        }
+
+        &.open {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

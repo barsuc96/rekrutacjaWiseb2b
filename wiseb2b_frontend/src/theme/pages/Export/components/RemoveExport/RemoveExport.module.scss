@@ -1,0 +1,14 @@
+.wrapperComponent {
+  display: block;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}

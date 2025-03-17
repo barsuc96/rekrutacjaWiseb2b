@@ -1,0 +1,815 @@
+settlement_status:
+    PAYMENT_STATUS_TO_PAY: nieopłacona
+    PAYMENT_STATUS_PAID: opłacona
+    PAYMENT_STATUS_CANCELED: anulowana
+    PAYMENT_STATUS_EXPIRED: przeterminowana
+settlements:
+    type:
+        CASH_IN: 'Kasa przyjęła'
+        CASH_OUT: 'Kasa wydała'
+        ORDER: Zamówienie
+        BANK_ACCOUNT: 'Wyciąg bankowy'
+        INVOICE: 'Faktura sprzedaży'
+        CORRECTIVE_INVOICE: 'Faktura korekta'
+        PROFORMA: 'Faktura proforma'
+        RETURN: Zwrot
+        REPOSTED: Zaksięgowane
+        RECEIPT_ONE_STOP: 'Paragon One Stop Shop'
+        RECEIPT: Paragon
+        INTEREST_NOTE: 'Nota odsetkowa'
+        ACCOUNTING_NOTE: 'Nota księgowa'
+        STOCKTAKING: Inwentaryzacja
+        PURCHASE_CORRECTIVE_INVOICE: 'Korekta faktury zakupu'
+        PURCHASE_INVOICE: 'Faktura zakupu'
+    short_type:
+        CASH_IN: KP
+        CASH_OUT: KW
+        ORDER: ZA
+        BANK_ACCOUNT: WG
+        INVOICE: FS
+        CORRECTIVE_INVOICE: FK
+        PROFORMA: FP
+        RETURN: ZW
+        REPOSTED: PR
+        RECEIPT_ONE_STOP: PAOSS
+        RECEIPT: PA
+        INTEREST_NOTE: 'NO'
+        ACCOUNTING_NOTE: NK
+        STOCKTAKING: IN
+        PURCHASE_CORRECTIVE_INVOICE: FZK
+        PURCHASE_INVOICE: FZ
+order:
+    file:
+        offer_pdf_header: Zamówienie
+        products: Produkty
+        quantity: Ilość
+        price_unit: 'Cena jednostkowa'
+        price: Cena
+        total_to_pay: 'Łącznie do zapłaty'
+        ktm: KTM
+        product_name: 'Nazwa produktu'
+        netValue: 'Cena netto'
+        grossValue: 'Cena brutto'
+        currency: Waluta
+order_status:
+    new:
+        color: '#0f88bf'
+        label: Nowe
+        icon: '{link}legacy/img/svg/new.svg'
+    waiting_for_payment:
+        color: '#587545'
+        label: 'Oczekuje na płatność'
+        icon: '{link}legacy/img/svg/waiting_for_payment.svg'
+    payment_in_progress:
+        color: '#336155'
+        label: 'Płatność w toku'
+        icon: '{link}legacy/img/svg/payment_in_progress.svg'
+    payment_failed:
+        color: '#bd7b42'
+        label: 'Płatność nieudana'
+        icon: '{link}legacy/img/svg/payment_failed.svg'
+    in_progress:
+        color: '#3364ff'
+        label: 'W realizacji'
+        icon: '{link}legacy/img/svg/in_progress.svg'
+    waiting_for_delivery:
+        color: '#4b3480'
+        label: 'Oczekuje na wysyłkę'
+        icon: '{link}legacy/img/svg/waiting_for_delivery.svg'
+    delivery_in_progress:
+        color: '#423480'
+        label: 'Wysyłka w toku'
+        icon: '{link}legacy/img/svg/delivery_in_progress.svg'
+    completed:
+        color: '#5bff33'
+        label: Zakończone
+        icon: '{link}legacy/img/svg/completed.svg'
+    cancelled:
+        color: '#ff4c33'
+        label: Anulowane
+        icon: '{link}legacy/img/svg/cancelled.svg'
+    '': __NEW_order_status.
+    choose: 'Status...'
+product:
+    add_to_cart_hint:
+        unavailable:
+            text: 'Produkt niedostępny'
+            color: '#ee0000'
+        stock_last_piece:
+            text: 'Ostatnia sztuka!'
+            color: '#cc0000'
+        stock_running_out:
+            text: 'Produkt na wyczerpaniu zapasów (pozostało {product_stock_piece_number} sztuk)'
+            color: '#eed202'
+        default_hint:
+            text: 'Produkt dostępny'
+            color: '#dddddd'
+    relation_types:
+        1: Zamiennik
+        2: 'Asortyment opcjonalny'
+        3: 'Asortyment dodatkowy'
+        4: Rekomendowany
+        5: Komplet
+    exception:
+        stock_not_enought: 'Niewystarczająca ilość produktu na stanie magazynowym.'
+shopping_list:
+    file:
+        name: 'Lista zakupowa'
+        products: Produkty
+        quantity: Ilość
+        product_name: 'Nazwa produktu'
+        catalog_number: 'Numer katalogowy'
+    created: 'Lista zakupowa została utworzona pomyślnie'
+    deleted: 'Lista zakupowa została usunięta pomyślnie'
+    entity_not_found: 'Lista zakupowa o ID %id% nie została odnaleziona'
+    position_deleted: 'Pozycja listy zakupowej została usunięta pomyślnie'
+    position_modified: 'Pozycja listy zakupowej została zaktualizowana pomyślnie'
+cart:
+    free_delivery_from_message: 'Darmowa dostawa od %price%'
+    free_delivery_message: 'Darmowa dostawa'
+    missing_to_free_delivery_message: 'Do darmowej dostawy brakuje %price%'
+    delivery_time: 'Wysyłka w %time%h'
+    validate_quantity:
+        ok: Ok
+        warning:
+            rounded: 'Zaokrąglono do wielokrotności %quantityStep%'
+            rounded_to_minimal: 'Ustawiono minimalną wielokrotności %quantityStep%'
+            over_stock: 'Wartość wykracza ponad stan magazynowy produktu'
+            rounded_and_over_stock: 'Wartość została zaokrąglona do wielokrotności %quantityStep% oraz wykracza ponad stan magazynowy produktu'
+            rounded_to_minimal_and_over_stock: 'Zaokrąglono do minimalnej wielokrotności %quantityStep% oraz wykracza ponad stan magazynowy produktu'
+            set_minimal_available_stock: 'Przepraszamy, ale obecnie dostępne jest tylko %quantity% sztuk tego produktu. Dodano do koszyka maksymalną dostępną ilość.'
+        error:
+            less_than_zero: 'Quantity cannot be negative'
+            less_than_minimal: 'Ustawiono minimalną wielokrotność %quantityStep%'
+    payments_expired_message: 'Masz nieuregulowane płatności'
+    import:
+        not_found_resources: '__NEW_Row {rowNumber} - Resources not found to import for ktm ( {ktm} )'
+        invalid_row_length: '__NEW_Row {rowNumber} - Data missing'
+    add_position:
+        success: 'Poprawnie dodano produkt do koszyka'
+        failed: 'Nie udało się dodać produktu do koszyka'
+    created: 'Koszyk został utworzony pomyślnie'
+    modified: 'Koszyk został pomyślnie zmieniony'
+    deleted: 'Koszyk został usunięty pomyślnie'
+    validated: 'Koszyk został przeliczony'
+    confirmed: 'Pomyślnie złożono zamówienie {orderNumber}'
+    imported: 'Koszyk został zaimportowany pomyślnie'
+    imported_with_errors: 'Koszyk został zaimportowany lecz wystąpiły błędy'
+    entity_not_found: 'Koszyk o ID %id% nie został odnaleziony'
+    position_deleted: 'Pozycja koszyka została usunięta pomyślnie'
+    position_modified: 'Pozycja koszyka została zaktualizowana pomyślnie'
+    positions_added: 'Pozycje zostały dodane do koszyka'
+    positions_deleted: 'Pozycje koszyka zostały usunięte pomyślnie'
+    error_occured: 'Wystąpił problem'
+    authorization_error: 'Brak możliwości dostępu do koszyka'
+    validation_error: 'Koszyk o ID %id% posiada błędy walidacji'
+    delivery:
+        free_delivery_info: 'Masz już darmową dostawę'
+        free_delivery_from_info: 'Darmowa dostawa od {from} zł'
+    errors:
+        all_parameters_required: 'Wszystkie parametry są wymagane'
+    cleared: 'Koszyk został pomyślnie wyczyszczony'
+    service_deleted: 'Usługa została usunięta z koszyka'
+    services_added: 'Usługa została dodana do koszyka'
+    attachment_deleted: 'Załącznik koszyka został usunięty pomyślnie'
+    attachment_modified: 'Załącznik koszyka został zaktualizowany pomyślnie'
+    attachment_added: 'Załącznik zostały dodane do koszyka'
+    delivery_option:
+        gls_delivery_on_saturday: 'Dostawa w sobotę'
+        gls_delivery_next_business_day: 'Gwarancja dostawy następnego dnia roboczego'
+        gls_delivery_1000: 'Gwarancja dostawy do godziny 10:00'
+        gls_delivery_1200: 'Gwarancja dostawy do godziny 12:00'
+        dpd_delivery_on_saturday: 'Dostawa w sobotę'
+        dpd_delivery_next_business_day: 'Gwarancja dostawy następnego dnia roboczego'
+        dpd_delivery_0930: 'Gwarancja dostawy do godziny 09:30'
+        dpd_delivery_1200: 'Gwarancja dostawy do godziny 12:00'
+        shipping_letter: 'Załącz etykietę'
+        shipping_protocol: 'Załącz protokół'
+        '': __NEW_cart.delivery_option.
+    delivery_option_modified: 'Opcja dostawy została zaktualizowana'
+    export:
+        fields:
+            ktm: KTM
+            quantity: Ilość
+            unit: Jednostka
+        filename: export-koszyka-%cartName%
+        params:
+            header_pdf: 'Export koszyka'
+    payment:
+        limit_info:
+            exceeded: 'Do wykorzystania zostało: {limit} {currency}'
+        errors:
+        all_parameters_required: __NEW_cart.errors.all_parameters_required
+checkout:
+    thankyou:
+        title: Dziękujemy!
+        subtitle: 'Twoje zamówienie zostało złożone.'
+        description: 'Jeżeli masz pytania do swojego zamówienia, prosimy o kontakt z Twoim opiekunem handlowym.'
+        symbol_message: 'Przystępujemy do realizacji Twojego zamówienia :)'
+        details: '<h3>DANE DO PRZELEWU:</h3><span>Sente S.A</span><span>ul. Legnicka 51-53,</span><span>54-203 Wrocław</span><span>NIP: 8951718379 REGON: 932218559</span><h4>Konto bankowe do wpłat w PLN:</h4><span>IBAN: PL02109024025977981699664199 SWIFT: WBKPPLPP Bank Zachodni WBK</span><h4>Konto bankowe do wpłat w EURO:</h4><span>IBAN: PL02109024025977981699664199 SWIFT: BREXPLPWMBK BRE Bank S.A.</span>'
+        button_text: 'Przejdź do zamówień'
+        button_url: /pl/dashboard/orders
+        order_number: 'Numer zamówienia: {orderNumber}'
+        button_pay: Zapłać
+availability:
+    big-stock: 'Duża dostępność'
+    middle-stock: 'Średnia dostępność'
+    low-stock: 'Mała dostępność'
+    empty-stock: 'Brak dostępności'
+countries:
+    pl: Polska
+    de: Niemcy
+    '': __NEW_countries.
+language:
+    english: Angielski
+    '': __NEW_language.
+mail:
+    footer_description: 'Od 21 lat projektujemy i wdrażamy rozwiązania informatyczne wspierające efektywności i rozwój biznesu naszych klientów. Z naszych rozwiązań skorzystało już ponad 100 klientów z różnych branż. Wspieramy firmy poprzez dostarczanie dopasowanych systemów ERP, WMS, CRM i B2B oraz dedykowanych narzędzi, takich jak WiseB2B.'
+    footer: 'Wiseb2b.eu © 2025'
+export_catalog:
+    subject: 'Export katalogów - Operacja cykliczna'
+    content: 'W załączniku wysyłamy eksport naszych najnowszych produktów'
+    attributes:
+        ktm: KTM
+        description: Opis
+        price_net: 'Cena netto'
+        '': __NEW_export_catalog.attributes.
+    created: 'Ustawienia eksportu zapisane pomyślnie'
+    modified: 'Ustawienia eksportu zostały pomyślnie zmienione'
+    deleted: 'Ustawienia eksportu usunięte pomyślnie'
+    entity_not_found: 'Nie znaleziono ustawień o ID %id%'
+welcome_message:
+    subject: 'Dane dostępowe do serwisu'
+    header: Witamy!
+    content: 'Poniżej znajdują się Twoje dane dostępowe do serwisu <br><br> Login: <b>%login%</b> <br> Hasło: <b>%password%</b>'
+    contentSecond: 'W razie jakichkolwiek problemów z logowaniem, skontaktuj się z administratorem serwisu'
+password_forgot:
+    subject: 'Odzyskiwanie hasła'
+    header: 'Odzyskiwanie hasła'
+    content: 'W celu zmiany hasła na Twoim koncie email kliknij w poniższy link: <br/> <a href="%url%">%url%</a>'
+    contentSecond: 'Jeśli to nie przez Ciebie został użyty formularz do odzyskiwania hasła i nie wiesz jakiego konta mailowego dotyczy to zignoruj tę wiadomość - najprawdopodobniej ktoś błędnie podał Twój adres na swoim koncie.'
+    buttonContent: 'Kliknij aby zmienić hasło'
+cart_confirm:
+    subject: 'Potwierdzenie zamówienia - #%orderNumber%'
+    header: 'Potwierdzenie zamówienia'
+    content: 'Dziękujemy za złożenie zamówienia w naszym sklepie.<br/> Jeśli masz jakiekolwiek pytania czy potrzebujesz wsparcia, nasz zespół jest zawsze do Twojej dyspozycji. Zapraszamy do kontaktu! <br/><br/> Poniżej znajdziesz szczegóły zamówienia'
+    button_content: 'Przejdź do zamówienia'
+    invoice_details: 'Dane do faktury:'
+    name: 'Nazwa:'
+    tax_number: 'NIP:'
+    street: 'Ulica:'
+    house_number: 'Numer domu:'
+    apartment_number: 'Numer lokalu:'
+    postal_code: 'Kod pocztowy:'
+    city: 'Miejscowość:'
+    country: 'Kraj:'
+    phone: 'Telefon:'
+    email: 'Email:'
+    shipping_address_goods: 'Adres wysyłki towarów:'
+    recipient: 'Odbiorca:'
+    delivery_method: 'Sposób dostawy:'
+    payment_method: 'Sposób płatności:'
+    chosen_point: 'Wybrany punkt:'
+    details: 'Szczegóły:'
+    is_dropshipping: 'Dropshipping:'
+    product: Produkt
+    quantity: Ilość
+    price: Cena
+    net: netto
+    gross: brutto
+    total_order_value: 'Całkowita wartość zamówienia'
+newsletter:
+    register:
+        subject: 'Potwierdzenie zapisu do newslettera'
+        header: 'Potwierdź zapis do usługi Newsletter klikając na przycisk:'
+        content: 'Wyrażając zgodę na usługę Newsletter, świadczoną przez %company_full_name% wyrażasz zgodę na otrzymywanie treści marketingowych zawierających informację o produktach i usługach dostępnych w ofercie %company_full_name%<br/><br/>Zgoda jest dobrowolna i może być w każdej chwili wycofana. Wycofanie zgody nie wypływa na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej wycofaniem. Wycofanie zgody możliwe jest w każdej chwili poprzez kontakt mailowy na adres: <a href="mailto:%email_to_unsubscribe%">%email_to_unsubscribe%</a>.<br/>Pełna informacja RODO dla subskrybentów Newslettera dostępna w zakładce <a href="%url_to_rodo_policy%">%url_to_rodo_policy%</a>.'
+        button_content: Potwierdzam
+        success_register_message: 'Na przekazany adres e-mail wysłaliśmy mail w celu potwierdzenia rejestracji do newslettera'
+    confirm:
+        subject: 'Potwierdzenie zapisu do newslettera'
+        header: 'POTWIERDZENIE ZAPISU DO NEWSLETTERA'
+        content: 'Dziękujemy za zapis do newslettera.<br/>Dołączyłeś właśnie do grona subskrybentów, którzy rozwijają z nami swój biznes!<br/>Od teraz będziemy informować Cię na bieżąco o produktach i usługach dostępnych w naszej ofercie. <br/>Sprawdź nasze nowości! <a href="%ofertLink%" target="_blank">%ofertLink%</a>'
+        success_register_message: 'Pomyślnie zapisano adres e-mail do newslettera'
+client_accept:
+    status:
+        activated:
+            subject: 'Konto klienta zostało aktywowane'
+            content: 'Z przyjemnością informujemy, że rejestracja konta w naszym serwisie została pomyślnie zakończona i konto zostało zaakceptowane.'
+        archived:
+            subject: 'Informacja o statusie rejestracji'
+            content: 'Dziękujemy za rejestrację konta w naszym serwisie. Po dokładnym przeanalizowaniu przesłanych informacji, niestety nie możemy obecnie zaakceptować Państwa konta. <br/><br/> Jeżeli mają Państwo jakiekolwiek pytania dotyczące naszej decyzji lub chcieliby Państwo uzyskać więcej informacji na ten temat, prosimy o kontakt z naszym działem obsługi klienta.'
+true_value: tak
+false_value: nie
+order_edit:
+    confirm: 'Poprawnie zapisano zmiany w zamówieniu'
+    cancel: 'Anulowano edycję zamówienia'
+    activate: 'Edycja zamówienia została aktywowana'
+    modified: 'Zamówienie zostało zmodyfikowane'
+    canceled: 'Edycja zamówienia zostało anulowane. Koszyk został przywrócony do stanu przed edycją'
+    entity_not_found: 'Zamówienie o ID %id% nie zostało odnalezione'
+    already_exists: '__NEW_Order with ID %id% is already in edit mode'
+    positions_deleted: 'Pozycja zamówienia została usunięta'
+    positions_modified: 'Pozycja zamówienia została zmodyfikowana'
+client_api:
+    success: 'Pobrano klucz dostępu dla klienta'
+    order_blocked: 'Zamówienie zostało zablokowane w realizacji'
+    order_unblocked: 'Zamówienie zostało odblokowane i będzie kontynuowany proces jego realizacji.'
+    order_added: 'Zamówienie zostało dodane'
+home:
+    NEWS: Aktualności
+    KNOWLEDGE_BASE: 'Baza wiedzy'
+    BLOG: Blog
+    '': __NEW_home.
+cms:
+    section:
+        created: 'Sekcja została utworzona'
+        modified: 'Poprawnie zmodywikowana sekcja'
+        deleted: 'Sekcja została usunięta'
+        entity_not_found: 'Sekcja o ID %id% nie została odnaleziona'
+        field:
+            created: 'Pole sekcji zostało dodane'
+            modified: 'Poprawnie zmodyfikowano pole sekcji'
+            deleted: 'Pole sekcji zostało usunięte'
+            entity_not_found: 'Pole sekcji o ID %id% nie zostało odnalezione'
+    article:
+        created: 'Artykuł został utworzony'
+        modified: 'Poprawnie zmodyfikowano artykuł'
+        deleted: 'Artykuł został usunięty'
+        entity_not_found: 'Artykuł o ID %id% nie został odnaleziony'
+    media_file:
+        created: 'Plik został dodany'
+        modified: 'Plik został zmodyfikowany'
+        deleted: 'Plik został usunięty'
+        entity_not_found: 'Plik o ID %id% nie został odnaleziony'
+document:
+    summary:
+        invoice: Faktura
+        invoices: Faktury
+        proform: Proforma
+        proforms: Proformy
+        correction: Korekta
+        corrections: Korekty
+        proforma_id_count: 'Ilość proform'
+        invoice_id_count: 'Ilość faktur'
+        correction_id_count: 'Ilość korekt'
+        invoice_valuenet_sum: 'Suma wartości netto faktur'
+        '': __NEW_document.summary.
+promotion:
+    calculate:
+        error:
+            product_is_required: 'Produkt jest wymagany do poprawnego obliczenia promocji'
+    condition:
+        by: Według
+        productId: produktów
+        categoryId: kategorii
+        attributeId: atrybutów
+        warehouseId: magazynów
+        productOnPriceListId: 'produktów należących do cennika'
+        priceListId: cenników
+        serviceId: usług
+        paymentMethodId: 'metod płatności'
+        deliveryMethodId: 'metod dostawy'
+        minimalCount: 'minimalnej ilości produktów'
+        minimalValue: 'minimalnej wartości produktów'
+        currency: waluty
+        '': __NEW_promotion.condition.
+    category:
+        productId: Produkt
+        categoryId: Kategoria
+        attributeId: Atrybut
+        warehouseId: Magazyn
+        productOnPriceListId: 'Produktów należących do cennika'
+        priceListId: Cennik
+        serviceId: Usługa
+        paymentMethodId: 'Metoda płatności'
+        deliveryMethodId: 'Metoda dostawy'
+        minimalCount: 'Minimalna ilość produktów'
+        minimalValue: 'Minimalna wartość produktów'
+        currency: Waluta
+        '': __NEW_promotion.category.
+    title:
+        price_list_symbol: 'Ceny z cennika'
+search_product:
+    sort_methods:
+        default: 'Sortowanie domyślne'
+        ktm_asc: 'Katalog produktu: rosnąco'
+        ktm_desc: 'Katalog produktu: malejąco'
+        name_asc: 'Nazwa: rosnąco'
+        name_desc: 'Nazwa: malejąco'
+        price_asc: 'Cena: rosnąco'
+        price_desc: 'Cena: malejąco'
+        sys_insert_date_asc: 'Od najstarszych'
+        sys_insert_date_desc: 'Od najnowszych'
+    labels:
+        new: Nowy
+        promotion: Promocja
+        bestseller: Bestseller
+    title:
+        products_all: 'Wszystkie produkty'
+        promotions: Promocje
+        news: Nowości
+        bestsellers: Bestsellery
+        in: w
+        in_category: 'w kategorii'
+    filters:
+        price_title: Cena
+delivery:
+    status_in_progress:
+        color: '#3364ff'
+        label: 'W realizacji'
+        icon: '{link}legacy/img/svg/in_progress.svg'
+    status_realized:
+        color: '#5bff33'
+        label: Zrealizowane
+        icon: '{link}legacy/img/svg/realized.svg'
+    status_in_rejected:
+        color: '#ff4c33'
+        label: Odrzucone
+        icon: '{link}legacy/img/svg/rejected.svg'
+    hours: godzin
+    status:
+        SHIPPED: Wysłane
+        NEW: 'Oczekuje na kuriera'
+bracket_product: '(Produkt ID: %productId%)'
+api:
+    ui:
+        description:
+            warehouses: { get: 'Pobranie listy magazynów' }
+    admin:
+        description:
+            warehouses: { get: 'Pobranie listy magazynów' }
+receiver:
+    created: 'Odbiorca utworzony pomyślnie'
+    modified: 'Odbiorca został zaaktualizowany'
+user:
+    register:
+        subject: 'Pomyślna rejestracja w serwisie'
+        header: 'Dziękujemy za założenie konta'
+        button_content: 'Rozpocznij korzystanie z serwisu'
+        content: 'Drogi Kliencie,<br/><br/> Dziękujemy za zarejestrowanie się w naszym sklepie! <br/>Twoje konto zostało pomyślnie utworzone, co pozwala Ci na wygodne i szybkie zakupy. <br/>Zachęcamy do skorzystania z naszych promocji. <br/>W razie jakichkolwiek pytań, nasz zespół obsługi klienta jest do Twojej dyspozycji. <br/>Życzymy udanych zakupów i zapraszamy do częstego odwiedzania naszego sklepu!'
+        content_temporary_password: 'Drogi Kliencie,<br/><br/> Dziękujemy za zarejestrowanie się w naszym sklepie! <br/>Twoje konto zostało pomyślnie utworzone, co pozwala Ci na wygodne i szybkie zakupy. <br/>Zachęcamy do skorzystania z naszych promocji. <br/>W razie jakichkolwiek pytań, nasz zespół obsługi klienta jest do Twojej dyspozycji. <br/>Życzymy udanych zakupów i zapraszamy do częstego odwiedzania naszego sklepu! <br/><br/><br> Poniżej znajdziesz dane dostępowe do serwisu: <br/> <strong>E-mail:</strong>: %login% <br/> <strong>Hasło</strong>: %password%  <br/><br/> <small>Zalecamy zmianę hasła po pierwszym zalogowaniu.</small>'
+    created: 'Użytkownik został utworzony'
+    modified: 'Użytkownik został pomyślnie zmodyfikowany'
+    entity_not_found: 'Użytkownik o ID %id% nie został odnaleziony'
+    self_operation: 'Niedozwolone jest wykonywanie operacji na własnym koncie'
+    insufficient_permissions: 'Nie posiadasz uprawnień do wykonania tej czynności'
+    welcome_msg:
+        subject: 'Dane dostępowe do serwisu WiseB2B'
+        hello: Witamy!
+        content: 'Poniżej znajdują się Twoje dane dostępowe do serwisu WiseB2b <br><br> Login: <b>%login%</b> <br> Hasło: <b>%password%</b>'
+        before_footer: 'W razie jakichkolwiek problemów z logowaniem, skontaktuj się z administratorem serwisu'
+    message-settings:
+        modified: 'Ustawienia komunikatu zostało zmodyfikowane'
+        entity_not_found: 'Ustawienia komunikatu (%messageSettingsId%) dla użytkownika (%userId%) nie zostały odnalezione'
+        settings_not_found: 'Ustawienia komunikatu (%messageSettingsId%) nie zostały odnalezione'
+    role:
+        ROLE_ADMIN: 'Administrator systemu'
+        ROLE_USER_MAIN: Główny użykownik
+        ROLE_USER: Użytkownik
+        ROLE_TRADER: Handlowiec
+        ROLE_FRANCHISSE: Franczyzobiorca
+        ROLE_OPEN_PROFILE: 'Profil otwarty'
+        ROLE_CLIENT_API: 'Client API'
+        '': __NEW_user.role.
+    password_changed: 'Hasło zostało zmienione'
+    password_changed_same_password: 'Nowe hasło nie może być takie samo jak stare'
+    password_confirm_not_same: 'Nowe hasło i potwierdzenie muszą być takie same'
+    password_changed_current_password_not_correct: '__NEW_The current password is incorrect'
+userAgreement:
+    modified: 'Zgoda została zaaktualizowana'
+client:
+    created: 'Klient został utworzony'
+    modified: 'Klient został zaktualizowany'
+    status_changed: 'Status klienta został zmodyfikowany'
+    status:
+        NEW: 'Do weryfikacji'
+        ACTIVE: Aktywny
+        ARCHIVE: Zarchiwizowany
+search_default_breadcrumb: Wyszukiwarka
+register:
+    success: 'Dziękujemy za rejestrację! Wysłaliśmy wiadomość na podany adres e-mail. Sprawdź swoją skrzynkę pocztową i potwierdź adres.'
+error:
+    basic_message: 'Wystąpił problem'
+success:
+    update_message: 'Poprawnie zaktualizowano informacje'
+    add_message: 'Poprawnie dodano informacje'
+section:
+    modified: 'Sekcja została zaktualizowana'
+constraints:
+    not_blank: 'To wartość nie może być pusta'
+    phone_number: 'Niepoprawny format numeru telefonu. Poprawny format to +48123456789 lub 123456789'
+    email: 'Nieprawidłowy format adresu e-mail'
+role:
+    choose: 'Wybierz rolę'
+security:
+    over_logout:
+        success: 'Pomyślnie powrócono na konto'
+    over_login:
+        success: 'Pomyślnie przelogowano na konto'
+    password_reset:
+        send_email: 'Na adres e-mail został wysłany e-mail rozpoczynający proces resetowania hasła'
+        success: 'Pomyślnie zmieniono hasło'
+    login:
+        success: 'Zalogowano pomyślnie'
+        failed: 'Dane logowania nie są poprawne.'
+online_payment:
+    status:
+        NEW: 'Oczekuje na inicjacje płatności online'
+        PENDING: 'Oczekuje na zakończenie płatności'
+        DENAY: 'Płatność odrzucona'
+        ACCEPTED: 'Płatność zautoryzowana'
+        CANCELED: 'Płatność anulowana'
+        '': __NEW_online_payment.status.
+category:
+    add_product_success: 'Produkt został dodany do kategorii'
+    add: Poprawnie dodano kategorie
+    modify: Poprawnie zmodyfikowano kategorie
+promotions:
+    modify: Poprawnie zmodyfikowano promocje
+    add: Poprawnie dodano promocje
+exceptions:
+    default_message: 'Wystąpił problem'
+    default_not_found: 'Nie znaleziono obiektu'
+    details_filter: '[Id: %id%] [IdExternal: %idExternal%]'
+    object_validation: 'Wystąpiły problemy podczas przetwarzania danych'
+    object_exists_exception: 'Obiekt już istnieje!'
+    authentication_exception: 'Użytkownik niezalogowany'
+    authorization_exception_login: 'Dane logowania nie są poprawne. Zalogowanie nie powiodło się.'
+    cannot_perform_operation_exception: 'Nie możesz wykonać tej operacji'
+    position_not_exists_exception: 'Pozycja o ID %id% nie istnieje'
+    over_login_only_one_time_exception: 'Przed zalogowaniem się na kolejnego użytkownika, należy wylogować się z obecnego'
+    file_not_exists: 'Plik nie istnieje'
+    file_not_exists_from_data: 'Nie znaleziono pliku w danych'
+    email_is_not_defined_in_data_exception: 'Adres e-mail nie został zdefiniowany w przekazanych danych'
+    email_is_registered_in_newsletter: 'Adres e-mail jest już zapisany w naszym newsletterze'
+    token_not_defined_in_data: 'Token nie został zdefiniowany w przekazanych danych'
+    token_incorrect: 'Nieprawidłowy token'
+    unsupported_entity_type: 'Nieobsługiwany typ entity'
+    missing_id_properties_on_delete_endpoint: 'Brak wymaganej właściwości: "id"'
+    exists_root_categories: 'Obecnie istnieje już korzeń kategorii. Nie można utworzyć go jeszcze raz'
+    unique_constraint_violation: 'Naruszenie unikalności - Nie można wykonać operacji, ponieważ wprowadzone dane są już zarejestrowane w systemie. Proszę sprawdzić poprawność wprowadzonych informacji i spróbować ponownie.'
+    invalid_input_argument:
+        sort: 'Niepoprawny klucz sortowania: %key%'
+    cart:
+        not_found: 'Koszyk nie został odnaleziony'
+        not_found_id: 'Koszyk o ID %id% nie został odnaleziony'
+        delivery_method_not_set: 'Nie ustawiono metody dostawy'
+        payment_method_not_set: 'Nie ustawiono metody płatności'
+        receiver_address_empty: 'Brak wszystkich informacji o odbiorcy'
+        position:
+            not_found: 'Pozycja koszyka o ID %id% nie została odnaleziona'
+        attachment:
+            not_found: 'Załącznik koszyka o ID %id% nie został odnaleziony'
+        service:
+            not_found: 'Usługa o ID %id% nie została odnaleziona'
+        manual_cash_on_delivery_value:
+            only_dropshipping: 'Tylko koszyk dropshippingowy może edytować kwotę przy odbiorze'
+            allow_payment_method: 'Wybrana metoda płatności (ID: %paymentMethodId%) nie może edytować kwoty przy odbiorze'
+        calc_strategy:
+            not_found: 'Nie znaleziono odpowiedniej strategii do wyliczenia cen dla koszyka'
+    receiver:
+        not_found_id: 'Odbiorca o ID %id% nie został odnaleziony'
+        not_found: 'Odbiorca nie został odnaleziony'
+        not_found_empty: 'Odbiorca nie został odnaleziony'
+    client:
+        default_not_found: 'Klient nie został odnaleziony'
+        not_found: 'Klient o ID %id% nie został odnaleziony'
+        for_cart_not_found: 'Klient dla koszyka o ID %cartId% nie został odnaleziony'
+        duplicate_client_tax_number: 'Klient o podanym numerze NIP już istnieje'
+        duplicate_client_name: 'Klient o podanej nazwie już istnieje'
+        not_permission_to_accept: 'Nie masz uprawnień do akceptacji klienta'
+        not_exist_status: 'Status klienta nie istnieje (%statuses%)'
+        client_is_already_accepted: 'Klient jest już zaakceptowany'
+        status_is_not_correct: 'Status klienta nie pozwala na wykonanie tej operacji'
+        user_has_not_mail_confirmed: 'Użytkownik nie potwierdził jeszcze adresu e-mail'
+        unique_tax_number: 'Numer NIP jest już zarejestrowany w systemie. Proszę sprawdzić wprowadzone dane lub skontaktować się z administratorem, jeśli uważasz, że doszło do pomyłki.'
+    global_address:
+        not_found: 'Adres nie został odnaleziony'
+    product:
+        not_found: 'Produkt nie został odnaleziony'
+        not_found_id: 'Produkt o ID %id% nie został odnaleziony'
+        not_found_with_id_external: 'Produkt nie został odnaleziony. Id: %id%, IdExternal: %idExternal%'
+        has_children: 'Nie można wykonać tej operacji jeśli produkt o ID %id% posiada podprodukty'
+    unit:
+        not_found: 'Jednostka o ID %id% nie została odnaleziona'
+        not_found_with_id_external: 'Jednostka nie została odnaleziona. Id: %id%, IdExternal: %idExternal%'
+    order:
+        not_found: 'Zamówienie o ID %id% nie zostało odnalezione'
+        not_found_for_position_id: 'Zamówienie dla pozycji o ID %positionId% nie zostało odnalezione'
+        have_not_documents: 'Dokumenty do zamówienia nie zostały jeszcze przesłane'
+        status_incorrect: 'Status zamówienia nie pozwala na wykonanie tej operacji'
+        not_exist_status: 'Wprowadzony status zamówienia nie istnieje (%statuses%)'
+    order_position:
+        not_found_id: 'Pozycja zamówienia o ID %id% nie została odnaleziona'
+        not_found: 'Pozycja zamówienia nie została odnaleziona'
+        not_found_for_order: 'Pozycja zamówienia odnaleziona dla zamówienia o ID %orderId%'
+    store:
+        not_found_id: 'Sklep ID %id% nie został odnaleziony'
+        not_found: 'Sklep nie został odnaleziony'
+    order_edit:
+        already_exists: 'Zamówienie o ID %id% jest już w trybie edycji'
+        already_not_activated: 'Zamówienie o ID %id% nie jest w trybie edycji'
+        cannot_perform_operation: 'Nie można wykonać tej operacji jako klient o id %clientId%. W tym celu należy się przelogować na konto klienta ("%clientName%")'
+    document:
+        not_found: 'Dokument o ID %id% nie został odnaleziony'
+        not_found_for_document_file_id: 'Dokument dla pliku o ID %id% nie został odnaleziony'
+        associated_with_not_exists: 'Dokument, który chcesz powiązać nie został odnaleziony'
+        incorrect_document_type: 'Niepoprawny typ dokumentu (%type%)'
+    document_file:
+        not_found: 'Plik dokumentu o ID %id% nie został odnaleziony'
+        not_found_for_document_id: 'Plik dokumentu dla dokumentu o ID %id% nie został odnaleziony'
+    user:
+        not_exist: 'Użytkownik o ID %id% nie istnieje'
+        not_exist_without_id: 'Użytkownik nie istnieje'
+        not_correct_last_password_on_change_password: 'Wprowadzono obecne hasło jest niepoprawne'
+        exists: 'Użytkownik już istnieje'
+        duplicate_login: 'Użytkownik o podanym loginie już istnieje'
+        hash_required: 'Polę hash jest wymagane'
+        hash_invalid: 'Wprowadzony hash jest niepoprawny'
+    product_unit:
+        not_found: 'Powiązanie między produktem o id %productId% a jednostką o id %unitId% nie zostało odnalezione'
+    user_message_settings:
+        not_found: 'Ustawienia zgody na komunikacje o ID %id% nie zostały odnalezione'
+        not_found_with_user_id: 'Ustawienia zgody na komunikacje o ID %id% dla użytkownika o ID %userId% nie zostały odnalezione'
+    message_settings:
+        not_found: 'Ustawienia zgody na komunikacje (%messageSettingsId%) nie zostały odnalezione'
+    user_agreement:
+        not_found: 'Zgoda o ID %id% nie została odnaleziona'
+    country:
+        not_exists_country_code: 'Kraj o kodzie %code% nie jest jeszcze przez nas obsługiwany'
+    delivery_method:
+        not_found: 'Metoda dostawy nie została odnaleziona'
+        not_found_id: 'Metoda dostawy o ID %id% nie została odnaleziona'
+    warehouse:
+        not_found: 'Magazyn nie został odnaleziony'
+        not_found_by_id: 'Magazyn o ID %id% nie został odnaleziony'
+    own_courier_must_include_file: 'Musisz umieścić przynajmniej jeden z wymaganych załączników używając tej metody dostawy'
+    newsletter:
+        token_expired: 'Token wygasł bądź e-mail został już potwierdzony'
+    settlement:
+        not_found: 'Rozrachunek nie został znaleziony'
+        not_found_id: 'Rozrachunek o ID %id% nie został znaleziony'
+    price_list:
+        not_found: 'Cennik nie został znaleziony'
+        not_found_id: 'Cennik o ID %id% nie został znaleziony'
+    product_stock:
+        not_found: 'Brak informacji o stanie magazynowym dla produktu'
+        not_found_id: 'Brak informacji o stanie magazynowym dla produktu. ProductStock o ID %id%'
+    product_category:
+        not_found: 'Brak informacji o kategorii dla produktu'
+        not_found_id: 'Brak informacji o kategorii dla produktu. ProductCategory o ID %id%'
+    category:
+        not_found: 'Brak informacji o kategorii'
+        not_found_id: 'Brak informacji kategorii o ID %id%'
+    product_catalog_for_product:
+        not_found: 'Nie znaleziono katalogu produktu dla produktu'
+        not_found_id: 'Nie znaleziono katalogu produktu dla produktu o ID %id%'
+    product_catalog:
+        not_found: 'Nie znaleziono katalogu produktu'
+        not_found_id: 'Nie znaleziono katalogu produktu o ID %id%'
+    product_price:
+        empty_product_unit_id: 'Musisz przekazać informacje o produkcie i jednostce'
+    online_payments:
+        paypal:
+            incorrect_configuration: 'Niepoprawna konfiguracja metody płatności: PayPal'
+            not_authorized: 'Brak uwierzytelnienia do API Paypal. Sprawdź konfigurację'
+            not_finished_payment_process: 'Proces płatności nie został zakończony.'
+        autopay:
+            incorrect_configuration: 'Niepoprawna konfiguracja metody płatności: Autopay'
+            not_authorized: 'Brak uwierzytelnienia w Autopay. Sprawdź konfigurację'
+    online_payment:
+        not_found: 'Metoda płatności online nie istnieje'
+        not_found_id: 'Metoda płatności online o ID %id% nie istnieje'
+        not_found_for_payment_method: 'Nie znaleziono driver obsługujący płatność online dla wybranej metody płatności o ID %paymentMethodId%'
+    shopping_list:
+        cannot_perform_operation_exception: 'Nie możesz wykonać operacji na liście zakupowej, która nie należy do Ciebie'
+    payment_method:
+        not_found: 'Metoda płatności nie została odnaleziona'
+        not_found_id: 'Metoda płatności o ID %id% nie została odnaleziona'
+    trader:
+        not_found: 'Handlowiec nie został odnaleziony'
+        not_found_id: 'Handlowiec o ID %id% nie został odnaleziony'
+    agreement:
+        required: 'Wybrana zgoda jest wymagana'
+        required_with_content: 'Wybrana zgoda jest wymagana. (%content%)'
+        not_found: 'Zgoda nie została odnaleziona'
+        not_found_id: 'Zgoda o ID %id% nie została odnaleziona'
+    api:
+        uuid_length: 'Długość UUID musi wynosić maksymalnie 36 znaków'
+        incorrect_body_data: 'Niepoprawne dane w ciele zapytania - %message%'
+        not_have_array_objects: 'W ciele zapytania nie ma tablicy ''objects'''
+        not_possible_save: 'Nie udało się zapisać obiektu'
+        not_have_internal_id_and_id: 'Brak wymaganych pól identyfikujących obiekt ("internalId" lub "id")'
+        incorrect_fields: 'Wystąpiły nadmiarowe pola w strukturze Body: (%fields%)'
+        incorrect_json: 'Niepoprawny format JSON. Nie udało się przetworzyć danych'
+    client_group:
+        not_found: 'Grupa kliencka nie został znaleziony'
+        not_found_id: 'Grupa kliencka o ID %id% nie został znaleziony'
+    client_api_access:
+        not_found: 'Dostęp do API klienta nie został odnaleziony'
+        not_found_id: 'Dostęp do API klienta o ID %id% nie został odnaleziony'
+        user_not_found_to_create_client_api: 'Nie można wygenerować klucza autoryzacyjnego dla dostępu do ClientApi, ponieważ nie znaleziono aktywnego użytkownika dla tego klienta.'
+    delivery:
+        not_found: 'Dostawa nie została odnaleziona'
+        not_found_id: 'Dostawa o ID %id% nie została odnaleziona'
+    order_attachment:
+        not_found: 'Załącznik zamówienia nie został odnaleziony'
+        not_found_id: 'Załącznik zamówienia o ID %id% nie został odnaleziony'
+    recaptcha:
+        verify_failed: 'Weryfikacja reCAPTCHA nie powiodła się. Jeśli problem będzie się powtarzać, prosimy o kontakt z pomocą techniczną. Proszę spróbować ponownie.'
+    url_shortcut:
+        not_found: 'Nie znaleziono skrótu URL'
+        not_found_id: 'Nie znaleziono skrótu URL o ID %id%'
+    service:
+        not_found: 'Nie znaleziono usługi'
+        not_found_id: 'Nie znaleziono usługi o ID %id%'
+    receiver_delivery_point:
+      delivery_requires_selecting_facility:
+        pocztex: 'Dostawa do Pocztex Pickup wymaga wybrania placówki'
+        inpost_locker: 'Dostawa do Paczkomatu wymaga wybrania paczkomatu'
+
+      without_address:
+        pocztex: 'Brak informacji o adresie Pocztex Pickup'
+        inpost_locker: 'Brak informacji o adresie paczkomatu'
+
+      provider_name_incorrect_type: 'Typ punktu nie zgadza się z wybraną metodą dostawy'
+    page_definition:
+      not_found: 'Nie znaleziono definicji strony'
+      not_found_by_symbol: 'Nie znaleziono definicji strony o symbolu %symbol%'
+      incorrect_schema: 'Nie udało się załadować definicji strony. Zawiera niepoprawny schemat'
+      incorrect_schema_with_error_message: 'Nie udało się załadować definicji strony (%file%). Zawiera niepoprawny schemat: %messageError%'
+    export_catalog:
+        empty_file_type: 'Typ pliku jest wymagany'
+        empty_attributes: 'Musisz wybrać atrybuty, które mają zostać wyeksportowane'
+        empty_name: 'Nazwa jest wymagana'
+    article:
+        already_exists: 'Już istnieje'
+        already_exists_with_same_symbol_and_section: 'Artykuł o symbolu "%symbol%" już istnieje w wybranej sekcji'
+property_path:
+    firstname: Imię
+    name: Nazwa
+    phone: 'Numer telefonu'
+    email: 'Adres e-mail'
+    receiver_first_name: 'Imię'
+    receiver_last_name: 'Nazwisko'
+    receiver_company_name: 'Nazwa firmy'
+    password_confirm: 'Potwierdzenie hasła'
+    password: 'Hasło'
+    tax_number: 'Numer NIP/VAT EU'
+    first_name: 'Imię'
+    last_name: 'Nazwisko'
+    address:
+        street: 'Ulica'
+        house_number: 'Numer budynku'
+        building: 'Numer budynku'
+        apartmentNumber: 'Numer lokalu'
+        apartment: 'Numer lokalu'
+        postal_code: 'Kod pocztowy'
+        city: 'Miejscowość'
+        country: 'Kraj'
+        country_code: 'Kraj'
+    delivery_address:
+        street: 'Ulica'
+        house_number: 'Numer budynku'
+        building: 'Numer budynku'
+        apartmentNumber: 'Numer lokalu'
+        apartment: 'Numer lokalu'
+        postal_code: 'Kod pocztowy'
+        city: 'Miejscowość'
+        country: 'Kraj'
+        country_code: 'Kraj'
+    receiver_address:
+        street: 'Ulica'
+        house_number: 'Numer budynku'
+        apartmentNumber: 'Numer lokalu'
+        postal_code: 'Kod pocztowy'
+        city: 'Miejscowość'
+        country: 'Kraj'
+        country_code: 'Kraj'
+        name: 'Nazwa odbiorcy'
+    billing_address:
+        country_code: 'Kod kraju'
+        city: 'Miasto'
+        street: 'Ulica'
+        postal_code: 'Kod pocztowy'
+        name: 'Nazwa odbiorcy'
+    receiver:
+        phone: 'Numer telefonu'
+        email: 'Adres e-mail'
+
+
+remove:
+    success: Element został poprawnie usunięty
+
+
+categories: Kategorie
+
+title_website: 'WiseB2B - Platforma B2B'
+description_website: 'WiseB2B – innowacyjna platforma B2B łącząca dostawców i kupujących'
+order_payment_status:
+    is_not_paid: 'nieopłacone'
+    is_paid: 'opłacone'
+    processing: 'w trakcie przetwarzania'
+
+delete:
+    success: 'Pomyślnie usunięto element'

@@ -1,0 +1,22 @@
+{
+    "page": 1,
+    "total_count": 1,
+    "total_pages": 1,
+    "items": [
+      {
+        "symbol": "Artykul_1",
+        "title": "Artykuł 1",
+        "is_active": true
+      },
+      {
+        "symbol": "Artykul_2",
+        "title": "Artykuł 2",
+        "is_active": true
+      },
+      {
+        "symbol": "Artykul_3",
+        "title": "Artykuł 3",
+        "is_active": true
+      }
+    ]
+  }

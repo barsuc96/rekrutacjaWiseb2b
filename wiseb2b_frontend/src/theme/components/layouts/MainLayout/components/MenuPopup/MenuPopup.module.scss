@@ -1,0 +1,52 @@
+@import 'src/theme/color';
+@import "src/theme/utilities";
+
+.componentWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: $bottom-menu-height;
+  left: 0;
+  background: $color-gray-background;
+  overflow: auto;
+  z-index: 120;
+
+  .topBox {
+    background: $color-white;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .label {
+      font-weight: 300;
+      font-size: 10px;
+      color: $color-text-light;
+      margin-bottom: 6px;
+    }
+
+    .name {
+      font-size: 18px;
+      color: $color-text-dark;
+      font-weight: 500;
+    }
+
+    .company {
+      font-size: 12px;
+      color: $color-text-light;
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: transparent;
+      border: none;
+      font-size: 30px;
+    }
+  }
+
+  .menuBox {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,98 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+}
+
+.content {
+  padding: 20px 25px;
+  background: $color-white;
+}
+
+.filtersWrapper {
+  margin: 16px 0;
+
+  > div {
+    width: 405px;
+    @include breakpoint(sm) {
+      width: auto;
+    }
+  }
+}
+
+.categories {
+  margin: 25px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include breakpoint(sm) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .category {
+
+    @include breakpoint(sm) {
+      max-width: none;
+    }
+
+
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    height: 56px;
+    border: 1px solid $color-gray-border;
+    background: $color-gray;
+    border-radius: 2px;
+    font-size: 16px;
+    color: $color-text-light;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.active {
+      color: $color-faq-active;
+      border-color: $color-faq-active;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+  }
+}
+
+.questions {
+  .title {
+    color: $color-text-dark;
+    font-weight: 700;
+  }
+
+  .question-wrapper {
+    margin: 10px 0;
+    color: $color-text;
+
+    .question {
+      width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+
+      @include breakpoint(sm) {
+        width: auto;
+      }
+    }
+
+    .answer {
+      font-style: italic;
+      padding: 4px 0 0;
+    }
+  }
+}

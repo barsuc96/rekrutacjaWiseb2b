@@ -1,0 +1,10 @@
+wise_multi_store:
+    api_client_to_store:
+        ff65a8109ad27bggggbe036d08b7abb9:
+            store_symbol:         wiseb2b
+        ceaf10768d5d2a2f8fc385c51584832c:
+            store_symbol:         wiseb2b
+
+    # Podstawowy symbol sklepu
+    default_store_symbol: wiseb2b
+

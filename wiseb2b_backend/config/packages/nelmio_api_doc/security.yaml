@@ -1,0 +1,21 @@
+nelmio_api_doc:
+  models:
+    names:
+    # Common
+    - { alias: PostTokenResponseDto, type: Wise\Security\ApiAdmin\Dto\Oauth2\PostTokenResponseDto, areas: [ 'api_admin_v2', 'api_ui_v2', 'api_client_v2' ] }
+
+    # Admin API
+    - { alias: PostTokenDto, type: Wise\Security\ApiAdmin\Dto\Oauth2\PostTokenDto, areas: [ 'api_admin_v2' ] }
+
+    # UI API
+    - { alias: GetOverloginUsersResponseDto, type: Wise\Security\ApiUi\Dto\GetOverloginUsersResponseDto, areas: [ 'api_ui_v2' ] }
+    - { alias: LoginDto, type: Wise\Security\ApiUi\Dto\LoginDto, areas: [ 'api_ui_v2' ] }
+    - { alias: TokenResponseDto, type: Wise\Security\ApiUi\Dto\TokenResponseDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostLogoutDto, type: Wise\Security\ApiUi\Dto\PostLogoutDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostPasswordChangeDto, type: Wise\Security\ApiUi\Dto\PostPasswordChangeDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostPasswordForgotDto, type: Wise\Security\ApiUi\Dto\PostPasswordForgotDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostPasswordResetDto, type: Wise\Security\ApiUi\Dto\PostPasswordResetDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostOverLoginDto, type: Wise\Security\ApiUi\Dto\PostOverLoginDto, areas: [ 'api_ui_v2' ] }
+    - { alias: PostOverLogoutDto, type: Wise\Security\ApiUi\Dto\PostOverLogoutDto, areas: [ 'api_ui_v2' ] }
+
+

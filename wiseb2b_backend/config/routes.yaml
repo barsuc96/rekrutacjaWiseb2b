@@ -1,0 +1,72 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+wise_core:
+  resource: "@WiseCoreBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_receiver:
+  resource: "@WiseReceiverBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_client:
+  resource: "@WiseClientBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_agreement_api:
+  resource: "@WiseAgreementBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_gpsr_api:
+  resource: "@WiseGPSRBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_security:
+  resource: "@WiseSecurityBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_service:
+  resource: "@WiseServiceBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+wise_i18n:
+  resource: "@WiseI18nBundle/Resources/config/routes.yaml"
+  options:
+      expose: true
+
+wise_user:
+    resource: "@WiseUserBundle/Resources/config/routes.yaml"
+    options:
+        expose: true
+
+wise_store_ui:
+  resource: "@WiseMultiStoreBundle/Resources/config/routes.yaml"
+  options:
+    expose: true
+
+oauth2:
+  resource: '@LeagueOAuth2ServerBundle/Resources/config/routes.php'
+  type: php
+
+#wise_cart_api_admin_v2:
+#  resource: '@WiseCartBundle/Api/Admin/V2/Controller/*'
+#  prefix: api/admin/v2/carts
+#  type: annotation
+
+#wise_cart_api_ui_v2:
+#  resource: '@WiseCartBundle/Api/Ui/V2/Controller/*'
+#  prefix: api/ui/v2/cart
+#  type: annotation
+
+#wise_warehouse_api_ui_v2:
+#  resource: '@WiseWarehouseBundle/Api/Ui/V2/Controller/*'
+#  prefix: api/ui/v2/warehouse
+#  type: annotation

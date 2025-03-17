@@ -1,0 +1,23 @@
+@import "src/theme/color";
+
+.wrapperComponent {
+  .shoppingListButton {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    width: auto;
+    margin-left: auto;
+    cursor: pointer;
+    color: $color-text;
+    justify-content: flex-end;
+    
+
+    svg {
+      color: $color-primary;
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+}

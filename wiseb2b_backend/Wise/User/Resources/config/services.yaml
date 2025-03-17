@@ -1,0 +1,116 @@
+parameters:
+    user_message_settings_entity: Wise\User\Domain\UserMessageSettings\UserMessageSettings
+    user_entity: Wise\User\Domain\User\User
+    country_codes_json_file_path: 'Wise/User/Resources/json/CountryCode/countryCode.json'
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # Konfiguracja autoconfigure
+    Wise\User\:
+        resource: '../../'
+        exclude:
+            - '../../WiseUserBundle.php'
+            - '../../WiseUserConfiguration.php'
+            - '../../WiseUserExtension.php'
+
+    ###>>> Listeners
+    Wise\User\Domain\ClientCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\User\Domain\UserCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\User\Domain\AgreementCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\User\Domain\TraderCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+    Wise\User\Domain\UniqueKeyUserOnCreateListener:
+        tags:
+            - { name: kernel.event_listener, event: user.created }
+    Wise\User\Domain\UniqueKeyUserOnModifyListener:
+        tags:
+            - { name: kernel.event_listener, event: user.changed }
+
+    ###>>> Providers
+    # User
+    Wise\User\Service\User\DataProvider\UserAgreementRequiredProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\User\DataProvider\UserTotalOffersProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\User\DataProvider\UserTotalOrderProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\UserMessageSettings\DataProvider\UserMessageSettingsNameProvider:
+        tags:
+            - { name: details_provider.user_message_settings }
+    Wise\User\Service\User\DataProvider\UserChangePasswordProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\User\DataProvider\UserOverloggedProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\User\DataProvider\UserNameProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\User\DataProvider\UserCanModifyInformationProvider:
+        tags:
+            - { name: details_provider.user }
+    Wise\User\Service\User\DataProvider\UserRoleProvider:
+        tags:
+            - { name: details_provider.user }
+
+
+    # UserAgreement
+    Wise\User\Service\UserAgreement\DataProvider\UserAgreementIpAddressProvider:
+        tags:
+            - { name: details_provider.user_agreement }
+    Wise\User\Service\UserAgreement\DataProvider\UserAgreementDateProvider:
+        tags:
+            - { name: details_provider.user_agreement }
+    Wise\User\Service\UserAgreement\DataProvider\UserAgreementContentProvider:
+        tags:
+            - { name: details_provider.user_agreement }
+    Wise\User\Service\UserAgreement\DataProvider\UserAgreementNecessaryProvider:
+        tags:
+            - { name: details_provider.user_agreement }
+    Wise\User\Service\UserAgreement\DataProvider\UserAgreementAcceptedProvider:
+        tags:
+            - { name: details_provider.user_agreement }
+
+
+    # CMS - MODIFY REDIRECT LIST
+    Wise\User\ApiUi\Service\CmsRedirectProviders\FooterCMSRedirectProvider:
+        tags:
+            - { name: cms.build_cms_redirect, priority: 150 }
+
+    ###>>> Factories
+
+    # MessageSettings
+    Wise\User\Service\UserMessageSettings\DataProvider\AcceptedMessageSettingsProvider:
+        tags:
+            - { name: details_provider.message_settings }
+
+
+    Wise\User\Domain\UserMessageSettings\UserMessageSettingsFactory:
+        arguments:
+            $entity: '%user_message_settings_entity%'
+
+    Wise\User\Domain\User\Factory\UserFactory:
+        arguments:
+            $entity: '%user_entity%'
+
+    Wise\User\Repository\Json\CountryCodeRepository:
+        arguments:
+            $pathToFile: '%country_codes_json_file_path%'
+
+
+    Wise\User\Domain\User\Listener\SendEmailToAdministratorAboutRegisterUserListener:
+        tags:
+            - { name: kernel.event_listener, event: user.changed }

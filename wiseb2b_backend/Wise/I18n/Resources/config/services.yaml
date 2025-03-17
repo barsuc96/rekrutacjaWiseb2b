@@ -1,0 +1,83 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $languages: '%languages%'
+
+    Wise\I18n\:
+        resource: '../../'
+        exclude:
+            - '../../WiseI18nBundle.php'
+
+    ###>>> ADMIN API
+    # Country - Interface
+    Wise\I18n\ApiAdmin\Controller\Countries\GetCountriesController: ~
+    Wise\I18n\ApiAdmin\Controller\Countries\PutCountriesController: ~
+    Wise\I18n\ApiAdmin\Controller\Countries\DeleteCountriesByKeyController: ~
+    Wise\I18n\ApiAdmin\Controller\Countries\PatchCountriesController: ~
+    Wise\I18n\ApiAdmin\Service\Countries\GetCountriesService: ~
+    Wise\I18n\ApiAdmin\Service\Countries\Interfaces\GetCountriesServiceInterface: '@Wise\I18n\ApiAdmin\Service\Countries\GetCountriesService'
+    Wise\I18n\ApiAdmin\Service\Countries\PutCountriesService: ~
+    Wise\I18n\ApiAdmin\Service\Countries\Interfaces\PutCountriesServiceInterface: '@Wise\I18n\ApiAdmin\Service\Countries\PutCountriesService'
+    Wise\I18n\ApiAdmin\Service\Countries\DeleteCountriesByKeyService: ~
+    Wise\I18n\ApiAdmin\Service\Countries\Interfaces\DeleteCountriesByKeyServiceInterface: '@Wise\I18n\ApiAdmin\Service\Countries\DeleteCountriesByKeyService'
+    # Country - Persistence
+    Wise\I18n\Repository\Doctrine\CountryRepository: ~
+    Wise\I18n\Domain\Country\CountryRepositoryInterface: '@Wise\I18n\Repository\Doctrine\CountryRepository'
+    Wise\I18n\Repository\Doctrine\CountryTranslationRepository: ~
+    Wise\I18n\Domain\Country\CountryTranslationRepositoryInterface: '@Wise\I18n\Repository\Doctrine\CountryTranslationRepository'
+    Wise\I18n\Domain\Country\CountryService: ~
+    Wise\I18n\Domain\Country\CountryServiceInterface: '@Wise\I18n\Domain\Country\CountryService'
+    # Country - Logical
+    Wise\I18n\Service\Country\ListByFiltersCountryService: ~
+    Wise\I18n\Service\Country\Interfaces\ListByFiltersCountryServiceInterface: '@Wise\I18n\Service\Country\ListByFiltersCountryService'
+    Wise\I18n\Service\Country\RemoveCountryService: ~
+    Wise\I18n\Service\Country\Interfaces\RemoveCountryServiceInterface: '@Wise\I18n\Service\Country\RemoveCountryService'
+    Wise\I18n\Service\Country\ModifyCountryService: ~
+    Wise\I18n\Service\Country\Interfaces\ModifyCountryServiceInterface: '@Wise\I18n\Service\Country\ModifyCountryService'
+    Wise\I18n\Service\Country\AddOrModifyCountryService: ~
+    Wise\I18n\Service\Country\Interfaces\AddOrModifyCountryServiceInterface: '@Wise\I18n\Service\Country\AddOrModifyCountryService'
+    Wise\I18n\Service\Country\AddCountryService: ~
+    Wise\I18n\Service\Country\Interfaces\AddCountryServiceInterface: '@Wise\I18n\Service\Country\AddCountryService'
+    Wise\I18n\Service\Country\ListCountriesService: ~
+    Wise\I18n\Service\Country\Interfaces\ListCountriesServiceInterface: '@Wise\I18n\Service\Country\ListCountriesService'
+    Wise\I18n\Service\Country\GetCountryDetailsService: ~
+    Wise\I18n\Service\Country\Interfaces\GetCountryDetailsServiceInterface: '@Wise\I18n\Service\Country\GetCountryDetailsService'
+
+    # CurrencyExchange - Interface
+    Wise\I18n\ApiAdmin\Controller\CurrencyExchanges\GetCurrencyExchangesController: ~
+    Wise\I18n\ApiAdmin\Controller\CurrencyExchanges\PutCurrencyExchangesController: ~
+    Wise\I18n\ApiAdmin\Controller\CurrencyExchanges\DeleteCurrencyExchangesByKeyController: ~
+    Wise\I18n\ApiAdmin\Controller\CurrencyExchanges\PatchCurrencyExchangesController: ~
+    Wise\I18n\ApiAdmin\Service\CurrencyExchanges\GetCurrencyExchangesService: ~
+    Wise\I18n\ApiAdmin\Service\CurrencyExchanges\Interfaces\GetCurrencyExchangesServiceInterface: '@Wise\I18n\ApiAdmin\Service\CurrencyExchanges\GetCurrencyExchangesService'
+    Wise\I18n\ApiAdmin\Service\CurrencyExchanges\PutCurrencyExchangesService: ~
+    Wise\I18n\ApiAdmin\Service\CurrencyExchanges\Interfaces\PutCurrencyExchangesServiceInterface: '@Wise\I18n\ApiAdmin\Service\CurrencyExchanges\PutCurrencyExchangesService'
+    Wise\I18n\ApiAdmin\Service\CurrencyExchanges\DeleteCurrencyExchangesByKeyService: ~
+    Wise\I18n\ApiAdmin\Service\CurrencyExchanges\Interfaces\DeleteCurrencyExchangesByKeyServiceInterface: '@Wise\I18n\ApiAdmin\Service\CurrencyExchanges\DeleteCurrencyExchangesByKeyService'
+    # CurrencyExchange - Persistence
+    Wise\I18n\Repository\Doctrine\CurrencyExchangeRepository: ~
+    Wise\I18n\Domain\CurrencyExchange\CurrencyExchangeRepositoryInterface: '@Wise\I18n\Repository\Doctrine\CurrencyExchangeRepository'
+    # CurrencyExchange - Logical
+    Wise\I18n\Service\CurrencyExchange\ListByFiltersCurrencyExchangeService: ~
+    Wise\I18n\Service\CurrencyExchange\Interfaces\ListByFiltersCurrencyExchangeServiceInterface: '@Wise\I18n\Service\CurrencyExchange\ListByFiltersCurrencyExchangeService'
+    Wise\I18n\Service\CurrencyExchange\ModifyCurrencyExchangeService: ~
+    Wise\I18n\Service\CurrencyExchange\Interfaces\ModifyCurrencyExchangeServiceInterface: '@Wise\I18n\Service\CurrencyExchange\ModifyCurrencyExchangeService'
+    Wise\I18n\Service\CurrencyExchange\AddOrModifyCurrencyExchangeService: ~
+    Wise\I18n\Service\CurrencyExchange\Interfaces\AddOrModifyCurrencyExchangeServiceInterface: '@Wise\I18n\Service\CurrencyExchange\AddOrModifyCurrencyExchangeService'
+    Wise\I18n\Service\CurrencyExchange\AddCurrencyExchangeService: ~
+    Wise\I18n\Service\CurrencyExchange\Interfaces\AddCurrencyExchangeServiceInterface: '@Wise\I18n\Service\CurrencyExchange\AddCurrencyExchangeService'
+    Wise\I18n\Service\CurrencyExchange\CurrencyExchangeHelper: ~
+    Wise\I18n\Service\CurrencyExchange\Interfaces\CurrencyExchangeHelperInterface: '@Wise\I18n\Service\CurrencyExchange\CurrencyExchangeHelper'
+    Wise\I18n\Service\CurrencyExchange\RemoveCurrencyExchangeService: ~
+    Wise\I18n\Service\CurrencyExchange\Interfaces\RemoveCurrencyExchangeServiceInterface: '@Wise\I18n\Service\CurrencyExchange\RemoveCurrencyExchangeService'
+
+    ###>>> UI API
+    # Layout - Interface
+    Wise\I18n\ApiUi\Controller\Layout\GetLayoutLanguagesController: ~
+    Wise\I18n\ApiUi\Service\Layout\GetLayoutLanguagesService: ~
+    Wise\I18n\ApiUi\Service\Layout\Interfaces\GetLayoutLanguagesServiceInterface: '@Wise\I18n\ApiUi\Service\Layout\GetLayoutLanguagesService'
+    # Layout - Logical
+    Wise\I18n\Service\Layout\ListLanguagesService: ~
+    Wise\I18n\Service\Layout\Interfaces\ListLanguagesServiceInterface: '@Wise\I18n\Service\Layout\ListLanguagesService'

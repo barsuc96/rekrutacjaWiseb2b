@@ -1,0 +1,3 @@
+service:
+  success_update: 'Pomyślnie zaktualizowano usługę'
+  success_create: 'Pomyślnie dodano usługę'

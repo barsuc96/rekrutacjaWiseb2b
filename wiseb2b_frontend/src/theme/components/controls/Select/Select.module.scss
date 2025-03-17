@@ -1,0 +1,16 @@
+.wrapperComponent {
+  display: block;
+
+  &.isSpecial {
+    > div > div {
+      &:first-of-type {
+        border-color: #74ff59 !important;
+      }
+
+      &:nth-of-type(2) {
+        top: 100% !important;
+        border-top: unset;
+      }
+    }
+  }
+}

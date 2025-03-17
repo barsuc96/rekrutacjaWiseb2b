@@ -1,0 +1,8 @@
+doctrine:
+    orm:
+        mappings:
+            User:
+                is_bundle: false
+                dir: '%wiseb2b_dir%/Wise/User/Domain'
+                prefix: 'Wise\User\Domain'
+                alias: User

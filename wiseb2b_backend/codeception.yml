@@ -1,0 +1,13 @@
+namespace: App\Tests
+include:
+- Wise/Core
+- Wise/Security
+- Wise/Client
+#- Wise/Order
+- Wise/User
+- Wise/Receiver
+paths:
+  output: tests/_output
+params:
+- .env
+- .env.test

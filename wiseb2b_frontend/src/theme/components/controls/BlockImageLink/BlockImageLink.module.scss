@@ -1,0 +1,77 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 1px;
+  padding: 24px 36px 36px;
+  background: rgba(255, 255, 255, 0.72);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+
+  @include breakpoint(sm) {
+  justify-content: space-between;
+  }
+
+  > span {
+    position: relative;
+    display: block;
+    max-width: 262px;
+    font-family: $font-poppins;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 120%;
+    color: $color-primary;
+  }
+  > svg {
+    max-width: 262px;
+    min-width: 24px;
+    font-family: $font-poppins;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 120%;
+    color: $color-primary;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(sm) {
+      margin-right: 0;
+    }
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.componentWrapper {
+  position: relative;
+  display: flex;
+  flex-flow: wrap column;
+  height: auto;
+  min-height: 214px;
+
+  @include breakpoint(md) {
+    min-height: 230px;
+  }
+
+  cursor: pointer;
+
+  &.fullHeight {
+    height: 100%;
+  }
+
+  &:hover {
+    .name {
+      min-height: 100%;
+    }
+  }
+}

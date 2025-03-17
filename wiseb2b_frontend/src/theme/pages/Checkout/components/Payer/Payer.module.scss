@@ -1,0 +1,91 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+
+  @include breakpoint(md) {
+    flex-direction: column;
+  }
+}
+
+.column {
+  flex-shrink: 0;
+  width: 50%;
+  border-right: 1px solid $color-gray-border;
+  padding: 0 30px;
+
+  @include breakpoint(md) {
+    width: 100%;
+    border-right: none;
+    padding: 0;
+  }
+
+  &:last-of-type {
+    border-right: none;
+
+    @include breakpoint(md) {
+      border-top: 1px solid $color-gray-border;
+      margin-top: 24px;
+      padding-top: 24px;
+    }
+  }
+}
+
+.section {
+  margin-top: 2em;
+  font-size: 16px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    font-weight: 700;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    color: $color-secondary;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  .label {
+    color: $color-text-light;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.checkboxWrapper {
+  margin-top: 16px;
+
+  label > div {
+    font-size: 16px;
+    color: $color-text;
+  }
+}
+
+.receiverOption {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+  padding: 4px 0;
+
+  .current {
+    color: $color-secondary;
+  }
+}

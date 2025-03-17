@@ -1,0 +1,10 @@
+{
+    "status": 1,
+    "message": "Pole sekcji stworzona pomyślnie",
+    "show_message": true,
+    "data": {
+        "symbol": "FAQ"
+    },
+    "error_fields": null,
+    "show_modal": false
+  }

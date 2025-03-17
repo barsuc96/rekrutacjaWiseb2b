@@ -1,0 +1,30 @@
+# Expose your documentation as JSON swagger compliant
+app.swagger_ui.api.admin.v2:
+    path: /admin-api/nelmio
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui, area: api_admin_v2 }
+
+app.swagger.api.admin.v2:
+    path: /admin-api/doc.json
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger, area: api_admin_v2 }
+
+app.swagger_ui.api.ui.v2:
+    path: /ui-api/nelmio
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui, area: api_ui_v2 }
+
+app.swagger.api.ui.v2:
+    path: /ui-api/doc.json
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger, area: api_ui_v2 }
+
+app.swagger_ui.api.client.v2:
+    path: /client-api/nelmio
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui, area: api_client_v2 }
+
+app.swagger.api.client.v2:
+    path: /client-api/doc.json
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger, area: api_client_v2 }

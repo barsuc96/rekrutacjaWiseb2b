@@ -1,0 +1,23 @@
+#wise_resource_api_admin_v2:
+#  trailing_slash_on_root: false
+#  resource: ../../Api/ApiAdmin/V2/Controller/
+#  prefix: api/admin/v2/resources
+#  type: annotation
+
+wise_product_categories_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/Receivers/
+  prefix: api/admin/receivers
+  type: annotation
+
+wise_receivers_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/
+  prefix: api/ui/receivers
+  type: annotation
+
+wise_panel_receivers_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/PanelManagement/
+  prefix: api/ui/panel/receivers
+  type: annotation

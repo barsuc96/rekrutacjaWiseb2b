@@ -1,0 +1,97 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+  padding: 53px 44px;
+
+  @include breakpoint(md) {
+    padding-left: 9px;
+    padding: 45px 9px;
+  }
+}
+
+.title {
+  display: block;
+  width: 100%;
+  margin: 0 0 34px 0;
+  font-family: $font-poppins;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  color: $color-text-dark;
+  text-align: center;
+}
+
+.categoryWrapper {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-column-gap: 24px;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+
+  @include breakpoint(md) {
+    grid-column-gap: 8px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
+  padding: 26px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  min-height: 47px;
+  min-width: 70px;
+}
+
+.name {
+  margin: 4px auto 0;
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: $color-text-dark;
+  transition: all 0.2s ease-in-out;
+}
+
+.item {
+  display: flex;
+  flex-flow: wrap column;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+
+  &:hover {
+    .border {
+      border-color: $color-secondary-background;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .name {
+      color: $color-link;
+    }
+  }
+}

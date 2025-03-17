@@ -1,0 +1,25 @@
+
+###> symfony/framework-bundle ###
+.env.local
+.env.local.php
+.env.*.local
+config/secrets/prod/prod.decrypt.private.php
+public/bundles/
+public/files/
+!public/files/przyklad_importu_koszyk_OK.xlsx
+!public/files/przyklad_importu_koszyk_OK.csv
+var/
+vendor/
+.idea
+composer.phar
+###< symfony/framework-bundle ###
+
+###> league/oauth2-server-bundle ###
+/config/jwt/*.pem
+###< league/oauth2-server-bundle ###
+
+###> node_moduels | yarn ###
+yarn.lock
+node_modules/
+###< symfony/framework-bundle ###
+.DS_Store

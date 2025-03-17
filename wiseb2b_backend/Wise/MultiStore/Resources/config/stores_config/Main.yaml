@@ -1,0 +1,52 @@
+
+wise_multi_store:
+    stores:
+        wiseb2b:
+            id: 1
+            symbol: wiseb2b
+            name: "Sklep - MAIN"
+        website2:
+            id: 2
+            symbol: website2
+            name: "Sklep - SMALL"
+    store_config_overrides:
+        wiseb2b:
+            NAVBAR_SECTION_SYMBOL: 'MAIN_MENU'
+#
+#            # ======= KONFIGURACJA JĘZYKA =========
+#            defaultContentLanguage: pl
+#            default_currency: PLN
+#            languages: '%env(resolve:LANGUAGES)%'
+#
+#            # ======= KONFIGURACJA WITRYNY =========
+#            # Symbol kategorii, od której ma być budowana kategoria na witrynie (w nawigacji, po lewej stronie lisingu produktów)
+#            root_symbol_category: ROOT_CATEGORIES
+#
+#            # Symbol sekcji zarządzającej elementami nawigacji takich jak np. PROMOCJA, NOWOŚCI
+#            navbar_section_symbol: 'MAIN_MENU'
+#
+#            sort_methods_ids: [ 'default', 'name_asc', 'name_desc', 'price_asc', 'price_desc', 'sys_insert_date_desc', 'sys_insert_date_asc' ]
+#            sort_methods_ids_for_open_profile: [ 'name_asc', 'name_desc' ]
+#            # ======= KONFIGURACJA FILTRÓW =========
+#            filter_symbols:
+#                main: [ 'marka', 'producent' ]
+#                additional: [ 'color', 'wymiar' ]
+#        website2:
+#            wise_message:
+#                email_configuration:
+#                    base_color: '#19b062'
+
+    translations:
+#        wiseb2b:
+#            modules:
+#                # Umożliwia przeciążenie nazw artykułów w zależności od sklepu (jeśli pojawi się w CMS do wyświetlenia HOME_DESKTOP to zostanie nazwa podmieniona pod dedykowany dla sklepu MAIN_HOME_DESKTOP)
+#                wise_cms:
+#                    HOME_DESKTOP: MAIN_HOME_DESKTOP
+#                # Umożliwia przeciążanie template'ów maili w zależności od sklepu
+#                wise_messages:
+#                    cartConfirmMail_html_twig: 'cartConfirmMail.html.twig'
+#                    defaultMail_html_twig: 'defaultMail.html.twig'
+#                    defaultMailVariantButtonUnderHeader_html_twig: 'defaultMailVariantButtonUnderHeader.html.twig'
+#        website2:
+#            modules:
+

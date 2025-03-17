@@ -1,0 +1,7 @@
+nelmio_api_doc:
+  models:
+    names:
+      - { alias: PostOnlinePaymentInitializeRequestDto, type: Wise\Payment\ApiUi\Dto\OnlinePayment\PostOnlinePaymentInitializeRequestDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostOnlinePaymentInitializeResponseDto, type: Wise\Payment\ApiUi\Dto\OnlinePayment\PostOnlinePaymentInitializeResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostOnlinePaymentReturnRedirectUrlRequestDto, type: Wise\Payment\ApiUi\Dto\OnlinePayment\PostOnlinePaymentReturnRedirectUrlRequestDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetOnlinePaymentStatusResponseDto, type: Wise\Payment\ApiUi\Dto\OnlinePayment\GetOnlinePaymentStatusResponseDto, areas: [ 'api_ui_v2' ] }

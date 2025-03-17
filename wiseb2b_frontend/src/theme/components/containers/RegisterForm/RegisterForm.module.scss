@@ -1,0 +1,263 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+}
+
+.accountWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  background: $color-white;
+  margin-bottom: 32px;
+
+  @include breakpoint(sm) {
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .section {
+    width: 48%;
+
+    @include breakpoint(lg) {
+      max-width: unset;
+      padding: 0 10px;
+    }
+
+    @include breakpoint(sm) {
+      max-width: unset;
+      width: 100%;
+      padding: 0;
+    }
+
+    > .title {
+      @include breakpoint(sm) {
+        margin-top: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed $color-gray-border;
+      }
+    }
+  }
+
+  .invoice {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(sm) {
+      margin-bottom: 10px;
+      border-bottom: 1px dashed $color-gray-border;
+    }
+  }
+
+  .contact {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 140%;
+    color: $color-primary;
+    text-decoration: underline;
+    cursor: pointer;
+
+    a {
+      color: $color-primary;
+    }
+
+    @include breakpoint(sm) {
+      margin-top: 4px;
+      font-size: 8px;
+    }
+  }
+
+  .sectionMiddle {
+    width: 100%;
+    padding: 0 55px;
+    max-width: 435px;
+    border-left: 1px dashed $color-gray-border;
+    border-right: 1px dashed $color-gray-border;
+
+    @include breakpoint(lg) {
+      width: 33.33%;
+      padding: 0;
+      border: unset;
+    }
+
+    @include breakpoint(sm) {
+      width: 100%;
+      padding: 0;
+      border: unset;
+      max-width: unset;
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    margin-top: 40px;
+    width: 100%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 140%;
+
+    @include breakpoint(sm) {
+      margin-top: 12px;
+    }
+  }
+}
+
+.halfWidth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+}
+
+.login {
+  position: relative;
+  width: 100%;
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 22px;
+
+  svg {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 24px;
+
+  @include breakpoint(sm) {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &.secondary {
+    margin-top: 32px;
+  }
+}
+
+.info {
+  background-color: $color-tab-bg;
+  padding: 30px 35px 20px 35px;
+  color: $color-text-light;
+  margin-top: 5px;
+
+  @include breakpoint(sm) {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  b {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 140%;
+
+    @include breakpoint(sm) {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    color: $color-text-light;
+    text-decoration: unset;
+  }
+
+  span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 140%;
+
+    @include breakpoint(sm) {
+      font-size: 10px;
+    }
+  }
+
+  div {
+    @include breakpoint(sm) {
+      display: flex;
+      justify-content: center;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 140%;
+
+      @include breakpoint(sm) {
+        font-size: 10px;
+        margin-top: 7px;
+
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+
+      svg {
+        margin-right: 7px;
+
+        path {
+          stroke: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  color: $color-text-dark;
+}
+
+.captcha {
+  margin-top: 25px;
+}
+
+.consent {
+  display: flex !important;
+  cursor: pointer;
+
+  @include breakpoint(sm) {
+    margin-top: 12px;
+  }
+
+  > span:first-child {
+    margin-right: 14px;
+
+    > span {
+      padding: 0;
+    }
+  }
+}
+
+.error {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 140%;
+  color: $color-red;
+}
+
+.selectWrapper {
+  border: 1px solid $color-gray-border;
+}
+
+.consentWrapper {
+  margin-top: 30px;
+}

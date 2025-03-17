@@ -1,0 +1,9 @@
+receiver:
+    address:
+        empty: 'The recipient does not have a completed address.'
+
+
+exceptions:
+    receiver:
+        access_to_add_receiver_disabled: 'The option to add the recipient is disabled. To add a recipient, please contact the customer service department.'
+        access_to_modify_receiver_disabled: 'The option to modify the recipient is disabled. To change the data, please contact the customer service department.'

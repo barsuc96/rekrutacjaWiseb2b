@@ -1,0 +1,31 @@
+countries:
+    pl: Polska
+    de: Niemcy
+
+user:
+    success_create: 'Użytkownik został pomyślnie utworzony.'
+    success_update: 'Użytkownik został pomyślnie zaktualizowany.'
+    success_send_password_reset: 'Link do zresetowania hasła został wysłany na adres e-mail użytkownika.'
+    error_passwords_not_match: 'Hasła nie są takie same.'
+
+roles:
+    ROLE_USER_MAIN: 'Użytkownik główny'
+    ROLE_USER: 'Użytkownik'
+    ROLE_TRADER: 'Handlowiec'
+    ROLE_FRANCHISSE: 'Franczyzobiorca'
+    ROLE_ADMIN: 'Administrator'
+    ROLE_OPEN_PROFILE: 'Otwarty profil (użytkownik nie zalogowany)'
+    ROLE_CLIENT_API: 'Klient API'
+
+
+exceptions:
+    register:
+        agreement_required: 'Nie możesz przejść dalej, ponieważ nie wyraziłeś wszystkich wymaganych zgód. Prosimy o ich uzupełnienie, aby kontynuować'
+    user:
+        password:
+            password_empty: "Hasło nie może być puste."
+            password_confirm_empty: 'Musisz potwierdzić hasło.'
+            password_not_same_with_password_confirm: 'Hasła nie są takie same.'
+        unique_constraint_violation: 'Użytkownik o podanych danych już istnieje. W razie potrzeby skontaktuj się z administratorem.'
+        exists_login: 'Użytkownik o podanych danych już istnieje. W razie potrzeby skontaktuj się z administratorem.'
+        mail_confirmed_false: 'Twój e-mail nie jest potwierdzony. Wysłąno ponownie e-mail na Twoja skrzynkę celem potwierdzenia adresu. Zaloguj się po potwierdzeniu adresu e-mail.'

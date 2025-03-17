@@ -1,0 +1,13 @@
+# Konfiguracja modułu odbiorcy
+
+wise_receiver:
+
+  # ==========================================================
+  # ============ PODSTAWOWA KONFIGURACJA ODBIORCY ============
+  # ==========================================================
+
+  # Czy można dodawać odbiorcę
+  can_add_receiver: true
+
+  # Czy można modyfikować odbiorce
+  can_modify_receiver: true

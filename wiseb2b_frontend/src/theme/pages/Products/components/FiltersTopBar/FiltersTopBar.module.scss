@@ -1,0 +1,28 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: block;
+}
+
+.loaderWrapper {
+  margin-left: 20px;
+}
+
+.filtersWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  .filter {
+    // margin-right: 16px;
+    // width: 200px;
+    flex: 1;
+  }
+
+  .unknownType {
+    border: 1px solid $color-error;
+    color: $color-error;
+    padding: 4px 8px;
+  }
+}

@@ -1,0 +1,32 @@
+parameters:
+  contract_entity: Wise\Agreement\Domain\Contract\Contract
+  contract_agreement_entity: Wise\Agreement\Domain\ContractAgreement\ContractAgreement
+  contract_type_dictionary_entity: Wise\Agreement\Domain\ContractTypeDictionary\ContractTypeDictionary
+
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    public: true
+
+  Wise\Agreement\:
+    resource: '../../'
+    exclude:
+      - '../../WiseAgreementBundle.php'
+      - '../../WiseAgreementConfiguration.php'
+      - '../../WiseAgreementExtension.php'
+
+
+  # Factories
+  Wise\Agreement\Domain\Contract\Factory\ContractFactory:
+    arguments:
+      $entity: '%contract_entity%'
+
+  Wise\Agreement\Domain\ContractAgreement\Factory\ContractAgreementFactory:
+    arguments:
+      $entity: '%contract_agreement_entity%'
+
+  Wise\Agreement\Domain\ContractTypeDictionary\Factory\ContractTypeDictionaryFactory:
+    arguments:
+      $entity: '%contract_type_dictionary_entity%'
+

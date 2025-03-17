@@ -1,0 +1,17 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+
+.wrapperComponent {
+  position: relative;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    color: $color-loader;
+    position: absolute;
+    width: 25px !important;
+    height: 25px !important;
+  }
+}

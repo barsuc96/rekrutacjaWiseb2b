@@ -1,0 +1,42 @@
+nelmio_api_doc:
+  areas:
+    api_client_v2:
+      path_patterns:
+        - ^/api/client/(?!(nelmio|doc.json$|doc$))
+      documentation:
+        info:
+          title: WiseB2B Client API
+          version: '2.0'
+        components:
+          securitySchemes:
+            Bearer:
+              type: apiKey
+              description: 'Bearer (JWT)'
+              name: Authorization
+              in: header
+        security:
+          - Bearer: [ ]
+        tags:
+          - name: "AccessToken"
+            description: "Token służy do autoryzacji podczas zapytań"
+  models:
+    names:
+      # Common
+      - { alias: UnauthorizedResponseDto, type: Wise\Core\Dto\UnauthorizedResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: InvalidInputDataResponseDto, type: Wise\Core\Dto\InvalidInputDataResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: CommonApiExceptionResponseDto, type: Wise\Core\Dto\CommonApiExceptionResponseDto, areas: [ 'api_client_v2' ] }
+
+
+      # Client Api
+      - { alias: GetOrdersClientApiResponseDto, type: Wise\ClientApi\ApiClient\Dto\GetOrdersClientApiResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: FailedResponseDto, type: Wise\ClientApi\ApiClient\Dto\Core\FailedResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: PostAccessTokenResponseDto, type: Wise\ClientApi\ApiClient\Dto\Core\PostAccessTokenResponseDto, areas: [ 'api_client_v2' ] }
+      - { alias: PostAccessTokenRequestDto, type: Wise\ClientApi\ApiClient\Dto\Core\PostAccessTokenRequestDto, areas: [ 'api_client_v2' ] }
+
+      # UI api
+      - { alias: PostClientApiAccessResponseDto, type: Wise\ClientApi\ApiUi\Dto\PostClientApiAccessResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostClientApiAccessRequestDto, type: Wise\ClientApi\ApiUi\Dto\PostClientApiAccessRequestDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetClientApiAccessResponseDto, type: Wise\ClientApi\ApiUi\Dto\GetClientApiAccessResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetClientApiAccessQueryParametersDto, type: Wise\ClientApi\ApiUi\Dto\GetClientApiAccessQueryParametersDto, areas: [ 'api_ui_v2' ] }
+
+

@@ -1,0 +1,49 @@
+Wise\Core\Domain\Admin\ReplicationObject\ReplicationObject:
+  type: entity
+  table: 'replication_object'
+  repositoryClass: Wise\Core\Repository\Doctrine\ReplicationObjectRepository
+  indexes:
+    replication_object_id:
+      columns: [id]
+    replication_object_id_request:
+      columns: [id_request]
+    replication_object_response_status:
+      columns: [response_status]
+    replication_object_sys_insert_date:
+      columns: [sys_insert_date]
+    replication_object_sys_update_date:
+      columns: [sys_update_date]
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    idRequest:
+      type: integer
+      nullable: false
+    object:
+      type: text
+      nullable: true
+    objectClass:
+      type: text
+      nullable: true
+    responseMessage:
+      type: text
+      nullable: true
+    responseStatus:
+      type: integer
+      nullable: true
+    sysInsertDate:
+      type: datetime
+      nullable: true
+      column: sys_insert_date
+      columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    sysUpdateDate:
+      type: datetime
+      nullable: true
+      column: sys_update_date
+      columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  lifecycleCallbacks:
+    prePersist: [ preInsert ]
+    preUpdate: [ preUpdate ]

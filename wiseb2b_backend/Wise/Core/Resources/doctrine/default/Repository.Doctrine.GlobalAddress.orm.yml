@@ -1,0 +1,16 @@
+Wise\Core\Repository\Doctrine\GlobalAddress:
+  type: entity
+  table: 'global_address'
+  repositoryClass: Wise\Core\Repository\Doctrine\GlobalAddressRepository
+  fields:
+    entityName: { type: string }
+    fieldName: { type: string }
+    entityId: { type: string }
+    name: { type: string }
+    street: { type: string, nullable: true }
+    houseNumber: { type: string, nullable: true }
+    apartmentNumber: { type: string, nullable: true }
+    city: { type: string, nullable: true }
+    postalCode: { type: string, nullable: true }
+    countryCode: { type: string, nullable: true }
+    state: { type: string, nullable: true }

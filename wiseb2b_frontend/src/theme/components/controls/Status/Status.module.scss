@@ -1,0 +1,35 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid $color-status;
+  border-radius: 99px;
+  border-color: $color-status;
+  color: $color-status;
+
+  @include breakpoint(md) {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  img {
+    margin-right: 16px;
+
+    @include breakpoint(md) {
+      margin-right: 8px;
+    }
+  }
+
+  .message {
+    min-width: 150px;
+
+    @include breakpoint(md) {
+      min-width: 0;
+    }
+  }
+};

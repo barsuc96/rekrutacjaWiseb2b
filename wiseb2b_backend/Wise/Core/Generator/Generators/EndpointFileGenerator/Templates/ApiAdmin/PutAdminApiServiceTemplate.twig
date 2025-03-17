@@ -1,0 +1,24 @@
+{% autoescape false %}
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Wise\Core\ApiAdmin\Service\AbstractPutAdminApiService;
+use Wise\Core\ApiAdmin\Helper\AdminApiShareMethodsHelper;
+use {{ interfaceNamespace }};
+
+class {{ className }} extends AbstractPutAdminApiService implements {{ interface }}
+{
+
+    public function __construct(
+        AdminApiShareMethodsHelper $adminApiShareMethodsHelper,
+        private readonly {{ applicationInterface }} $service,
+    ){
+        parent::__construct($adminApiShareMethodsHelper, $service);
+    }
+
+}
+
+{% endautoescape %}

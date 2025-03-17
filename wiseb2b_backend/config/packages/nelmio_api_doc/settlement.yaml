@@ -1,0 +1,7 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      # UI API
+      - { alias: GetPanelManagementSettlementDto, type: Wise\Payment\ApiUi\Dto\PanelManagement\Settlements\GetPanelManagementSettlementDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementSettlementsDto, type: Wise\Payment\ApiUi\Dto\PanelManagement\Settlements\GetPanelManagementSettlementsDto, areas: [ 'api_ui_v2' ] }

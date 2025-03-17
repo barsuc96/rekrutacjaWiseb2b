@@ -1,0 +1,28 @@
+@import 'src/theme/color';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border: 1px solid $color-gray-border;
+  padding: 0 16px;
+  font-size: 14px;
+  background: $color-gray;
+
+  span {
+    text-align: left;
+    width: 175px;
+    color: $color-text-dark;
+
+    &.placeholder {
+      color: $color-text-light;
+    }
+  }
+
+  svg {
+    color: $color-primary;
+    font-size: 20px;
+    margin-left: 16px;
+  }
+}

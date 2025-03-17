@@ -1,0 +1,8 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      - { alias: GetPanelManagementCategoryImagesDetailsResponseDto, type: Wise\Product\ApiUi\Dto\PanelManagement\Categories\GetPanelManagementCategoryImagesDetailsResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementCategoryImagesResponseDto, type: Wise\Product\ApiUi\Dto\PanelManagement\Categories\GetPanelManagementCategoryImagesResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PostPanelManagementCategoryImagesRequestDto, type: Wise\Product\ApiUi\Dto\PanelManagement\Categories\PostPanelManagementCategoryImagesRequestDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PutPanelManagementCategoryImagesRequestDto, type: Wise\Product\ApiUi\Dto\PanelManagement\Categories\PutPanelManagementCategoryImagesRequestDto, areas: [ 'api_ui_v2' ] }

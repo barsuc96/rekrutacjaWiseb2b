@@ -1,0 +1,130 @@
+{
+  "page_symbol": "PANEL_CATEGORIES_EDIT",
+  "page_definition": {
+    "components": [
+      {
+        "type": "tabPanel",
+        "symbol": "TAB_PANEL",
+        "label": "Panel edycji kategorii",
+        "names": [
+          {
+            "name": "Dane kategorii",
+            "component_symbol": "EDIT_PANEL"
+          },
+          {
+            "name": "Produkty",
+            "component_symbol": "TABLE"
+          }
+        ],
+        "components": [
+          {
+            "type": "editPanel",
+            "symbol": "EDIT_PANEL",
+            "label": "Edytuj kategorię",
+            "fields": [
+              {
+                "type": "text",
+                "value": "Nazwa kategorii",
+                "label": "Nazwa kategorii",
+                "editable": true,
+                "dictionary": null,
+                "symbol": "category_name",
+                "width": 12,
+                "height": 1
+              },
+              {
+                "type": "text",
+                "value": "Atrybut kategorii",
+                "label": "Atrybut kategorii",
+                "editable": true,
+                "dictionary": null,
+                "symbol": "category_property_1",
+                "width": 12,
+                "height": 1
+              },
+              {
+                "type": "text",
+                "value": "2 Atrybut kategorii",
+                "label": "2 Atrybut kategorii",
+                "editable": true,
+                "dictionary": null,
+                "symbol": "category_property_2",
+                "width": 12,
+                "height": 1
+              }
+            ],
+            "actions": [
+              {
+                "method_params": {
+                  "command_url": "/category/:category_id/save",
+                  "params_list": "category_name;category_property_1;category_property_2"
+                },
+                "refresh_data_mode": "ONSUCCESS",
+                "method": "CallCommand",
+                "label": "Zapisz"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "symbol": "TABLE",
+            "label": "Produkty",
+            "filters": [
+              {
+                "type": "search",
+                "label": "Szukaj produktu...",
+                "value_name": "search_keyword"
+              }
+            ],
+            "columns": [
+              {
+                "type": "text",
+                "label": "ID",
+                "field_symbol": "id",
+                "align": "center"
+              },
+              {
+                "type": "text",
+                "label": "Nazwa produktu",
+                "field_symbol": "title",
+                "align": "center"
+              },
+              {
+                "type": "text",
+                "label": "URL link",
+                "field_symbol": "url_link",
+                "align": "center"
+              }
+            ],
+            "load_data_params": {
+              "get_url": "/products"
+            },
+            "actions": [
+              {
+                "type": "NO_CONTEXT",
+                "label": "Utwórz",
+                "method": "OpenComponent",
+                "method_params": {
+                  "component_name": "ClientForm",
+                  "params_list": "mode='NEW'"
+                },
+                "refresh_data_mode": "ONSUCCESS"
+              },
+              {
+                "type": "CONTEXT_MAIN",
+                "label": "Usuń",
+                "style": "DELETE",
+                "method": "Delete",
+                "method_params": {
+                  "command_url": "/clients/:id/delete",
+                  "params_list": null
+                },
+                "refresh_data_mode": "ONSUCCESS"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

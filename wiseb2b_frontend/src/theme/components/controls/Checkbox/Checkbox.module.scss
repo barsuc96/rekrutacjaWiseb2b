@@ -1,0 +1,19 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  .checkbox {
+    color: $color-gray-checkbox;
+    &.checked {
+      color: $color-secondary;
+    }
+    &.indeterminate {
+      color: $color-secondary;
+    }
+  }
+
+  &.disabled {
+    .checkbox {
+      color: $color-text-light;
+    }
+  }
+}

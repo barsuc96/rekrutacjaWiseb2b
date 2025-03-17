@@ -1,0 +1,70 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  button {
+    height: 36px;
+  }
+}
+
+.label {
+  height: 36px;
+  padding: 0 16px;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-gray-border;
+  color: $color-label;
+  font-size: 14px;
+  font-weight: 500;
+
+  .chevron {
+    padding: 0 10px;
+
+    svg {
+      font-size: 16px;
+    }
+  }
+}
+
+.content {
+  padding: 12px;
+  background-color: $color-white;
+  border: 1px solid $color-dropdown;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin-bottom: 12px;
+
+  > div {
+    max-width: 120px;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+.rangeWrapper {
+  margin: 24px 0;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    max-width: 120px;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
+.fromTo {
+  margin-left: 5px;
+  color: $color-label
+}

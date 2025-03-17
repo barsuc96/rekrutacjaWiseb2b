@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            Receiver:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Receiver/Resources/entity/receiver'
+                prefix: 'Wise\Receiver\Domain\Receiver'
+                alias: Receiver

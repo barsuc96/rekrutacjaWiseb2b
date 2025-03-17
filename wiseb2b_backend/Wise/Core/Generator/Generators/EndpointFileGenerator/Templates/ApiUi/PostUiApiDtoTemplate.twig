@@ -1,0 +1,52 @@
+{% autoescape false %}
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Wise\Core\Api\Attributes\OpenApi\EndpointElement as OA;
+use Wise\Core\Api\Dto\Attributes\FieldEntityMapping;
+use Wise\Core\Api\Fields\FieldHandlingEnum;
+use Wise\Core\ApiUi\Dto\CommonUiApiDto;
+
+class {{ className }} extends CommonUiApiDto
+{
+    {% if fields is not null and fields is not empty %}
+    {% for field in fields %}
+
+    #[OA\Property(
+        description: '{{ field.description is not null ? field.description : '' }}',
+        example: {{
+field.type == 'string' ? "'example'" :
+(field.type == 'int' ? 1 :
+(field.type == 'float' ? 1.1 :
+(field.type == 'bool' ? 'true' : 'null')))
+}},
+    )]
+    protected {{ field.allowNull ? '?' : '' }}{{ field.type }} ${{ field.name }}{{
+field.allowNull ? '' : ''
+}};
+
+    {% endfor %}
+
+    {% for field in fields %}
+
+    public function get{{ field.nameU }}(): {{ field.allowNull ? '?' : '' }}{{ field.type }}
+    {
+        return $this->{{ field.name }};
+    }
+
+    public function set{{ field.nameU }}({{ field.allowNull ? '?' : '' }}{{ field.type }} ${{ field.name }}): self
+    {
+    $this->{{ field.name }} = ${{ field.name }};
+
+    return $this;
+    }
+
+{% endfor %}
+{% endif %}
+
+    }
+
+{% endautoescape %}

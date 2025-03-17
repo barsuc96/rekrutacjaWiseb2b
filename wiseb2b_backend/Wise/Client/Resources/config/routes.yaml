@@ -1,0 +1,23 @@
+wise_client_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/Clients/
+  prefix: api/admin/clients
+  type: annotation
+
+wise_client_groups_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/ClientGroups/
+  prefix: api/admin/client-groups
+  type: annotation
+
+wise_client_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/
+  prefix: api/ui/clients
+  type: annotation
+
+wise_panel_client_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/PanelManagement/
+  prefix: api/ui/panel/clients
+  type: annotation

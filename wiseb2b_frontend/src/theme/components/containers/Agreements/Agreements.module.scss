@@ -1,0 +1,45 @@
+@import "src/theme/color";
+@import 'src/theme/breakpoints';
+
+
+.wrapperComponent {
+  width: 100%;
+  min-width: 780px;
+
+  @include breakpoint(md) {
+    min-width: 0;
+  }
+
+  button {
+    white-space: nowrap;
+  }
+}
+
+.confirmation {
+  width: 650px;
+
+  @include breakpoint(md) {
+    width: auto;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}
+
+.tableActions {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  * + * {
+    margin-top: 6px;
+  }
+}

@@ -1,0 +1,10 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: block;
+}
+
+.content {
+  padding: 16px 32px;
+  background: $color-white;
+}

@@ -1,0 +1,28 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  background: $color-order-bg;
+
+  .company {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 16px;
+
+    > div {
+      width: calc(50% - 8px);
+    }
+
+    .title {
+      margin-bottom: 1em;
+      font-weight: 700;
+    }
+
+    .label {
+      color: $color-text-light;
+    }
+  }
+};

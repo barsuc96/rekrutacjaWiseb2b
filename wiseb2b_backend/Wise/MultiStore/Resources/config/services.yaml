@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Wise\MultiStore\:
+        resource: '../../'
+        exclude:
+            - '../../WiseMultiStoreBundle.php'
+            - '../../WiseMultiStoreConfiguration.php'
+            - '../../WiseMultiStoreExtension.php'
+
+    Wise\MultiStore\Service\CurrentStoreService:
+        arguments:
+            $providers: !tagged multi_store.current_store_symbol
+
+    # Uruchomienie budowy przekierowań CMS dla multistore (jeśli chcesz, aby twój provider wykonywał się przed nim, zmień wartość priority na wyższą)
+    Wise\MultiStore\Service\CmsRedirectProviders\MultiStoreCmsRedirectProvider:
+        tags:
+            - { name: cms.build_cms_redirect, priority: 100 }

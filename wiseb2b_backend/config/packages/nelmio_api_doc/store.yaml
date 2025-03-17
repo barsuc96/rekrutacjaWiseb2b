@@ -1,0 +1,5 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      - { alias: GetStoreDictionaryResponseDto, type: Wise\MultiStore\ApiUi\Dto\GetStoreDictionaryResponseDto, areas: [ 'api_ui_v2' ] }

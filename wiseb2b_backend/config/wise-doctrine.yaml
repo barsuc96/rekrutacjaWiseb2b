@@ -1,0 +1,11 @@
+imports:
+    - { resource: ../Wise/Client/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/Core/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/I18n/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/Receiver/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/Security/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/Service/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/User/Resources/config/doctrine.yaml }
+
+    - { resource: ../Wise/Agreement/Resources/config/doctrine.yaml }
+    - { resource: ../Wise/GPSR/Resources/config/doctrine.yaml }

@@ -1,0 +1,115 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  .MuiList-root {
+    border: 1px solid $color-dropdown;
+
+    .MuiMenuItem {
+      border: 1px solid $color-dropdown;
+    }
+  }
+
+  &.bordered {
+    display: flex;
+    justify-content: center;
+    .button {
+      height: 100%;
+      border: 1px solid $color-primary;
+      svg {
+        min-width: 42px;
+        min-height: 42px;
+        color: $color-primary;
+        height: 100%;
+        width: 100%;
+        padding: 13px 16px 13px 10px;
+        margin: 0;
+      }
+
+      .line {
+        height: 75%;
+        min-width: 1px;
+        width: 1px;
+        background-color: $color-primary;
+      }
+
+      &.open {
+        background-color: $color-primary;
+        svg {
+          border-color: $color-white;
+          color: $color-white;
+        }
+        .line {
+          background-color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  height: 25px;
+  font-weight: 400;
+  color: $color-text;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  svg {
+    font-size: 18px;
+    margin-left: 10px;
+
+    &.dropdownArrow {
+      font-size: 16px;
+    }
+  }
+}
+
+.menu {
+  div:nth-of-type(3) {
+    border: 1px solid $color-dropdown;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    max-height: 200px;
+
+    ul {
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+}
+.menuItem {
+  &:hover {
+    color: $color-secondary;
+    background: $color-white;
+  }
+  div:first-of-type {
+    color: $color-text-dark;
+    background: $color-white;
+    font-size: 14px;
+
+    &:hover {
+      color: $color-secondary;
+      background: $color-white;
+    }
+  }
+}
+
+.disabled {
+  &.MuiMenuItem-root {
+    color: $color-text-light;
+
+    &:hover {
+      color: $color-text-light;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+framework:
+    default_locale: pl
+    translator:
+        default_path: '%kernel.project_dir%/translations'
+        fallbacks:
+            - en
+        paths:
+            - '%kernel.project_dir%/Wise/Core/Resources/translations'
+            - '%kernel.project_dir%/Wise/User/Resources/translations'
+            - '%kernel.project_dir%/Wise/I18n/Resources/translations'
+            - '%kernel.project_dir%/Wise/Client/Resources/translations'
+            - '%kernel.project_dir%/Wise/Receiver/Resources/translations'
+            - '%kernel.project_dir%/Wise/Service/Resources/translations'
+#        providers:
+#            crowdin:
+#                dsn: '%env(CROWDIN_DSN)%'
+#            loco:
+#                dsn: '%env(LOCO_DSN)%'
+#            lokalise:
+#                dsn: '%env(LOKALISE_DSN)%'

@@ -1,0 +1,11 @@
+imports:
+- define_app.yaml
+- define_vendors.yaml
+- rules_external.yaml
+- rules_internal.yaml
+
+deptrac:
+  paths:
+  - ../../Wise
+  exclude_files:
+  - '#.*Test\.php$'

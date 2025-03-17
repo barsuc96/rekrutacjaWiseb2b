@@ -1,0 +1,56 @@
+framework:
+    messenger:
+        # reset services after consuming messages
+        reset_on_message: true
+
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        # failure_transport: failed
+
+        transports:
+            # https://symfony.com/doc/current/messenger.html#transport-configuration
+            async: "%env(MESSENGER_TRANSPORT_DSN)%"
+            async_priority_high:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%-high'
+                options:
+                    # queue_name is specific to the doctrine transport
+                    #queue_name: high
+
+                    # for AMQP send to a separate exchange then queue
+                    #exchange:
+                    #    name: high
+                    #queues:
+                    #    messages_high: ~
+                    # for redis try "group"
+            async_priority_low:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                #options:
+                    #queue_name: low
+            price_catalog:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%-price-catalog'
+            async_admin_api:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%-admin-api'
+                retry_strategy:
+                    delay: 120000       # Początkowe opóźnienie 120 sekund
+                    multiplier: 5       # Każda kolejna próba będzie miała 5x większe opóźnienie
+                    max_delay: 3000000  # Maksymalne opóźnienie 50 minut
+                    max_retries: 2      # Maksymalna liczba prób
+                failure_transport: failed_async_admin_api
+            failed_async_admin_api:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%-failed-admin-api'
+
+
+            # Wykorzystywana do komend, które mogą wymagać ponownego wykonania po dłuższym czasie
+            async_command_retry_long:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%-async_command_retry_long'
+                retry_strategy:
+                    delay: 1800000      # Początkowe opóźnienie 30 minut
+                    multiplier: 2       # Każda kolejna próba będzie miała 2x większe opóźnienie
+                    max_delay: 28800000 # Maksymalne opóźnienie 8 godzin
+                    max_retries: 6      # Maksymalna liczba prób
+
+
+        routing:
+            # Route your messages to the transports
+            'Wise\Client\Service\Client\Command\ViesRecalculateForClientCommand': async_command_retry_long
+            'Wise\Core\ApiAdmin\Service\Async\Command\PerformAsyncRequestCommand': async_admin_api
+

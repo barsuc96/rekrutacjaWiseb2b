@@ -1,0 +1,130 @@
+@import 'src/theme/color';
+
+.mobileWrapper {
+  margin-bottom: 16px;
+
+  .mobileRow {
+    background-color: white;
+    &:first-child {
+      border-bottom: 1px solid $color-gray-background;
+      box-shadow: 0px 1px 2px rgba(6, 25, 56, 0.05);
+    }
+
+    svg {
+      cursor: pointer;
+    }
+
+    &:nth-child(2) {
+      padding: 12px 16px 0;
+      div {
+        width: 100%;
+        border-bottom: 1px dashed $color-table-border;
+        padding-bottom: 12px;
+      }
+    }
+
+    &:nth-child(3) {
+      border-bottom: 1px solid $color-price-border;
+    }
+
+    .priceWrapper {
+      div {
+        padding-bottom: 8px;
+      }
+    }
+
+
+    font-size: 13px;
+    line-height: 120%;
+    color: $color-text-light;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .lp {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 140%;
+      padding-right: 24px;
+    }
+
+    .header {
+      color: $color-text-light;
+    }
+
+    .copy {
+      color: $color-text-dark;
+    }
+
+    .id {
+      text-decoration: none;
+      color: $color-product-id;
+      font-size: 14px;
+      line-height: 140%;
+    }
+  }
+
+  .productsWrapper {
+    margin-top: 2px;
+  }
+
+}
+
+.showMore {
+  color: $color-primary;
+  padding: 0 16px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .arrow {
+    &.open {
+      transform: rotate(-180deg);
+    }
+    color: $color-text-dark;
+  }
+}
+
+.dropdownAction {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 13px;
+  list-style: 120%;
+  color: $color-text-dark;
+
+  &.cart {
+    margin-top: 12px;
+    :first-child {
+      color: $color-primary !important;
+    }
+  }
+
+  &.bin {
+    color: $color-bin !important;
+    margin-bottom: 12px;
+  }
+
+  .shoppingListButton {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    width: auto;
+    margin-left: auto;
+    cursor: pointer;
+    color: $color-text;
+    justify-content: flex-end;
+    
+
+    svg {
+      color: $color-primary;
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+}

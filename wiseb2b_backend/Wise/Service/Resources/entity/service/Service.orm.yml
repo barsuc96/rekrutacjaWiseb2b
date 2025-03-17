@@ -1,0 +1,28 @@
+Wise\Service\Domain\Service\Service:
+  type: entity
+  table: 'service'
+  repositoryClass: Wise\Service\Repository\Doctrine\ServiceRepository
+  fields:
+    idExternal:
+      type: string
+      nullable: true
+    type:
+      type: string
+      nullable: true
+      length: 255
+    costCalcMethod:
+      type: integer
+      nullable: true
+    costCalcParam:
+      type: float
+      nullable: true
+    taxPercent:
+      type: float
+      nullable: true
+    driverName:
+      type: string
+      nullable: true
+
+  uniqueConstraints:
+        service_id_external_unique_idx:
+            columns: id_external

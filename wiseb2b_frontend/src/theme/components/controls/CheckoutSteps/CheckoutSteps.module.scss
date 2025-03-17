@@ -1,0 +1,41 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  color: $color-gray-checkbox;
+
+  &.current {
+    color: $color-secondary;
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+}
+
+.label {
+  margin-left: 12px;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.arrow {
+  margin-left: 12px;
+}

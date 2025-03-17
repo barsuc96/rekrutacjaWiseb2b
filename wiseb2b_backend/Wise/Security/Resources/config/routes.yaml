@@ -1,0 +1,17 @@
+#wise_security_api_admin_v2:
+#  trailing_slash_on_root: false
+#  resource: ../../Api/Admin/V2/Controller/
+#  prefix: api/admin/v2/security
+#  type: annotation
+
+wise_security_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/
+  prefix: api/ui
+  type: annotation
+
+wise_security_oauth2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/Oauth2
+  prefix: api/admin
+  type: annotation

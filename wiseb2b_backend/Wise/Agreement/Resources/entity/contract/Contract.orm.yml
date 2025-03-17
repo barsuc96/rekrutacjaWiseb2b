@@ -1,0 +1,45 @@
+Wise\Agreement\Domain\Contract\Contract:
+  type: entity
+  table: contract
+  inheritanceType: SINGLE_TABLE
+  repositoryClass: Wise\Agreement\Domain\Contract\ContractRepositoryInterface
+
+  indexes:
+    contract_symbol_idx:
+      columns: [symbol]
+    contract_type_idx:
+      columns: [type]
+    contract_external_id_idx:
+      columns: [ id_external ]
+
+  fields:
+    idExternal:
+      type: string
+      nullable: true
+    requirement:
+      type: integer
+    impact:
+      type: integer
+    contexts:
+      type: string
+    symbol:
+      type: string
+    type:
+      type: string
+    roles:
+      type: string
+      nullable: true
+    status:
+      type: integer
+    fromDate:
+      type: date
+      nullable: true
+    toDate:
+      type: date
+      nullable: true
+    deprecatedDate:
+      type: date
+      nullable: true
+    inActiveDate:
+      type: date
+      nullable: true

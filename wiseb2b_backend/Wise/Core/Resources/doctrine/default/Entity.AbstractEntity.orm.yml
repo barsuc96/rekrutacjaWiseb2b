@@ -1,0 +1,35 @@
+Wise\Core\Entity\AbstractEntity:
+  type: mappedSuperclass
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    isActive:
+      type: boolean
+      nullable: true
+    sysInsertDate:
+      type: datetime
+      nullable: true
+      column: sys_insert_date
+    sysUpdateDate:
+      type: datetime
+      nullable: true
+      column: sys_update_date
+    entityHash:
+      type: string
+      length: 64
+      nullable: true
+    sortOrder:
+      type: integer
+      nullable: false
+      options:
+        default: 0
+    payloadBag:
+      type: payload_bag
+      nullable: true
+
+  lifecycleCallbacks:
+    prePersist: [ setInsertDate ]
+    preUpdate: [ setUpdateDate ]

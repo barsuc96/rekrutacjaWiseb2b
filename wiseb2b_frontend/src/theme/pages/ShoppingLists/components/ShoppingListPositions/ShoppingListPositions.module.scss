@@ -1,0 +1,198 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+  width: 100%;
+
+  .unitConverterMessage {
+    display: block;
+    font-size: 10px;
+  }
+
+  table {
+    box-shadow: 0 2px 5px rgba(6, 25, 56, 0.06);
+    width: 1200px;
+  }
+
+  thead {
+    tr {
+      th {
+        padding: 10px 18px;
+        background-color: $color-gray-background;
+        border-bottom: 1px solid $color-table-border;
+
+        span {
+          display: inline;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 10px 18px;
+        border-bottom: 1px solid $color-table;
+      }
+
+      td:not(:last-child) {
+        border-right: 1px dashed $color-table-border;
+      }
+    }
+  }
+}
+
+.lp {
+  display: block;
+  width: 16px;
+}
+
+// TrahIcon
+.deleteButton {
+  color: $color-text;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-error;
+  }
+}
+
+.quantityCellWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  > div + div {
+    margin-top: 10px;
+  }
+}
+
+.productPrice {
+  font-weight: 500;
+
+  .small {
+    font-weight: 400;
+    color: $color-text;
+    font-size: 10px;
+  }
+}
+
+.productTotalPrice {
+  display: flex;
+  flex-flow: wrap column;
+  font-weight: 700;
+
+  .suffix {
+    display: inline;
+    font-weight: 400;
+    color: $color-label;
+    font-size: 11px;
+  }
+
+  .small {
+    display: inline;
+    font-weight: 500;
+    color: $color-text;
+    font-size: 11px;
+  }
+}
+
+.actionWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-flow: wrap column;
+
+  .name {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 120%;
+    color: $color-text-dark;
+  }
+
+  .small {
+    margin-top: 4px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 120%;
+    color: $color-text;
+  }
+}
+
+.actionSelectWrapper {
+  width: 300px;
+  margin-right: 32px;
+}
+
+// ArrowDropdown
+.arrow {
+  display: block;
+  margin-left: 12px;
+  margin-right: 22px;
+}
+
+.cartItem {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+//button
+.exportButton {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  padding: 4px 6px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 120%;
+  color: $color-text-light;
+  cursor: pointer;
+  transition: all 0.12s ease-in-out;
+  margin-right: 6px;
+
+  svg {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    color: $color-product-hover;
+  }
+}
+
+.confirmationModal {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.confirmationModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}

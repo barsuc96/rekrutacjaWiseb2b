@@ -1,0 +1,34 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  display: flex;
+  flex-flow: wrap column;
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  width: 100%;
+  padding: 24px 0;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: $color-gray-border;
+  color: $color-white;
+}
+
+.consentActions {
+  margin-top: 20px;
+}
+
+.consentContent {
+  max-height: 70px;
+  overflow-y: scroll;
+  padding: 8px;
+  border: 1px solid $color-gray-border;
+}
+
+.consentRequired {
+  margin-top: 15px;
+}

@@ -1,0 +1,125 @@
+deptrac:
+  ruleset:
+    Core:
+    - I18n
+    - Security
+    Cart:
+    - Core
+    - Delivery
+    - Message
+    - Order
+    - Payment
+    - Product
+    - Receiver
+    - User
+    Cart Integration:
+    - Core
+    Checkout:
+    - Core
+    Client:
+    - Core
+    - Delivery
+    - I18n
+    - Offer
+    - Order
+    - Payment
+    - Pricing
+    - Security
+    - User
+    Cms:
+    - Core
+    Delivery:
+    - Client
+    - Core
+    - Order
+    - Pricing
+    - Receiver
+    - Security
+    - User
+    Document:
+    - Client
+    - Core
+    - Order
+    - Pricing
+    - Security
+    - User
+    Export:
+    - Core
+    - User
+    File:
+    - Core
+    - Product
+    - Product
+    I18n:
+    - Core
+    Message:
+    - Core
+    - Order
+    Offer:
+    - Core
+    - Pricing
+    - Product
+    - Security
+    - User
+    Order:
+    - Client
+    - Core
+    - Delivery
+    - Payment
+    - Pricing
+    - Product
+    - Security
+    - Service
+    - Stock
+    - User
+    Payment:
+    - Client
+    - Core
+    - Document
+    - Pricing
+    - Security
+    - User
+    Pricing:
+    - Core
+    - Delivery
+    - I18n
+    - Payment
+    - Product
+    Product:
+    - Core
+    - File
+    - Pricing
+    - Search Product
+    - Stock
+    Receiver:
+    - Client
+    - Core
+    - Security
+    - User
+    Search Product:
+    - Core
+    - File
+    - Pricing
+    - Product
+    - Security
+    - Stock
+    Security:
+    - Core
+    - Message
+    - User
+    Service:
+    - Core
+    Shopping List:
+    - Client
+    - Core
+    - Product
+    - Security
+    - User
+    Stock:
+    - Core
+    - Product
+    User:
+    - Client
+    - Core
+    - Offer
+    - Security

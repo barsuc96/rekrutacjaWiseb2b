@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bliska Paczka Widget Demo</title>
+    <script type="text/javascript" src="https://widget.bliskapaczka.pl/v7.13/main.js"></script>
+    <link rel="stylesheet" href="https://widget.bliskapaczka.pl/v7.13/main.css" />
+  </head>
+  <body style="margin: 0">
+    <div id="bpWidget" style="height: 800px"></div>
+    <script type="text/javascript" async="">
+      BPWidget.init(document.getElementById('bpWidget'), {
+        callback: function (point) {
+          window.top.postMessage({ payload: point, source: 'dpd-widget' }, '*');
+        },
+        posType: 'DELIVERY',
+        codOnly: false,
+        operators: [{ operator: 'DPD' }]
+      });
+    </script>
+  </body>
+</html>

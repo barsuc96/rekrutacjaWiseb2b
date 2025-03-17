@@ -1,0 +1,6 @@
+wise_store_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/Store/
+  prefix: api/ui/store
+  type: annotation
+

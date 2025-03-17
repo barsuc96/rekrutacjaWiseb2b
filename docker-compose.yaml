@@ -1,0 +1,126 @@
+version: "2"
+
+services:
+  app:
+    build:
+      context: docker/app
+    restart: always
+    labels:
+      ofelia.enabled: 'true'
+    volumes:
+      - ./documents:/var/www/documents:rw
+      - ./${BACKEND_DIRECTORY}:/var/www/backend:rw
+      - ~/.ssh:/root/.ssh:ro
+      - ./docker/openssl:/var/www/openssl:ro
+
+  cron_controller:
+    image: mcuadros/ofelia
+    restart: always
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  web:
+    build:
+      context: docker/web
+    restart: always
+    volumes:
+      - ./documents:/var/www/documents:ro
+      - ./${BACKEND_DIRECTORY}:/var/www/backend:ro
+      - ./${FRONTEND_DIRECTORY}:/var/www/frontend:ro
+      - ./admin:/var/www/admin:ro
+      - ./docker/web/front_back.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "0.0.0.0:${WEB_PORT}:80/tcp"
+      - "0.0.0.0:8081:8081/tcp"
+    networks:
+      default:
+        aliases:
+          - admin.local
+          - wiseb2b.local
+          - wiseb2b_20.local
+          - wiseb2b.stage
+          - demo.wiseb2b.eu
+
+  psql:
+    image: postgres:14-alpine
+    restart: always
+    shm_size: 300mb
+    env_file:
+      - .env
+    volumes:
+      - psql_data:/var/lib/postgresql/data:rw
+    ports:
+      - "0.0.0.0:${PSQL_PORT}:5432/tcp"
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+
+  redis:
+    image: redis:7.0-alpine
+    restart: always
+    command: ["redis-server", "--appendonly", "no", "--maxmemory", "4000mb", "--maxmemory-policy", "volatile-lru", "--port", "6379"]
+    ports:
+      - "6379:6379"
+
+  redissessions:
+    image: redis:7.2-alpine
+    restart: always
+    command: ["redis-server", "--appendonly", "no", "--maxmemory", "300mb", "--maxmemory-policy", "volatile-lru", "--port", "6380"]
+    ports:
+      - "6380:6380"
+
+  fakesmtp:
+    image: marlonb/mailcrab
+    restart: always
+    environment:
+      SMTP_PORT: 25
+    ports:
+      - "0.0.0.0:8025:1080/tcp"
+      - "0.0.0.0:${FAKE_SMTP_PORT}:25/tcp"
+
+  frontend:
+    build:
+      context: docker/frontend
+    restart: no
+    volumes:
+      - ./${FRONTEND_DIRECTORY}:/var/www/frontend:rw
+
+  webp:
+    image: webpsh/webp-server-go
+    restart: always
+    environment:
+      - WEBP_ENABLE_EXTRA_PARAMS=true
+    volumes:
+      - ./${BACKEND_DIRECTORY}/public:/opt/pics
+      - webp_data-exhaust:/opt/exhaust
+      - webp_data-metadata:/opt/metadata
+    ports:
+      -  127.0.0.1:3333:3333
+
+  docusaurus:
+    build:
+      context: docker/documentation
+    ports:
+      - '3010:3010'
+    volumes:
+      #      - ./${DOCUMENTATION_DIRECTORY}:/var/www/documentation:rw
+      - ./docker/documentation/pages:/var/www/documentation/src/pages
+      - ./docker/documentation/components:/var/www/documentation/src/components
+      - ./docker/documentation/blog:/var/www/documentation/blog
+      - ./docker/documentation/static:/var/www/documentation/static
+      - ./docker/documentation/docs:/var/www/documentation/docs
+      - ./${BACKEND_DIRECTORY}:/var/www/backend:ro
+
+volumes:
+  psql_data: ~
+  webp_data-exhaust: ~
+  webp_data-metadata: ~
+

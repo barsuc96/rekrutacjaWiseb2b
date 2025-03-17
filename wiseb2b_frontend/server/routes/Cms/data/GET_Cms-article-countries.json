@@ -1,0 +1,22 @@
+{
+    "total_count": 4,
+    "total_pages": 1,
+    "items": [
+      {
+        "code": "PL",
+        "name": "Polska"
+      },
+      {
+        "code": "CZ",
+        "name": "Czechy"
+      },
+      {
+        "code": "DE",
+        "name": "Niemcy"
+      },
+      {
+        "code": "EN",
+        "name": "Wielka Brytania"
+      }
+    ]
+  }

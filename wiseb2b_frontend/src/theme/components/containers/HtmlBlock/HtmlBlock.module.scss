@@ -1,0 +1,33 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  .title {
+    min-height: 39px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 100%;
+    border-bottom: 1px solid $color-primary;
+
+    @include breakpoint(sm) {
+      margin-top: 4px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+
+    h1 {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 140%;
+      color: $color-text-dark;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+
+      @include breakpoint(sm) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+Wise\Receiver\Domain\Receiver\Receiver:
+  type: entity
+  inheritanceType: SINGLE_TABLE
+  table: 'receiver'
+  repositoryClass: Wise\Receiver\Domain\Receiver\ReceiverRepositoryInterface
+
+  fields:
+    idExternal: { type: string, length: 255, nullable: true }
+    clientId: { type: integer, nullable: false }
+    name: { type: string, length: 200, nullable: false }
+    type: { type: string, length: 30, nullable: true }
+    firstName: { type: string, length: 60, nullable: true }
+    lastName: { type: string, length: 60, nullable: true }
+    email: { type: string, length: 60, nullable: true }
+    phone: { type: string, length: 60, nullable: true }
+    isDefault: { type: boolean, length: 60, nullable: true }

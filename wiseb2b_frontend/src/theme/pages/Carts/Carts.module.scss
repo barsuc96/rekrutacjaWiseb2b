@@ -1,0 +1,138 @@
+@import 'src/theme/color';
+
+.componentWrapper {
+  display: block;
+  width: 100%;
+}
+
+.tableWrapper {
+  th {
+    padding: 10px 18px;
+    background-color: $color-white;
+    border-bottom: 1px solid $color-gray-border;
+  }
+
+  td {
+    padding: 10px 18px;
+
+    &:first-child {
+      border-right: 1px dashed $color-gray-border;
+    }
+  }
+
+  .expanded-row {
+    td {
+      border-right: none;
+    }
+  }
+}
+
+.expandedTableWrapper {
+  th {
+    padding: 10px 18px;
+    background-color: $color-white;
+    border-bottom: 1px solid $color-gray-border;
+  }
+
+  td {
+    padding: 10px 18px;
+
+    &:first-child {
+      border-right: none;
+    }
+  }
+}
+
+.deleteButton {
+  color: $color-text;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-error;
+  }
+}
+
+.confirmationModal {
+  text-align: left;
+}
+
+.confirmationModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}
+
+.text {
+  display: block;
+  padding: 0 10px;
+}
+
+.link {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 120%;
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.light {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 120%;
+  color: $color-text;
+}
+
+.dark {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 120%;
+  color: $color-text-dark;
+}
+
+.arrow {
+  display: block;
+  margin: 0 auto;
+  color: $color-secondary;
+  cursor: pointer;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exportButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: $color-text;
+  font-size: 12px;
+
+  svg {
+    font-size: 16px;
+    margin-right: 4px;
+  }
+
+  &:hover {
+    color: $color-secondary;
+  }
+}

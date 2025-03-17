@@ -1,0 +1,262 @@
+parameters:
+  defaultContentLanguage: '%env(DEFAULT_LANGUAGE)%'
+  default_currency: '%env(DEFAULT_CURRENCY)%'
+  installationName: '%env(INSTALLATION_NAME)%'
+
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  Wise\Core\Serializer\Normalizer\ArrayNormalizer:
+    public: false
+    autowire: true
+    autoconfigure: true
+    tags:
+      - { name: serializer.normalizer, priority: 1000 }
+    arguments:
+      $nameConverter: '@serializer.name_converter.camel_case_to_snake_case'
+
+  Wise\Core\Serializer\Normalizer\DoctrineObjectDenormalizer:
+    public: false
+    autowire: true
+    autoconfigure: true
+    tags:
+      - { name: serializer.normalizer, priority: 10 }
+
+  Wise\Core\Serializer\Denormalizer\BoolPropertyDenormalizer:
+    public: false
+    autowire: true
+    autoconfigure: true
+    arguments:
+      - '@serializer.normalizer.object'
+    tags:
+      - { name: serializer.normalizer, priority: 1000 }
+
+  ###>>> Listeners
+  Wise\Core\EventListener\Exception\ExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception }
+
+  Wise\Core\EventListener\Controller\ControllerListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.controller }
+
+  Wise\Core\Controller\DeveloperController: ~
+
+  Wise\Core\Command\Admin\ReplicationRequestRetryCommand:
+    tags:
+      - { name: console.command, command: 'wise:replication:retry' }
+  Wise\Core\Command\ReplicationRequestStatsCommand:
+    tags:
+      - { name: console.command, command: 'wise:replication-request:stats-send' }
+
+  Wise\Core\Command\ReplicationLogsCleaningCommand:
+    tags:
+      - { name: console.command, command: 'wise:replication:clean-logs' }
+
+  Wise\Core\Generator\Command\GenerateFilesCommand:
+    tags:
+      - { name: console.command, command: 'wise:generate' }
+
+  Wise\Core\Command\IntegrationFixerCommand:
+    tags:
+      - { name: console.command, command: 'wise:integration-fixer' }
+
+  Wise\Core\Service\DomainEventsDispatcher: ~
+
+  Wise\Core\Service\Merge\MergeService: ~
+  Wise\Core\Service\Merge\TranslationsMergeService:
+    tags: [ wise.merge ]
+
+  Wise\Core\Service\Merge\BlobTranslationsMergeService:
+    tags: [ wise.merge ]
+
+  Wise\Core\EventListener\LocaleSettingListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  ###>>> ADMIN API
+  # Interface
+  Wise\Core\ApiAdmin\Controller\Endpoint\RedocViewController: ~
+  Wise\Core\ApiUi\Controller\RedocViewController: ~
+  Wise\Core\ApiAdmin\Service\RequestUuidService: ~
+  Wise\Core\ApiAdmin\ServiceInterface\RequestUuidServiceInterface: '@Wise\Core\ApiAdmin\Service\RequestUuidService'
+  Wise\Core\ApiAdmin\Controller\Endpoint\Admin\ReplicationRequestRetryController: ~
+  Wise\Core\ApiAdmin\Service\Admin\ReplicationRequestRetryService: ~
+  Wise\Core\ApiAdmin\ServiceInterface\Admin\ReplicationRequestRetryServiceInterface: '@Wise\Core\ApiAdmin\Service\Admin\ReplicationRequestRetryService'
+  Wise\Core\ApiAdmin\Controller\Endpoint\Admin\ReplicationRequestObjectRetryController: ~
+  Wise\Core\ApiAdmin\Service\Admin\ReplicationRequestObjectRetryService: ~
+  Wise\Core\ApiAdmin\ServiceInterface\Admin\ReplicationRequestObjectRetryServiceInterface: '@Wise\Core\ApiAdmin\Service\Admin\ReplicationRequestObjectRetryService'
+  Wise\Core\ApiAdmin\Controller\Endpoint\Admin\ReplicationHistoryController: ~
+  Wise\Core\ApiAdmin\Service\Admin\ReplicationHistoryService: ~
+  Wise\Core\ApiAdmin\ServiceInterface\Admin\ReplicationHistoryServiceInterface: '@Wise\Core\ApiAdmin\Service\Admin\ReplicationHistoryService'
+  Wise\Core\ApiAdmin\Service\Async\Handler\PerformAsyncRequestHandler: ~
+
+  # Persistence
+  Wise\Core\Repository\RepositoryManager: ~
+  Wise\Core\Repository\RepositoryManagerInterface: '@Wise\Core\Repository\RepositoryManager'
+  Wise\Core\Helper\Object\FileHelper: ~
+  Wise\Core\Repository\Doctrine\GlobalAddressRepository: ~
+  Wise\Core\Repository\Doctrine\GlobalAddressRepositoryInterface: '@Wise\Core\Repository\Doctrine\GlobalAddressRepository'
+  Wise\Core\Repository\Doctrine\GlobalBankAccountRepository: ~
+  Wise\Core\Repository\Doctrine\GlobalBankAccountRepositoryInterface: '@Wise\Core\Repository\Doctrine\GlobalBankAccountRepository'
+  Wise\Core\Repository\Doctrine\ReplicationObjectRepository: ~
+  Wise\Core\Repository\Doctrine\ReplicationRequestRepository: ~
+  Wise\Core\Repository\Doctrine\ReplicationObjectRepositoryInterface: '@Wise\Core\Repository\Doctrine\ReplicationObjectRepository'
+  Wise\Core\Repository\Doctrine\ReplicationRequestRepositoryInterface: '@Wise\Core\Repository\Doctrine\ReplicationRequestRepository'
+
+  # Cache
+  Wise\Core\Cache\WiseCacheContainer: ~
+  Wise\Core\Cache\Interface\WiseCacheContainerInterface: '@Wise\Core\Cache\WiseCacheContainer'
+
+  Wise\Core\Validator\ObjectValidator: ~
+  Wise\Core\DataTransformer\CommonDataTransformer: ~
+  Wise\Core\Locale\LocaleService: ~
+  Wise\Core\ServiceInterface\Locale\LocaleServiceInterface: '@Wise\Core\Locale\LocaleService'
+  Wise\Core\Helper\Service\ChooseServiceByReplicationEndpointHelper: ~
+
+  Wise\Core\Service\Admin\ReplicationService: ~
+  Wise\Core\Service\Interfaces\Admin\ReplicationServiceInterface: '@Wise\Core\Service\Admin\ReplicationService'
+  Wise\Core\Service\Admin\ListReplicationHistoryService: ~
+  Wise\Core\Service\Interfaces\Admin\ListReplicationHistoryServiceInterface: '@Wise\Core\Service\Admin\ListReplicationHistoryService'
+  Wise\Core\Service\Admin\ListReplicationObjectHistoryService: ~
+  Wise\Core\Service\Interfaces\Admin\ListReplicationObjectHistoryServiceInterface: '@Wise\Core\Service\Admin\ListReplicationObjectHistoryService'
+
+  Wise\Core\Service\CriticalSectionService: ~
+  Wise\Core\Service\Interfaces\CriticalSectionServiceInterface: '@Wise\Core\Service\CriticalSectionService'
+  Wise\Core\Service\SessionParamService: ~
+  Wise\Core\Service\SessionParamServiceInterface: '@Wise\Core\Service\SessionParamService'
+  Wise\Core\Repository\Doctrine\SessionParamRepository: ~
+  Wise\Core\Repository\Doctrine\SessionParamRepositoryInterface: '@Wise\Core\Repository\Doctrine\SessionParamRepository'
+  Wise\Core\Service\ReplicationRequestStatsSenderService: ~
+  Wise\Core\Service\Interfaces\ReplicationRequestStatsSenderServiceInterface: '@Wise\Core\Service\ReplicationRequestStatsSenderService'
+  Wise\Core\Service\ReplicationLogsCleaningService: ~
+  Wise\Core\Service\Interfaces\ReplicationLogsCleaningServiceInterface: '@Wise\Core\Service\ReplicationLogsCleaningService'
+
+  Wise\Core\Service\MimeService: ~
+
+  Wise\Core\Helper\CommonApiShareMethodsHelper: ~
+  Wise\Core\ApiAdmin\Helper\AdminApiShareMethodsHelper: ~
+  Wise\Core\ApiUi\Helper\UiApiShareMethodsHelper: ~
+
+  Wise\Core\Service\TranslationService:
+    arguments:
+      $fallbackContentLanguage: '%env(DEFAULT_LANGUAGE)%'
+#  Wise\Core\File\Export\FileExport: ~
+
+  Wise\Core\Service\Validator\ValidatorService:
+  Wise\Core\Service\Validator\ValidatorServiceInterface:
+    class: Wise\Core\Service\Validator\ValidatorService
+
+  Wise\Core\Validator\Validators\AssertValidator:
+    tags: ['wise.validator']
+
+  Wise\Core\Notifications\NotificationManager:
+    public: true
+  Wise\Core\Notifications\NotificationManagerInterface: '@Wise\Core\Notifications\NotificationManager'
+
+  Wise\Core\Notifications\NotificationResponseDTOConverterService: ~
+  Wise\Core\Notifications\NotificationResponseDTOConverterServiceInterface: '@Wise\Core\Notifications\NotificationResponseDTOConverterService'
+
+  Wise\Core\Helper\PersistenceShareMethodsHelper: ~
+  Wise\Core\Helper\Object\FileUrlHelper: ~
+  Wise\Core\Helper\Object\Interfaces\FileUrlHelperInterface: '@Wise\Core\Helper\Object\FileUrlHelper'
+  Wise\Core\Helper\Object\UrlHelper: ~
+  Wise\Core\Helper\Object\Interfaces\UrlHelperInterface: '@Wise\Core\Helper\Object\UrlHelper'
+  Wise\Core\EventListener\Provider\ControllerListenerAdditionalScopeProviderService: ~
+  Wise\Core\EventListener\Exception\ExceptionListenerAdditionalScopeProviderService: ~
+  Wise\Core\Domain\ShareMethodHelper\EntityDomainServiceShareMethodsHelper: ~
+  Wise\Core\Service\EncryptorService: ~
+
+  Wise\Core\Service\ConfigService: ~
+  Wise\Core\Service\Interfaces\ConfigServiceInterface: '@Wise\Core\Service\ConfigService'
+
+  Wise\Core\Api\Helper\OpenApiAliasResolver:
+    arguments:
+      $mainYamlFile: '%kernel.project_dir%/config/packages/nelmio_api_doc.yaml'
+
+  Wise\Core\Api\Helper\Interfaces\OpenApiAliasResolverInterface: '@Wise\Core\Api\Helper\OpenApiAliasResolver'
+
+  Wise\Core\Api\Helper\ControllerShareMethodsHelper: ~
+  Wise\Core\Api\Helper\Interfaces\ControllerShareMethodsHelperInterface: '@Wise\Core\Api\Helper\ControllerShareMethodsHelper'
+
+  Wise\Core\Service\ServiceShareMethodsHelper: ~
+
+
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\GetPanelManagementReplicationObjectsController: ~
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\GetPanelManagementReplicationRequestsController: ~
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\GetPanelManagementReplicationObjectController: ~
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\GetPanelManagementReplicationRequestController: ~
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\ReplicationRequestRetryWithBodyController: ~
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\ReplicationRequestObjectRetryWithBodyController: ~
+
+
+  Wise\Core\Service\ReplicationRequest\ListReplicationRequestService: ~
+  Wise\Core\Service\ReplicationRequest\Interfaces\ListReplicationRequestServiceInterface: '@Wise\Core\Service\ReplicationRequest\ListReplicationRequestService'
+
+  Wise\Core\Service\ReplicationObject\ListReplicationObjectService: ~
+  Wise\Core\Service\ReplicationObject\Interfaces\ListReplicationObjectServiceInterface: '@Wise\Core\Service\ReplicationObject\ListReplicationObjectService'
+
+  Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationRequestsService: ~
+  Wise\Core\ApiUi\Service\PanelManagement\Interfaces\GetPanelManagementReplicationRequestsServiceInterface: '@Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationRequestsService'
+
+  Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationObjectsService: ~
+  Wise\Core\ApiUi\Service\PanelManagement\Interfaces\GetPanelManagementReplicationObjectsServiceInterface: '@Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationObjectsService'
+
+  Wise\Core\Service\ReplicationRequest\GetReplicationRequestDetailsService: ~
+  Wise\Core\Service\ReplicationRequest\Interfaces\GetReplicationRequestDetailsServiceInterface: '@Wise\Core\Service\ReplicationRequest\GetReplicationRequestDetailsService'
+
+  Wise\Core\Service\ReplicationObject\GetReplicationObjectDetailsService: ~
+  Wise\Core\Service\ReplicationObject\Interfaces\GetReplicationObjectDetailsServiceInterface: '@Wise\Core\Service\ReplicationObject\GetReplicationObjectDetailsService'
+
+  Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationObjectService: ~
+  Wise\Core\ApiUi\Service\PanelManagement\Interfaces\GetPanelManagementReplicationObjectServiceInterface: '@Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationObjectService'
+
+  Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationRequestService: ~
+  Wise\Core\ApiUi\Service\PanelManagement\Interfaces\GetPanelManagementReplicationRequestServiceInterface: '@Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationRequestService'
+
+  ##>>> Generator File
+
+  Wise\Core\Generator\GeneratorFileService: ~
+  Wise\Core\Generator\Interfaces\GeneratorFileServiceInterface: '@Wise\Core\Generator\GeneratorFileService'
+
+  Wise\Core\Generator\Generators\EndpointFileGenerator\EndpointFileGenerator:
+    public: true
+  Wise\Core\Generator\Generators\ServiceFileGenerator\ServiceFileGenerator:
+    public: true
+
+  ##>>> Panel Log
+
+  Wise\Core\ApiUi\DynamicPage\PanelLogProvider:
+    tags:
+      - { name: dynamic_ui.page_definition }
+
+  Wise\Core\ApiUi\DynamicPage\PanelLogStatisticsProvider:
+    tags:
+      - { name: dynamic_ui.page_definition }
+
+  Wise\Core\ApiUi\DynamicPage\PanelLogObjectsFailedProvider:
+    tags:
+      - { name: dynamic_ui.page_definition }
+
+  ##>>> Integration Fixer
+  Wise\Core\Service\IntegrationFixerService: ~
+  Wise\Core\Service\Interfaces\IntegrationFixerServiceInterface: '@Wise\Core\Service\IntegrationFixerService'
+
+
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\GetPanelManagementStatisticsController: ~
+  Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementStatisticsService: ~
+  Wise\Core\ApiUi\Service\PanelManagement\Interfaces\GetPanelManagementStatisticsServiceInterface: '@Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementStatisticsService'
+
+  Wise\Core\ApiUi\Controller\Endpoint\PanelManagement\GetPanelManagementReplicationObjectsFailedController: ~
+  Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationObjectsFailedService: ~
+  Wise\Core\ApiUi\Service\PanelManagement\Interfaces\GetPanelManagementReplicationObjectsFailedServiceInterface: '@Wise\Core\ApiUi\Service\PanelManagement\GetPanelManagementReplicationObjectsFailedService'
+
+  Wise\Core\ApiUi\Service\PayloadBagUIAPISerializerService: ~
+  Wise\Core\ApiUi\Service\Interface\PayloadBagUIAPISerializerServiceInterface: '@Wise\Core\ApiUi\Service\PayloadBagUIAPISerializerService'
+
+when@test:
+  services:
+    Wise\Core\Service\Interfaces\Admin\ReplicationServiceInterface: '@Wise\Core\Tests\Stubs\NullReplicationService'
+    Wise\Core\Tests\Stubs\NullReplicationService: ~

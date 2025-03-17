@@ -1,0 +1,74 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  display: flex;
+  align-items: center;
+  color: $color-text;
+  border-bottom: 1px solid $color-gray-border;
+  flex: 1;
+
+  @include breakpoint(md) {
+    padding: 8px;
+  }
+
+  .logo {
+    margin-right: 16px;
+    padding: 0;
+    border: unset;
+    background-color: transparent;
+    cursor: pointer;
+
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+      display: block;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    @include breakpoint(md) {
+      img {
+        width: 120px;
+      }
+    }
+  }
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .buttons {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 24px;
+
+    @include breakpoint('md') {
+      display: none;
+    }
+  }
+
+  .link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-text-dark;
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 12px;
+
+    &.active {
+      color: $color-primary;
+    }
+
+    svg {
+      font-size: 20px;
+      margin-right: 8px;
+    }
+  }
+}

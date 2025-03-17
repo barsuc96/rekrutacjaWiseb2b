@@ -1,0 +1,30 @@
+wise_agreement_contract_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/Contract/
+  prefix: api/admin/contracts
+  type: annotation
+
+
+wise_agreement_contract_agreement_api_admin_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiAdmin/Controller/ContractAgreement/
+  prefix: api/admin/contract-agreements
+  type: annotation
+
+wise_agreement_panel_management_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/PanelManagement/
+  prefix: api/ui/panel/agreement
+  type: annotation
+
+wise_agreement_contract_agreement_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/ContractAgreement/
+  prefix: api/ui/contract-agreement
+  type: annotation
+
+wise_agreement_contract_api_ui_v2:
+  trailing_slash_on_root: false
+  resource: ../../ApiUi/Controller/Contract/
+  prefix: api/ui/contract
+  type: annotation

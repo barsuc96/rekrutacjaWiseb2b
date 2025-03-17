@@ -1,0 +1,52 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  padding: 30px 0 50px 0;
+
+  @include breakpoint(sm) {
+    padding: 0;
+  }
+
+  .contentWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include breakpoint(lg) {
+      display: block;
+    }
+  }
+
+  .content {
+    flex: 1;
+
+    @include breakpoint(sm) {
+      padding: 20px 10px;
+    }
+  }
+
+  .heading {
+    border-bottom: 1px solid $color-primary;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(sm) {
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 140%;
+      margin: 0 0 11px;
+      text-transform: uppercase;
+
+      @include breakpoint(sm) {
+        font-size: 14px;
+        margin: 0 0 7px;
+      }
+    }
+  }
+}

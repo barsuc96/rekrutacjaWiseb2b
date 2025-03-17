@@ -1,0 +1,186 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: flex;
+  flex-flow: wrap column;
+  width: 100%;
+
+  .sliderWrapper {
+    margin: 12px 0;
+  }
+
+  .searchWrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: $color-white;
+    height: 45px;
+    display: none;
+    z-index: 20;
+
+    @include breakpoint(md) {
+      display: block;
+      > div:first-child {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.productDetailsWrapper {
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+  background-color: $color-gray;
+}
+
+.productNavWrapper {
+  margin-top: 8px;
+  padding: 0;
+  background-color: $color-white;
+  border-top: 1px solid $color-tab-border;
+  border-bottom: 1px solid $color-tab-border;
+  position: sticky;
+  top: -1px;
+  z-index: 100;
+
+  @include breakpoint(md) {
+    margin-top: 0;
+  }
+
+  .productInfoBarWrapper {
+    background: $color-gray-background;
+
+    .productInfoBar {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include breakpoint(md) {
+        justify-content: flex-start;
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-family: $font-poppins;
+
+        @include breakpoint(md) {
+          .title {
+            display: none;
+          }
+        }
+
+        .image {
+          display: block;
+          height: 50px;
+          background: center center no-repeat;
+          background-size: contain;
+          width: 136px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  button {
+    text-transform: unset;
+    margin-right: 20px;
+
+    font-size: 16px;
+    color: $color-secondary;
+    font-weight: 400;
+
+    &.Mui-selected {
+      color: $color-secondary;
+    }
+  }
+
+  .MuiTabs-indicator {
+    height: 4px;
+    background-color: $color-secondary;
+  }
+}
+
+.tabsWrapper {
+  > div {
+    > div {
+      width: fit-content;
+      overflow-x: auto !important;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      > div {
+        width: 300px;
+      }
+    }
+  }
+}
+
+.productExtendedWrapper {
+  margin-top: 8px;
+  background-color: $color-gray;
+  overflow: hidden;
+
+  .fullDescription {
+    margin-bottom: 24px;
+  }
+}
+
+.productTabsWrapper {
+  background-color: $color-white;
+
+  .tabsBar {
+    border-bottom: 1px solid $color-collapsed-border;
+  }
+
+  .tabs {
+    width: fit-content;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background: $color-primary;
+    margin-right: auto;
+    padding: 0 36px;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-size: 16px;
+    color: $color-white;
+    font-weight: 500;
+    width: 150px;
+
+    &.active {
+      color: $color-primary;
+      background: $color-white;
+      font-weight: 700;
+      font-family: $font-poppins;
+    }
+  }
+}
+
+.othersAlsoBoughtWrapper {
+  padding: 60px 0;
+}
+
+.lastViewedWrapper {
+  padding: 60px 0;
+
+  @include breakpoint(md) {
+    padding: 28px 0;
+    margin-bottom: 45px;
+  }
+
+  background: $color-product-bg;
+}

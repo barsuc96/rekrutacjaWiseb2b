@@ -1,0 +1,161 @@
+@import 'src/theme/color';
+@import "src/theme/breakpoints";
+
+$background-image: '/assets/footer-background.png';
+
+.componentWrapper {
+  background: url($background-image) no-repeat top left $color-footer-background;
+
+  @include breakpoint(md) {
+    background: $color-footer-background;
+  }
+
+  .contentWrapper {
+    padding: 0 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: $color-white;
+
+    @include breakpoint(md) {
+      flex-direction: column;
+    }
+
+    > div {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      @include breakpoint(md) {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-white;
+    }
+
+    section {
+      margin-right: 75px;
+      padding: 32px 0 24px;
+
+      @include breakpoint(md) {
+        width: 100%;
+        margin-right: 0;
+        padding: 26px 0 0;
+      }
+
+      .title {
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        svg {
+          display: none;
+          font-size: 22px;
+        }
+
+        @include breakpoint(md) {
+          svg {
+            display: inline-block;
+          }
+        }
+
+        &.open {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .mapWrapper {
+      padding: 16px 0 0;
+
+      @include breakpoint(md) {
+        width: 100%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    @include breakpoint(md) {
+      .hidden {
+        display: none;
+      }
+    }
+  }
+
+  .bottomBar {
+    background: $color-footer-background-dark;
+
+    @include breakpoint(md) {
+      margin-top: 26px;
+      padding: 0 16px;
+
+      .lists {
+        display: flex;
+        flex-direction: column-reverse;
+
+        section {
+          padding: 24px 0 0;
+          height: auto;
+        }
+      }
+    }
+
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      padding: 32px 0;
+
+      @include breakpoint(md) {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      &.powered {
+        margin-right: 0;
+
+        @include breakpoint(md) {
+          flex-direction: row;
+        }
+      }
+
+      .list {
+        display: inline-flex;
+        align-items: center;
+
+        @include breakpoint(md) {
+          margin-top: 12px;
+        }
+      }
+
+      img {
+        margin: 0 10px;
+
+        &:first-child {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

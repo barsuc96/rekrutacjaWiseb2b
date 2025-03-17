@@ -1,0 +1,20 @@
+$breakpoints: (
+  sm: 600px,
+  md: 900px,
+  lg: 1200px,
+  xl: 1600px
+);
+
+@mixin breakpoint( $breakpoint ) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: #{ map-get( $breakpoints, $breakpoint ) }) {
+      @content;
+    }
+  } @else if type_of( $breakpoint ) == number and unit( $breakpoint ) == px {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Nie można pobrać żadnej wartości z `#{$breakpoint}`. Nie jest zdefiniowany w mapie `$breakpoints` lub jest nieprawidłową liczbą px.";
+  }
+}

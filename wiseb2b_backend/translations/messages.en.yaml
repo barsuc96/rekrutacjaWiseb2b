@@ -1,0 +1,801 @@
+
+settlement_status:
+    PAYMENT_STATUS_TO_PAY: __NEW_nieopłacona
+    PAYMENT_STATUS_PAID: __NEW_opłacona
+    PAYMENT_STATUS_CANCELED: __NEW_anulowana
+    PAYMENT_STATUS_EXPIRED: __NEW_przeterminowana
+settlements:
+    type:
+        CASH_IN: 'Cash desk accepted'
+        CASH_OUT: 'Cash desk issued'
+        ORDER: Order
+        BANK_ACCOUNT: 'Bank statement'
+        INVOICE: 'Sales invoice'
+        CORRECTIVE_INVOICE: 'Corrective invoice'
+        PROFORMA: 'Proforma invoice'
+        RETURN: Return
+        REPOSTED: Posted
+        RECEIPT_ONE_STOP: 'One Stop Shop receipt'
+        RECEIPT: Receipt
+        INTEREST_NOTE: 'Interest note'
+        ACCOUNTING_NOTE: 'Accounting note'
+        STOCKTAKING: Inventory
+        PURCHASE_CORRECTIVE_INVOICE: 'Purchase invoice correction'
+        PURCHASE_INVOICE: 'Purchase invoice'
+    short_type:
+        CASH_IN: KP
+        CASH_OUT: KW
+        ORDER: ZA
+        BANK_ACCOUNT: WG
+        INVOICE: FS
+        CORRECTIVE_INVOICE: FK
+        PROFORMA: FP
+        RETURN: ZW
+        REPOSTED: PR
+        RECEIPT_ONE_STOP: PAOSS
+        RECEIPT: PA
+        INTEREST_NOTE: 'NO'
+        ACCOUNTING_NOTE: NK
+        STOCKTAKING: IN
+        PURCHASE_CORRECTIVE_INVOICE: FZK
+        PURCHASE_INVOICE: FZ
+order:
+    file:
+        offer_pdf_header: Order
+        products: Products
+        quantity: Quantity
+        price_unit: 'Unit price'
+        price: Price
+        total_to_pay: 'Total to pay'
+        ktm: KTM
+        product_name: 'Product name'
+        netValue: 'Price net'
+        grossValue: 'Price gross'
+        currency: Currency
+order_status:
+    new:
+        color: '#0f88bf'
+        label: New
+        icon: '{link}legacy/img/svg/new.svg'
+    waiting_for_payment:
+        color: '#587545'
+        label: 'Waiting for payment'
+        icon: '{link}legacy/img/svg/waiting_for_payment.svg'
+    payment_in_progress:
+        color: '#336155'
+        label: 'Payment in progress'
+        icon: '{link}legacy/img/svg/payment_in_progress.svg'
+    payment_failed:
+        color: '#bd7b42'
+        label: 'Payment failed'
+        icon: '{link}legacy/img/svg/payment_failed.svg'
+    in_progress:
+        color: '#3364ff'
+        label: 'In progress'
+        icon: '{link}legacy/img/svg/in_progress.svg'
+    waiting_for_delivery:
+        color: '#4b3480'
+        label: 'Waiting for delivery'
+        icon: '{link}legacy/img/svg/waiting_for_delivery.svg'
+    delivery_in_progress:
+        color: '#423480'
+        label: 'Delivery in progress'
+        icon: '{link}legacy/img/svg/delivery_in_progress.svg'
+    completed:
+        color: '#5bff33'
+        label: Completed
+        icon: '{link}legacy/img/svg/completed.svg'
+    cancelled:
+        color: '#ff4c33'
+        label: Cancelled
+        icon: '{link}legacy/img/svg/cancelled.svg'
+    '': __NEW_order_status.
+
+    choose: 'Status...'
+role:
+    choose: 'Choose rolę'
+product:
+    add_to_cart_hint:
+        unavailable:
+            text: 'Product unavailable'
+            color: '#ee0000'
+        stock_last_piece:
+            text: 'Last product!'
+            color: '#cc0000'
+        stock_running_out:
+            text: 'Out of stock ({product_stock_piece_number} pieces left)'
+            color: '#eed202'
+        default_hint:
+            text: 'Product available'
+            color: '#dddddd'
+    relation_types:
+        1: Alternative
+        2: 'Optional assortment'
+        3: 'Additional assortment'
+        4: Recommended
+        5: Set
+    exception:
+        stock_not_enought: 'Insufficient product in stock.'
+shopping_list:
+    file:
+        name: 'Shopping list'
+        products: Products
+        quantity: Quantity
+        product_name: 'Product name'
+        catalog_number: 'Catalog number'
+    created: 'Shopping list was created successfully'
+    deleted: 'Shopping list was deleted successfully'
+    entity_not_found: 'Shopping list with ID %id% not found'
+    position_deleted: 'Shopping list item has been deleted successfully'
+    position_modified: 'Shopping list item has been updated successfully'
+cart:
+    free_delivery_from_message: 'Free delivery from %price%'
+    free_delivery_message: 'Free delivery'
+    missing_to_free_delivery_message: 'You are short of %price% for free delivery'
+    delivery_time: 'Shipping within %time%h'
+    validate_quantity:
+        ok: Ok
+        warning:
+            rounded: Rounded
+            rounded_to_minimal: '__NEW_Ustawiono minimalną wielokrotności %quantityStep%'
+            over_stock: 'Quantity of the product exceeds product stock level'
+            rounded_and_over_stock: 'Quantity is rounded and it exceeds product stock level'
+            set_minimal_available_stock: 'Sorry, but only %quantity% of pieces of this product are currently available. The maximum available quantity has been added to your cart.'
+        error:
+            less_than_zero: 'Quantity cannot be negative'
+            less_than_minimal: 'Ustawiono minimalną wielokrotność %quantityStep%'
+    payments_expired_message: 'You have outstanding payments'
+    import:
+        not_found_resources: 'Row {rowNumber} - Resources not found to import for ktm ( {ktm} )'
+        invalid_row_length: 'Row {rowNumber} - Data missing'
+    add_position:
+        success: 'Correctly added the product to the cart'
+        failed: 'Failed to add product to cart'
+    created: 'Cart was created successfully'
+    modified: 'Cart has been changed'
+    deleted: 'Cart has been delated'
+    cleared: 'Cart has been cleared'
+    validated: 'Cart has been recalculated'
+    confirmed: 'Successfully placed order {orderNumber}'
+    imported: 'Cart was imported successfully'
+    imported_with_errors: 'Cart has been imported but errors occurred'
+    entity_not_found: 'Cart with ID %id% not found'
+    position_deleted: 'Cart item has been removed successfully'
+    position_modified: 'Cart item has been updated successfully'
+    positions_added: 'Items have been added to your cart'
+    positions_deleted: '__NEW_Pozycje koszyka zostały usunięte pomyślnie'
+    service_deleted: 'Service has been removed from cart'
+    services_added: 'Service has been added to cart'
+    error_occured: 'Problem occurred'
+    authorization_error: 'Unable to access the cart'
+    validation_error: 'Cart with ID %id% has validation errors'
+    attachment_deleted: 'Cart attachment was removed successfully'
+    attachment_modified: 'Cart attachment has been updated successfully'
+    delivery:
+        free_delivery_info: 'You already have free delivery'
+        free_delivery_from_info: 'Free delivery from {from} zloty'
+    attachment_added: '__NEW_Załącznik zostały dodane do koszyka'
+    delivery_option:
+        gls_delivery_on_saturday: 'Saturday delivery'
+        gls_delivery_next_business_day: 'Next business day delivery guarantee'
+        gls_delivery_1000: 'Delivery guarantee by 10:00 AM'
+        gls_delivery_1200: 'Delivery guarantee by 12:00 PM'
+        dpd_delivery_on_saturday: 'Saturday delivery'
+        dpd_delivery_next_business_day: 'Next business day delivery guarantee'
+        dpd_delivery_0930: 'Delivery guarantee by 9:30 AM'
+        dpd_delivery_1200: 'Delivery guarantee by 12:00 PM'
+        shipping_letter: 'Attach shipping label'
+        shipping_protocol: 'Attach shipping protocol'
+        '': __NEW_cart.delivery_option.
+    delivery_option_modified: 'Delivery option has been updated'
+    export:
+        fields:
+            ktm: KTM
+            quantity: Quantity
+            unit: Unit
+        filename: export-cart-%cartName%
+        params:
+            header_pdf: 'Export cart'
+    payment:
+        limit_info:
+            exceeded: 'Credit to use: {limit} {currency}'
+    errors:
+        all_parameters_required: __NEW_cart.errors.all_parameters_required
+checkout:
+    thankyou:
+        title: 'Thank You!'
+        subtitle: 'Your order has been placed.'
+        description: 'If you have any questions about your order, please contact your sales representative.'
+        symbol_message: 'We are starting to process your order :)'
+        details: '<h3>Bank account details:</h3><span>Sente S.A</span><span>ul. Legnicka 51-53,</span><span>54-203 Wrocław</span><span>NIP: 8951718379 REGON: 932218559</span><h4>PLN Bank Account:</h4><span>IBAN: PL02109024025977981699664199 SWIFT: WBKPPLPP Bank Zachodni WBK</span><h4>EURO Bank Account:</h4><span>IBAN: PL02109024025977981699664199 SWIFT: BREXPLPWMBK BRE Bank S.A.</span>'
+        button_text: 'Go to order'
+        button_url: /en/checkout/thankyou
+        order_number: 'Order number: {orderNumber}'
+        button_pay: Pay
+availability:
+    big-stock: 'Big stock'
+    middle-stock: 'Middle stock'
+    low-stock: 'Low stock'
+    empty-stock: __NEW_availability.empty-stock
+countries:
+    pl: Poland
+    de: Germany
+    '': __NEW_countries.
+language:
+    english: English
+    '': __NEW_language.
+mail:
+    footer_description: 'For 21 years, we have been designing and implementing IT solutions to support the efficiency and business development of our clients. More than 100 clients from various industries have already benefited from our solutions. We support companies by providing customized ERP, WMS, CRM and B2B systems and dedicated tools such as WiseB2B.'
+    footer: 'Wiseb2b.eu © 2025'
+export_catalog:
+    subject: 'Export catalogs - Cyclic operation'
+    content: 'Please find attached an export of our latest products'
+    attributes:
+        ktm: KTM
+        description: Description
+        price_net: 'Net price'
+        '': __NEW_export_catalog.attributes.
+    created: 'Export settings saved successfully'
+    modified: 'Export settings has been changed'
+    deleted: 'Export settings cleared successfully'
+    entity_not_found: 'Settings with ID %id% not found'
+welcome_message:
+    subject: 'Service access data'
+    header: Welcome!
+    content: 'Below are your access details for the service <br><br> Login: <b>%login%</b> <br> Hasło: <b>%password%</b>'
+    contentSecond: 'If you have any problems logging in, contact the site administrator'
+password_forgot:
+    subject: 'Forgot password'
+    header: 'Forgot password'
+    content: 'To change the password on your email account, click on the link below: <br/> <a href="%url%">%url%</a>'
+    contentSecond: 'If it is not by you that the password recovery form was used and you do not know which email account it refers to then ignore this message - most likely, someone misspelled your address on their account.'
+    buttonContent: 'Click to change your password'
+cart_confirm:
+    subject: 'Order confirmation - #%orderNumber%'
+    header: 'Order confirmation'
+    content: 'Thank you for placing an order in our store.<br/> If you have any questions or need support, our team is always at your disposal. We invite you to contact us! <br/><br/> Below you will find the order details'
+    buttonContent: 'Go to order'
+    invoiceDetails: 'Invoice details:'
+    name: 'Name:'
+    tax_number: 'NIP:'
+    street: 'Street:'
+    house_number: 'House number:'
+    apartment_number: 'Apartment number:'
+    postal_code: 'Postal code:'
+    city: 'City:'
+    country: 'Country:'
+    phone: 'Phone:'
+    email: 'Email:'
+    shipping_address_goods: 'Shipping address of the goods:'
+    recipient: 'Recipient:'
+    delivery_method: 'Delivery method:'
+    payment_method: 'Payment method:'
+    chosen_point: 'Chosen point:'
+    details: 'Details:'
+    is_dropshipping: 'Dropshipping:'
+    product: Product
+    quantity: Quantity
+    price: Price
+    net: net
+    gross: gross
+    total_order_value: 'Total order value'
+newsletter:
+    register:
+        subject: 'Confirmation of newsletter subscription'
+        header: 'Confirm your subscription to the Newsletter service by clicking on the button:'
+        content: 'By consenting to the Newsletter service provided by %company_full_name%, you agree to receive marketing content containing information about products and services available in the offer of %company_full_name%<br/><br/>Consent is voluntary and may be withdrawn at any time. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. Withdrawal of consent is possible at any time by e-mail to the following address: <a href="mailto:%email_to_unsubscribe%">%email_to_unsubscribe%</a>.<br />Full RODO information for Newsletter subscribers available in the <a href= tab "%url_to_rodo_policy%">%url_to_rodo_policy%</a>.'
+        button_content: Confirm
+        success_register_message: 'We sent an email to the email address provided to confirm registration for the newsletter'
+    confirm:
+        subject: 'Confirmation of newsletter subscription'
+        header: 'NEWSLETTER SUBSCRIPTION CONFIRMATION'
+        content: 'Thank you for signing up to the newsletter.<br/>You have just joined common subscribers who are developing their business with us!<br/>From now on, we will keep you updated about the delivery and services in our offer. <br />Check out our new products! <a href="%ofertLink%" target="_blank">%ofertLink%</a>'
+        success_register_message: 'Successfully subscribed email address to the newsletter'
+client_accept:
+    status:
+        activated:
+            subject: 'Client account has been activated'
+            content: 'We are pleased to inform you that your account registration with us has been successfully completed and your account has been approved.'
+        archived:
+            subject: 'Registration status information'
+            content: 'Thank you for registering an account on our website. After carefully reviewing the information you have submitted, unfortunately we are unable to accept your account at this time. <br/><br/> If you have any questions about our decision or would like more information on this matter, please contact our customer service department.'
+true_value: 'yes'
+false_value: 'no'
+order_edit:
+    confirm: 'Correctly saved changes'
+    cancel: 'Order editing canceled'
+    activate: 'The ability to edit an order has been activated'
+    modified: 'Order has been modified'
+    canceled: 'The ability to edit an order has been canceled. The cart has been restored to its state before editing'
+    entity_not_found: 'Order with ID %id% not found'
+    already_exists: 'Order with ID %id% is already in edit mode'
+    positions_deleted: 'Order item has been deleted successfully'
+    positions_modified: 'Order item has been updated successfully'
+client_api:
+    success: 'Access key for client has been retrieved'
+    order_blocked: 'Order has been blocked for processing'
+    order_unblocked: 'Order has been unblocked and its processing will be continued.'
+    order_added: 'The order has been added'
+home:
+    NEWS: News
+    KNOWLEDGE_BASE: 'Knowledge base'
+    BLOG: Blog
+    '': __NEW_home.
+cms:
+    section:
+        created: 'Section was created'
+        modified: 'Modified section correctly'
+        deleted: 'Section has been removed'
+        entity_not_found: 'Section with ID %id% not found'
+        field:
+            created: 'Section field has been added'
+            modified: 'Correctly modified the section field'
+            deleted: 'The section field has been removed'
+            entity_not_found: 'Section field with ID %id% not found'
+    article:
+        created: 'Article was created'
+        modified: 'Correctly modified article'
+        deleted: 'Article has been removed'
+        entity_not_found: __NEW_cms.article.entity_not_found
+    media_file:
+        created: 'File has been added'
+        modified: 'File has been modified'
+        deleted: 'File has been deleted'
+        entity_not_found: 'File with ID %id% not found'
+category:
+    add_product_success: 'Product has been added to a category'
+    add: 'Correctly added categories'
+    modify: 'Correctly modified categories'
+promotions:
+    modify: 'Promotion has been modified'
+    add: 'Promotion has been added'
+document:
+    summary:
+        invoice: Invoice
+        invoices: Invoices
+        proform: Proform
+        proforms: Proforms
+        correction: Correction
+        corrections: Corrections
+        proforma_id_count: 'Quantity of proforms'
+        invoice_id_count: 'Quantity of invoices'
+        correction_id_count: 'Quantity of corrections'
+        invoice_valuenet_sum: 'Total net value of invoices'
+        '': __NEW_document.summary.
+promotion:
+    calculate:
+        error:
+            product_is_required: 'Product is required to calculate promotion correctly'
+    condition:
+        by: By
+        productId: products
+        categoryId: categories
+        attributeId: attributes
+        warehouseId: warehouses
+        productOnPriceListId: 'products on price list'
+        priceListId: 'price lists'
+        serviceId: services
+        paymentMethodId: 'payment methods'
+        deliveryMethodId: 'delivery methods'
+        minimalCount: 'minimal count of products'
+        minimalValue: 'minimal value of products'
+        currency: currency
+        '': __NEW_promotion.condition.
+    category:
+        productId: Product
+        categoryId: Category
+        attributeId: Attribute
+        warehouseId: Warehouse
+        productOnPriceListId: 'Products on price list'
+        priceListId: 'Price list'
+        serviceId: Service
+        paymentMethodId: 'Payment method'
+        deliveryMethodId: 'Delivery method'
+        minimalCount: 'Minimal count of products'
+        minimalValue: 'Minimal value of products'
+        currency: Currency
+        '': __NEW_promotion.category.
+    title:
+        price_list_symbol: 'Prices from price list'
+search_product:
+    sort_methods:
+        default: 'Default sorting'
+        ktm_asc: 'KTM: ascending'
+        ktm_desc: 'KTM: descending'
+        name_asc: 'Name: ascending'
+        name_desc: 'Name: descending'
+        price_asc: 'Price: ascending'
+        price_desc: 'Price: descending'
+        sys_insert_date_asc: 'From the latest'
+        sys_insert_date_desc: 'From the oldest'
+    labels:
+        new: New
+        promotion: Promotion
+        bestseller: Bestseller
+    title:
+        products_all: 'All products'
+        promotions: Promotions
+        news: News
+        bestsellers: Bestsellers
+        in: in
+        in_category: 'in category'
+    filters:
+        price_title: Price
+delivery:
+    status_in_progress:
+        color: '#3364ff'
+        label: '__NEW_W realizacji'
+        icon: '{link}legacy/img/svg/in_progress.svg'
+    status_realized:
+        color: '#5bff33'
+        label: __NEW_Zrealizowane
+        icon: '{link}legacy/img/svg/realized.svg'
+    status_in_rejected:
+        color: '#ff4c33'
+        label: __NEW_Odrzucone
+        icon: '{link}legacy/img/svg/rejected.svg'
+    hours: __NEW_godzin
+    status:
+        SHIPPED: Shipped
+        NEW: 'Awaiting courier'
+bracket_product: '(Product ID: %productId%)'
+api:
+    ui:
+        description:
+            warehouses: { get: 'Downloading the list of warehouses' }
+    admin:
+        description:
+            warehouses: { get: 'Downloading the list of warehouses' }
+receiver:
+    created: 'Receiver was created successfully'
+    modified: 'Receiver was modified successfully'
+user:
+    register:
+        subject: '__NEW_Pomyślna rejestracja w serwisie'
+        header: '__NEW_Dziękujemy za założenie konta'
+        button_content: '__NEW_Rozpocznij korzystanie z serwisu'
+        content: '__NEW_Drogi Kliencie,<br/><br/> Dziękujemy za zarejestrowanie się w naszym sklepie! <br/>Twoje konto zostało pomyślnie utworzone, co pozwala Ci na wygodne i szybkie zakupy. <br/>Zachęcamy do skorzystania z naszych promocji. <br/>W razie jakichkolwiek pytań, nasz zespół obsługi klienta jest do Twojej dyspozycji. <br/>Życzymy udanych zakupów i zapraszamy do częstego odwiedzania naszego sklepu!'
+        content_temporary_password: '__NEW_Drogi Kliencie,<br/><br/> Dziękujemy za zarejestrowanie się w naszym sklepie! <br/>Twoje konto zostało pomyślnie utworzone, co pozwala Ci na wygodne i szybkie zakupy. <br/>Zachęcamy do skorzystania z naszych promocji. <br/>W razie jakichkolwiek pytań, nasz zespół obsługi klienta jest do Twojej dyspozycji. <br/>Życzymy udanych zakupów i zapraszamy do częstego odwiedzania naszego sklepu! <br/><br/><br> Poniżej znajdziesz dane dostępowe do serwisu: <br/> <strong>E-mail:</strong>: %login% <br/> <strong>Hasło</strong>: %password%  <br/><br/> <small>Zalecamy zmianę hasła po pierwszym zalogowaniu.</small>'
+    created: 'User has been created'
+    modified: 'User has been successfully modified'
+    email_confirmed: 'The e-mail address has been confirmed'
+    entity_not_found: 'User with ID %id% not found'
+    self_operation: 'You can''t perform this action on yourself'
+    insufficient_permissions: 'You do not have the authority to perform this activity'
+    welcome_msg:
+        subject: 'WiseB2B access data'
+        hello: Welcome!
+        content: 'Below is your WiseB2b access details <br><br> Login: <b>%login%</b> <br> Password: <b>%password%</b>'
+        before_footer: 'If you have any problems logging in, contact the site administrator'
+    message-settings:
+        modified: 'Message settings have been modified'
+        entity_not_found: 'Message settings (%messageSettingsId%) for user (%userId%) not found'
+        settings_not_found: 'Message settings (%messageSettingsId%) not found'
+    role:
+        ROLE_ADMIN: 'Administrator'
+        ROLE_USER_MAIN: Main user
+        ROLE_USER: User
+        ROLE_TRADER: Trader
+        ROLE_FRANCHISSE: Franchisee
+        ROLE_OPEN_PROFILE: 'Open profile'
+        ROLE_CLIENT_API: 'Client API'
+        '': __NEW_user.role.
+    password_changed: 'Password has been changed'
+    password_changed_same_password: 'The new password must be different from the old one'
+    password_confirm_not_same: 'The passwords are not the same'
+    password_changed_current_password_not_correct: 'The current password is incorrect'
+userAgreement:
+    modified: 'The consent has been updated'
+client:
+    created: 'Client has been created'
+    modified: 'Client has been modified'
+    status_changed: 'Client status has been modified'
+    status:
+        NEW: 'For verification'
+        ACTIVE: Active
+        ARCHIVE: Archived
+search_default_breadcrumb: Search
+register:
+    success: 'Thank you for registering! We have sent an email to the email address you provided. Please check your mailbox and confirm your address.'
+error:
+    basic_message: 'An error occurred'
+success:
+    update_message: 'Information updated successfully'
+    add_message: 'Information added successfully'
+section:
+    modified: 'Section has been updated'
+constraints:
+    not_blank: 'This field cannot be empty'
+    phone_number: 'Incorrect phone number format. Correct format is +48123456789 or 123456789'
+    email: 'Incorrect email format'
+security:
+    over_logout:
+        success: 'Successfully returned to the account'
+    over_login:
+        success: 'Successfully logged into the account'
+    password_reset:
+        send_email: 'An email was sent to your email address to start the password reset process'
+        success: 'Password successfully changed'
+    login:
+        success: 'Logged in successfully'
+        failed: 'The login information is not correct. Login failed.'
+online_payment:
+    status:
+        NEW: 'Awaiting online payment initiation'
+        PENDING: 'Awaiting completion of payments'
+        DENAY: 'Payment rejected'
+        ACCEPTED: 'Authorized payment'
+        CANCELED: 'Payment cancelled'
+        '': __NEW_online_payment.status.
+exceptions:
+    default_message: 'An error occurred'
+    default_not_found: 'Object not found'
+    details_filter: '[Id: %id%] [IdExternal: %idExternal%]'
+    object_validation: 'There were problems processing the data'
+    object_exists_exception: 'Object with ID %id% does not exist'
+    authentication_exception: 'User not logged in'
+    authorization_exception_login: 'The login information is not correct. Login failed.'
+    cannot_perform_operation_exception: 'You cannot perform this operation'
+    position_not_exists_exception: 'Position with ID %id% does not exist'
+    over_login_only_one_time_exception: 'Before logging in to another user, you must log out of the current one'
+    file_not_exists: 'Failed to download the file'
+    file_not_exists_from_data: 'Failed to download file from data'
+    email_is_not_defined_in_data_exception: 'Email address was not defined in the submitted data'
+    email_is_registered_in_newsletter: 'Your email address is already subscribed to our newsletter'
+    token_not_defined_in_data: 'Token not defined in data submitted'
+    token_incorrect: 'Incorrect token'
+    unsupported_entity_type: 'Unsupported entity type'
+    missing_id_properties_on_delete_endpoint: 'The required property is missing: "id"'
+    invalid_input_argument:
+        sort: 'Invalid sorting key: %key%'
+    cart:
+        not_found: 'Cart not found'
+        not_found_id: 'Cart with ID %id% not found'
+        delivery_method_not_set: 'Delivery method not set'
+        payment_method_not_set: 'No payment method set'
+        receiver_address_empty: 'No recipient address set'
+        position:
+            not_found: 'Cart item with ID %id% not found'
+        attachment:
+            not_found: 'Attachment with ID %id% not found'
+        service:
+            not_found: 'Service with ID %id% not found'
+        manual_cash_on_delivery_value:
+            only_dropshipping: 'Only dropshipping cart can edit the amount on delivery'
+            allow_payment_method: 'The selected payment method (ID: %paymentMethodId%) cannot edit the amount on delivery'
+        calc_strategy:
+            not_found: 'No suitable strategy found to calculate prices for cart'
+    receiver:
+        not_found: 'Receiver with ID %id% not found'
+        not_found_id: '__NEW_Odbiorca o ID %id% nie został odnaleziony'
+        not_found_empty: '__NEW_Odbiorca nie został odnaleziony'
+    client:
+        default_not_found: 'Client not found'
+        not_found: 'Client with ID %id% not found'
+        for_cart_not_found: 'Client for cart with ID %cartId% not found'
+        duplicate_client_tax_number: 'Client with the given tax ID number already exists'
+        duplicate_client_name: 'Client with the given name already exists'
+        not_permission_to_accept: 'You do not have permission to accept client'
+        not_exist_status: 'Client status does not exist (%statuses%)'
+        status_is_not_correct: 'The status of the client does not allow to perform this operation'
+        client_is_already_accepted: 'Client is already accepted'
+        unique_tax_number: 'Vat no EU is already registered in the system. Please check the data you have entered or contact the administrator if you think there has been a mistake.'
+        user_has_not_mail_confirmed: 'User has not yet confirmed email address'
+    global_address:
+        not_found: 'Address not found'
+    product:
+        not_found: 'Product not found'
+        not_found_id: 'Product with ID %id% not found'
+        not_found_with_id_external: 'Product not found. Id: %id%, IdExternal: %idExternal'
+        has_children: 'Nie można wykonać tej operacji jeśli produkt o ID %id% posiada podprodukty'
+    unit:
+        not_found: 'Not found association between product with id %productId% and unit with id %unitId%'
+        not_found_with_id_external: 'Unit not found. Id: %id%, IdExternal: %idExternal'
+    order:
+        not_found: 'Order with ID %id% not found'
+        not_found_for_position_id: 'Order not found for position with ID %positionId%'
+        have_not_documents: 'Documents for order have not been sent yet'
+        status_incorrect: 'Status of the order does not allow to perform this operation'
+        not_exist_status: 'Order status entered does not exist (%statuses%)'
+    order_position:
+        not_found: 'Order position with ID %id% not found'
+        not_found_id: 'Order position with ID %id% not found'
+        not_found_for_order: 'Order position not found for order with ID %orderId%'
+    order_edit:
+        already_exists: 'Order with ID %id% is already in edit mode'
+        already_not_activated: 'Order with ID %id% is not in edit mode'
+        cannot_perform_operation: 'It is not possible to perform this operation as a customer with the id %clientId%. In order to do so, you need to log into the customer account ("%clientName%")'
+    document:
+        not_found: 'Document with ID %id not found'
+        not_found_for_document_file_id: 'Document for file with ID %id not found'
+        associated_with_not_exists: 'The document you want to link was not found'
+        incorrect_document_type: 'Invalid document type (%type%)'
+    document_file:
+        not_found: '__NEW_Plik dokumentu o ID %id% nie został odnaleziony'
+        not_found_for_document_id: '__NEW_Plik dokumentu dla dokumentu o ID %id% nie został odnaleziony'
+    user:
+        not_exist: 'User with ID %id% not exist'
+        not_exist_without_id: 'User not exist'
+        not_correct_last_password_on_change_password: 'Entered current password is incorrect'
+        exists: 'The user already exists'
+        duplicate_login: 'User with the given login already exists'
+        hash_required: 'The hash field is required'
+        hash_invalid: 'The hash entered is incorrect'
+    product_unit:
+        not_found: 'Not found association between product with id %productId% and unit with id %unitId%'
+    user_message_settings:
+        not_found: 'Message settings (%messageSettingsId%) not found'
+        not_found_with_user_id: 'Message settings for user with ID %userId% not found'
+    message_settings:
+        not_found: 'Message settings with ID %id% not found'
+    store:
+        not_found_id: 'Store ID %id% not found'
+        not_found: 'The store has not been found'
+    user_agreement:
+        not_found: 'User agreement with ID %id% not found'
+    country:
+        not_exists_country_code: 'Country with code %code% does not exist'
+    delivery_method:
+        not_found: 'Delivery method not found'
+        not_found_id: 'Delivery method with ID %id% not found'
+    warehouse:
+        not_found: 'Warehouse not found'
+        not_found_by_id: 'Warehouse with ID %id% not found'
+    own_courier_must_include_file: 'You must include at least one of the required attachments using this delivery method'
+    newsletter:
+        token_expired: 'Token has expired or email has already been confirmed'
+    online_payment:
+        not_found: 'Online payment method does not exist'
+        not_found_id: 'Online payment method with ID %id% does not exist'
+        not_found_for_payment_method: 'No online payment driver found for the selected payment method with ID %paymentMethodId%.'
+    settlement:
+        not_found: 'Settlement not found'
+        not_found_id: 'Settlement with ID %id% not found'
+    price_list:
+        not_found: 'Price list not found'
+        not_found_id: 'Price list with ID %id% was not found'
+    product_stock:
+        not_found: 'No stock information for the product'
+        not_found_id: 'No stock information is available for the product. ProductStock with ID %id%.'
+    product_price:
+        empty_product_unit_id: 'You need to provide information about the product and the unit'
+    product_category:
+        not_found: 'No category information for the product'
+        not_found_id: 'No category information is available for the product. ProductCategory with ID %id%.'
+    category:
+        not_found: 'No category information'
+        not_found_id: 'No category information with ID %id%.'
+    product_catalog_for_product:
+        not_found: 'The product catalog for the product was not found'
+        not_found_id: 'Product catalog not found for product with ID %id%.'
+    product_catalog:
+        not_found: 'Product catalog not found'
+        not_found_id: 'Product catalog with ID %id% not found.'
+    online_payments:
+        paypal:
+            incorrect_configuration: '__NEW_Niepoprawna konfiguracja metody płatności: PayPal'
+            not_authorized: '__NEW_Brak uwierzytelnienia do API Paypal. Sprawdź konfigurację'
+            not_finished_payment_process: '__NEW_Proces płatności nie został zakończony.'
+        autopay:
+            incorrect_configuration: '__NEW_Niepoprawna konfiguracja metody płatności: Autopay'
+            not_authorized: '__NEW_Brak uwierzytelnienia w Autopay. Sprawdź konfigurację'
+    shopping_list:
+        cannot_perform_operation_exception: 'You cannot perform an operation on a shopping list that does not belong to you'
+    payment_method:
+        not_found: 'Payment method not found'
+        not_found_id: 'Payment method with ID %id% not found'
+    trader:
+        not_found: 'Trader has not been found'
+        not_found_id: 'Trader with ID %id% not found'
+    agreement:
+        required: 'Selected consent is required'
+        required_with_content: 'Selected consent is required. (%content%)'
+        not_found: 'Consent has not been found'
+        not_found_id: 'Consent with ID %id% not found'
+    api:
+        uuid_length: 'The length of the UUID must be a maximum of 36 characters'
+        incorrect_body_data: 'Incorrect data in query body - %message%'
+        not_have_array_objects: 'There is no array in the body of the query - ''objects'''
+        not_possible_save: 'It is not possible to save the object'
+        not_have_internal_id_and_id: 'The object does not have an "internalId" and an "id"'
+        incorrect_fields: 'There were redundant fields in the Body structure: %fields%'
+        incorrect_json: 'Incorrect JSON format'
+    client_group:
+        not_found: 'Client group not found'
+        not_found_id: 'Client group with ID %id% was not found'
+    client_api_access:
+        not_found: 'Client API access not found'
+        not_found_id: 'Client API access with ID %id% was not found'
+        user_not_found_to_create_client_api: 'The authorization key for ClientApi access cannot be generated because no active user was found for this client.'
+    delivery:
+        not_found: 'Delivery not found'
+        not_found_id: 'Delivery with ID %id% was not found'
+    order_attachment:
+        not_found: 'Order attachment not found'
+        not_found_id: 'Order attachment with ID %id% was not found'
+    recaptcha:
+        verify_failed: 'The reCAPTCHA verification has failed. If the problem persists, please contact technical support. Please try again.'
+    url_shortcut:
+        not_found: 'URL shortcut not found'
+        not_found_id: 'URL shortcut with ID %id% not found.'
+    page_definition:
+        not_found: 'Page definition not found'
+        not_found_by_symbol: 'Page definition with symbol %symbol% not found'
+        incorrect_schema: 'Failed to load page definition. Contains invalid schema'
+        incorrect_schema_with_error_message: 'Failed to load page definition (%file%). Contains invalid schema: %messageError%'
+    export_catalog:
+        empty_file_type: 'File type is required'
+        empty_attributes: 'You must select the attributes to be exported'
+        empty_name: 'The name is required'
+    article:
+        already_exists: 'An article already exists'
+        already_exists_with_same_symbol_and_section: 'An article with a similar symbol already exists in the selected section'
+remove:
+    success: The item has been correctly removed
+
+
+property_path:
+    firstname: 'FirstName'
+    name: 'Name'
+    phone: 'Phone number'
+    email: 'Email address'
+    receiver_first_name: 'FirstName'
+    receiver_last_name: 'LastName'
+    receiver_company_name: 'Company name'
+    password_confirm: 'Potwierdzenie hasła'
+    password: 'Password'
+    tax_number: 'EU PIN/VAT number'
+    first_name: 'Firstname'
+    last_name: 'Lastname'
+    address:
+        street: 'Street'
+        house_number: 'Building number'
+        building: 'Building number'
+        apartmentNumber: 'Apartment number'
+        apartment: 'Apartment number'
+        postal_code: 'Postal code'
+        city: 'City'
+        country: 'Country'
+        country_code: 'Country'
+    delivery_address:
+        street: 'Street'
+        house_number: 'Building number'
+        building: 'Building number'
+        apartmentNumber: 'Apartment number'
+        apartment: 'Apartment number'
+        postal_code: 'Postal code'
+        city: 'City'
+        country: 'Country'
+        country_code: 'Country'
+    receiver_address:
+        street: 'Street'
+        house_number: 'Building number'
+        apartmentNumber: 'Apartment number'
+        postal_code: 'Postal code'
+        city: 'City'
+        country: 'Country'
+        country_code: 'Country'
+        name: 'Receiver name'
+    billing_address:
+        country_code: 'Country'
+        city: 'City'
+        street: 'Street'
+        postal_code: 'Postal code'
+        name: 'Name'
+    receiver:
+        phone: 'Phone number'
+        email: 'Email address'
+
+categories: Categories
+
+title_website: 'WiseB2B - Platform B2B'
+description_website: 'WiseB2B - an innovative B2B platform connecting suppliers and buyers'
+order_payment_status:
+    is_not_paid: 'unpaid'
+    is_paid: 'paid'
+    processing: 'during processing'
+
+
+
+delete:
+    success: 'Successfully deleted element'

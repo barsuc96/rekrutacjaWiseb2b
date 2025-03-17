@@ -1,0 +1,55 @@
+deptrac:
+  layers:
+  - { name: Core, collectors: [ { type: directory, value: Wise/Core/ } ] }
+  - { name: Cart, collectors: [ { type: directory, value: Wise/Cart/ } ] }
+  - { name: Cart Integration, collectors: [ { type: directory, value: Wise/CartIntegration/ } ] }
+  - { name: Checkout, collectors: [ { type: directory, value: Wise/Checkout/ } ] }
+  - { name: Client, collectors: [ { type: directory, value: Wise/Client/ } ] }
+  - { name: Cms, collectors: [ { type: directory, value: Wise/Cms/ } ] }
+  - { name: Delivery, collectors: [ { type: directory, value: Wise/Delivery/ } ] }
+  - { name: Document, collectors: [ { type: directory, value: Wise/Document/ } ] }
+  - { name: Export, collectors: [ { type: directory, value: Wise/Export/ } ] }
+  - { name: File, collectors: [ { type: directory, value: Wise/File/ } ] }
+  - { name: I18n, collectors: [ { type: directory, value: Wise/I18n/ } ] }
+  - { name: Message, collectors: [ { type: directory, value: Wise/Message/ } ] }
+  - { name: Offer, collectors: [ { type: directory, value: Wise/Offer/ } ] }
+  - { name: Order, collectors: [ { type: directory, value: Wise/Order/ } ] }
+  - { name: Payment, collectors: [ { type: directory, value: Wise/Payment/ } ] }
+  - { name: Pricing, collectors: [ { type: directory, value: Wise/Pricing/ } ] }
+  - { name: Product, collectors: [ { type: directory, value: Wise/Product/ } ] }
+  - { name: Receiver, collectors: [ { type: directory, value: Wise/Receiver/ } ] }
+  - { name: Search Product, collectors: [ { type: directory, value: Wise/SearchProduct/ } ] }
+  - { name: Security, collectors: [ { type: directory, value: Wise/Security/ } ] }
+  - { name: Service, collectors: [ { type: directory, value: Wise/Service/ } ] }
+  - { name: Shopping List, collectors: [ { type: directory, value: Wise/ShoppingList/ } ] }
+  - { name: Stock, collectors: [ { type: directory, value: Wise/Stock/ } ] }
+  - { name: User, collectors: [ { type: directory, value: Wise/User/ } ] }
+
+  formatters:
+    graphviz:
+      groups:
+        WiseB2B:
+        - Core
+        - Cart
+        - Cart Integration
+        - Checkout
+        - Client
+        - Cms
+        - Delivery
+        - Document
+        - Export
+        - File
+        - I18n
+        - Message
+        - Offer
+        - Order
+        - Payment
+        - Pricing
+        - Product
+        - Receiver
+        - Search Product
+        - Security
+        - Service
+        - Shopping List
+        - Stock
+        - User

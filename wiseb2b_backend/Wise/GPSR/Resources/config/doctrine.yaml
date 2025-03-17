@@ -1,0 +1,9 @@
+doctrine:
+  orm:
+    mappings:
+      GpsrSupplier:
+        is_bundle: false
+        type: yml
+        dir: '%wiseb2b_dir%/Wise/GPSR/Resources/entity/gpsrSupplier'
+        prefix: 'Wise\GPSR\Domain\GpsrSupplier'
+        alias: GpsrSupplier

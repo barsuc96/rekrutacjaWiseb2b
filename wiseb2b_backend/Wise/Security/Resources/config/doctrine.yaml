@@ -1,0 +1,8 @@
+doctrine:
+    orm:
+        mappings:
+            Security:
+                is_bundle: false
+                dir: '%wiseb2b_dir%/Wise/Security/Domain'
+                prefix: 'Wise\Security\Domain'
+                alias: Security

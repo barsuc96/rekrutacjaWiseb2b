@@ -1,0 +1,9 @@
+Wise\Client\Domain\ClientDocumentDefinition\ClientDocumentDefinition:
+  type: entity
+  table: client_document_definition
+  repositoryClass: Wise\Client\Repository\Doctrine\ClientDocumentDefinitionsRepository
+
+  fields:
+    idExternal: { type: string, nullable: true }
+    name: { type: string, length: 255, nullable: true }
+    description: { type: text, nullable: true, length: 1000 }

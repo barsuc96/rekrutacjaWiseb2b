@@ -1,0 +1,52 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.header {
+  border-bottom: 1px solid $color-collapsed-border;
+  cursor: pointer;
+  user-select: none;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  border-left: 12px solid transparent;
+}
+
+.wrapperComponent {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: $color-gray;
+  border-bottom: 10px solid $color-white;
+
+  &.opened {
+    .box {
+      border-left: 12px solid $color-secondary;
+    }
+  }
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  min-height: 57px;
+  margin-left: 24px;
+  font-size: 18px;
+  font-weight: 400;
+  color: $color-text-dark;
+  cursor: default;
+}
+
+.content {
+  padding: 24px 24px 0 59px;
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-text-dark;
+}

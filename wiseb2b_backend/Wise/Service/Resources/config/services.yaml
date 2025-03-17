@@ -1,0 +1,94 @@
+parameters:
+    service_entity: Wise\Service\Domain\Service\Service
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Wise\Service\:
+        resource: '../../'
+        exclude:
+            - '../../WiseServiceBundle.php'
+            - '../../WiseServiceConfiguration.php'
+            - '../../WiseServiceExtension.php'
+
+    ###>>> ADMIN API
+    # Service - Interface
+    Wise\Service\ApiAdmin\Controller\Services\GetServicesController: ~
+    Wise\Service\ApiAdmin\Controller\Services\PutServicesController: ~
+    Wise\Service\ApiAdmin\Controller\Services\PatchServicesController: ~
+    Wise\Service\ApiAdmin\Controller\Services\DeleteServicesByKeyController: ~
+    Wise\Service\ApiAdmin\Service\Services\GetServicesService: ~
+    Wise\Service\ApiAdmin\Service\Services\Interfaces\GetServicesServiceInterface: '@Wise\Service\ApiAdmin\Service\Services\GetServicesService'
+    Wise\Service\ApiAdmin\Service\Services\PutServicesService: ~
+    Wise\Service\ApiAdmin\Service\Services\Interfaces\PutServicesServiceInterface: '@Wise\Service\ApiAdmin\Service\Services\PutServicesService'
+    Wise\Service\ApiAdmin\Service\Services\DeleteServicesByKeyService: ~
+    Wise\Service\ApiAdmin\Service\Services\Interfaces\DeleteServicesByKeyServiceInterface: '@Wise\Service\ApiAdmin\Service\Services\DeleteServicesByKeyService'
+    # Service - Persistence
+    Wise\Service\Repository\Doctrine\ServiceRepository: ~
+    Wise\Service\Domain\Service\ServiceRepositoryInterface: '@Wise\Service\Repository\Doctrine\ServiceRepository'
+    Wise\Service\Repository\Doctrine\ServiceTranslationRepository: ~
+    Wise\Service\Domain\Service\ServiceTranslationRepositoryInterface: '@Wise\Service\Repository\Doctrine\ServiceTranslationRepository'
+    # Service - Logical
+    Wise\Service\Service\Service\ListByFiltersServiceService: ~
+    Wise\Service\Service\Service\Interfaces\ListByFiltersServiceServiceInterface: '@Wise\Service\Service\Service\ListByFiltersServiceService'
+    Wise\Service\Service\Service\ModifyServiceService: ~
+    Wise\Service\Service\Service\Interfaces\ModifyServiceServiceInterface: '@Wise\Service\Service\Service\ModifyServiceService'
+    Wise\Service\Service\Service\AddOrModifyServiceService: ~
+    Wise\Service\Service\Service\Interfaces\AddOrModifyServiceServiceInterface: '@Wise\Service\Service\Service\AddOrModifyServiceService'
+    Wise\Service\Service\Service\AddServiceService: ~
+    Wise\Service\Service\Service\Interfaces\AddServiceServiceInterface: '@Wise\Service\Service\Service\AddServiceService'
+    Wise\Service\Service\Service\ServiceHelper: ~
+    Wise\Service\Service\Service\Interfaces\ServiceHelperInterface: '@Wise\Service\Service\Service\ServiceHelper'
+    Wise\Service\Service\Service\RemoveServiceService: ~
+    Wise\Service\Service\Service\Interfaces\RemoveServiceServiceInterface: '@Wise\Service\Service\Service\RemoveServiceService'
+    Wise\Service\Domain\Service\ServicesService: ~
+    Wise\Service\Domain\Service\ServicesServiceInterface: '@Wise\Service\Domain\Service\ServicesService'
+
+    ###>>> Service Providers
+    Wise\Service\Service\Driver\Default\DefaultCostProvider:
+        tags:
+            - { name: service_provider.cost }
+    Wise\Service\Service\Driver\Default\DefaultValidateProvider:
+        tags:
+            - { name: service_provider.validate }
+    Wise\Service\Service\Driver\Default\DefaultManualChoiceAvailabilityProvider:
+        tags:
+            - { name: service_provider.manual_choice_availability }
+
+    ## Standard
+    Wise\Service\Service\Driver\Standard\StandardCostProvider:
+        tags:
+            - { name: service_provider.cost }
+    Wise\Service\Service\Driver\Standard\StandardValidateProvider:
+        tags:
+            - { name: service_provider.validate }
+
+    ## Standard by Cart Data
+    Wise\Service\Service\Driver\StandardByCart\StandardByCartServiceDataProvider:
+        tags:
+            - { name: service_provider.cost }
+
+    ## Delivery Standard
+    Wise\Service\Service\Driver\DeliveryStandard\DeliveryStandardCostProvider:
+        tags:
+            - { name: service_provider.cost }
+    Wise\Service\Service\Driver\DeliveryStandard\Drivers\DeliveryGlsCostProvider:
+        tags:
+            - { name: service_provider.cost }
+    Wise\Service\Service\Driver\DeliveryStandard\Drivers\DeliveryDpdCostProvider:
+        tags:
+            - { name: service_provider.cost }
+    Wise\Service\Service\Driver\DeliveryStandard\DeliveryStandardManualChoiceAvailabilityProvider:
+        tags:
+            - { name: service_provider.manual_choice_availability }
+
+    ## Payment Standard
+    Wise\Service\Service\Driver\PaymentStandard\PaymentStandardCostProvider:
+        tags:
+            - { name: service_provider.cost }
+
+    Wise\Service\Domain\Service\Factory\ServiceFactory:
+        arguments:
+            $entity: '%service_entity%'

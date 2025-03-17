@@ -1,0 +1,5 @@
+Wise\Client\Domain\ClientRepresentative\ClientRepresentative:
+  type: embeddable
+  fields:
+    personFirstname: { type: string, length: 255, nullable: true }
+    personLastname: { type: string, length: 255, nullable: true }

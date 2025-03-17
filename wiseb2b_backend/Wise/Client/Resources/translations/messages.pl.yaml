@@ -1,0 +1,8 @@
+client:
+    panel:
+        success_update_address: "Adres został zaktualizowany."
+
+
+exceptions:
+    client:
+        not_accepted: "Kartoteka nie jest aktywowana. Poczekaj na aktywacje kartoteki przez Administratora, albo się z nim skontaktuj."

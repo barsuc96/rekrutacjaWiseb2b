@@ -1,0 +1,292 @@
+@import 'src/theme/color';
+
+.EditPanel {
+  &-TitleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-text-dark;
+    background: $color-gray-background-dark;
+    cursor: pointer;
+    height: auto;
+  }
+
+  &-ContentWrapper {
+    margin-bottom: 20px;
+  }
+
+  &-ActionWrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    margin-top: 15px;
+
+    button {
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      color: #ffffff;
+      background: $color-primary;
+      border: 1px solid $color-primary;
+      font-size: 14px;
+      cursor: pointer;
+      position: relative;
+
+      &:first-child:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column !important   ;
+  justify-content: flex-end;
+}
+
+.dynamicSelect {
+}
+
+.dynamicList {
+  > div > div {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #c5bebe;
+    display: flex;
+    align-items: center;
+    padding: 10px 50px 10px 20px;
+    background-color: $color-white;
+    cursor: pointer;
+    position: relative;
+
+    span {
+      position: absolute;
+      right: 40px;
+      padding-top: 2px;
+      display: block;
+
+      svg {
+        position: static;
+        fill: $color-text-light;
+      }
+
+      &:hover {
+        svg {
+          fill: $color-text;
+        }
+      }
+    }
+
+    svg {
+      position: absolute;
+      right: 20px;
+      fill: $color-text;
+    }
+  }
+}
+
+.dynamicDecimal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  & > input {
+    border: 1px solid #c5bebe;
+    border-radius: 4px;
+    width: 190px;
+    height: 25px;
+    font-size: 11px;
+    color: $color-label;
+    font-weight: 500;
+    padding: 0 10px;
+
+    &:disabled {
+      background-color: hsl(0, 0%, 95%);
+    }
+  }
+}
+
+.dynamicText,
+.dynamicDecimal {
+  input {
+    height: 36px;
+    width: 100%;
+    padding: 0 16px;
+    font-size: 14px;
+    border-radius: 0;
+    border: 1px solid $color-gray-border;
+    background: $color-white;
+    color: $color-text;
+    outline: none;
+
+    &.error {
+      border: 1px solid $color-error;
+    }
+
+    &:disabled {
+      background-color: hsl(0, 0%, 95%);
+    }
+  }
+
+  .inputWrapper {
+    display: flex;
+
+    button {
+      height: 36px;
+    }
+  }
+}
+
+.dynamicTextArea {
+  textarea {
+    width: 100%;
+  }
+}
+
+.dynamicCheckbox {
+  > div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dynamicDate {
+  > div > div {
+    display: flex;
+    flex-wrap: nowrap;
+
+    button {
+      &:nth-child(2) {
+        display: block;
+      }
+    }
+  }
+}
+
+.dynamicDateClearable {
+  > button:first-child {
+    flex: 1;
+
+    > span {
+      width: 100%;
+    }
+  }
+}
+
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 2px;
+  border: 1px dashed $color-label;
+  cursor: pointer;
+
+  p {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-left: 5px;
+    }
+  }
+}
+
+.fileWrapper {
+  display: flex;
+  justify-content: center;
+
+  > div {
+    position: relative;
+
+    img {
+      max-height: 100px;
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background-color: $color-white;
+      box-shadow: 1px 1px 4px 0 rgba($color-black, 0.5);
+      border: unset;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+
+.dynamicListTableWrapper {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+
+  table {
+    filter: drop-shadow(0px 2px 5px rgba(6, 25, 56, 0.06));
+
+    button {
+      height: 30px;
+    }
+  }
+
+  thead {
+    tr {
+      th {
+        padding: 10px 18px;
+        background-color: $color-white;
+        border-bottom: 1px solid $color-gray-border;
+      }
+    }
+  }
+
+  tbody {
+    tr:nth-child(2n) {
+      td {
+        background-color: $color-gray-background;
+      }
+    }
+  }
+
+  tr {
+    td {
+      padding: 2px 18px;
+
+      button {
+        padding: 0;
+        background-color: transparent;
+        border: unset;
+        color: $color-primary;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.confirmationModalActions {
+  display: flex;
+  justify-content: flex-end;
+
+  & > button:nth-child(2) {
+    margin-left: 15px;
+  }
+}
+
+.dynamicListSearchWrapper {
+  display: flex;
+}

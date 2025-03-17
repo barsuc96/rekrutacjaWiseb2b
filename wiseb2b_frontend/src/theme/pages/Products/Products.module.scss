@@ -1,0 +1,229 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  background-color: $color-product-bg;
+
+  .content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 32px;
+
+    .categories {
+      width: 225px;
+      margin-right: 32px;
+
+      @include breakpoint(md) {
+        display: none;
+      }
+
+      .search-category {
+        width: 100%;
+        background: $color-white;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        color: $color-text;
+        font-size: 14px;
+        margin-bottom: 12px;
+        border-radius: 4px;
+
+        svg {
+          margin-right: 8px;
+        }
+
+        input {
+          flex: 1;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+
+    .list {
+      flex: 1;
+
+      .searchWrapper {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: $color-white;
+        height: 45px;
+        display: none;
+        z-index: 20;
+
+        @include breakpoint(md) {
+          display: block;
+          > div:first-child {
+            width: 100%;
+          }
+        }
+      }
+
+      .bottomBar {
+        background-color: $color-product-bg;
+        z-index: 10;
+
+        @include breakpoint(md) {
+          &.isScrollDown {
+            position: sticky;
+            top: 45px;
+          }
+        }
+
+        .title {
+          position: relative;
+          width: 100%;
+          padding-bottom: 20px;
+          border-bottom: 1px solid $color-gray-border;
+          font-family: $font-poppins;
+          font-weight: 200;
+          font-size: 40px;
+          line-height: 110%;
+          color: $color-text;
+
+          h1 {
+            font-size: 40px;
+            font-weight: 200;
+            display: inline;
+          }
+
+          span {
+            font-weight: 300;
+            font-size: 24px;
+            color: $color-status;
+            margin-left: 16px;
+          }
+
+          .arrow {
+            display: none;
+            position: absolute;
+            left: 18px;
+            margin-top: 4px;
+            font-size: 20px;
+            font-weight: 800;
+          }
+
+          @include breakpoint(md) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 140%;
+            padding: 24px 18px;
+            color: $color-text-dark;
+
+            h1 {
+              font-weight: 800;
+              font-size: 16px;
+            }
+
+            span {
+              font-size: 14px;
+              font-weight: 400;
+              color: $color-text-light;
+              margin-left: 8px;
+            }
+
+            .arrow {
+              display: block;
+            }
+          }
+        }
+
+        .filterWrapper {
+          width: 100%;
+          padding: 3px 8px 3px 13px;
+          display: none;
+          justify-content: space-between;
+          align-items: center;
+          gap: 6px;
+
+          @include breakpoint(md) {
+            display: flex;
+          }
+
+          .filterInfo {
+            width: 100%;
+            font-size: 13px;
+            line-height: 120%;
+            color: $color-text-dark;
+            :first-child {
+              color: $color-text-light;
+            }
+          }
+
+          .filterButton {
+            cursor: pointer;
+            width: 100%;
+            padding: 13px 16px;
+            color: $color-label;
+            font-weight: 500;
+            gap: 8px;
+            display: flex;
+            background-color: $color-white;
+            border: 1px solid $color-tab-border;
+            justify-content: space-between;
+            align-items: center;
+            svg {
+              color: $color-info;
+            }
+          }
+
+          .filterBox {
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            background-color: $color-faq-active;
+            color: $color-white;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Title {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 8px;
+  font-family: $font-poppins;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  color: $color-text-dark;
+}
+
+.sortingSelectWrapper {
+  margin: 0 16px;
+
+  [class$='-control'] {
+    background: transparent;
+  }
+}
+
+.actionsTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 0;
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.seoBlock {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}

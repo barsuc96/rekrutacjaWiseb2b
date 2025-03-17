@@ -1,0 +1,8 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      - { alias: GetProductsCategoriesDetailsResponseDto, type: Wise\SearchProduct\ApiUi\Dto\ProductsList\GetProductsCategoriesDetailsResponseDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementProductCatalogsDto, type: Wise\SearchProduct\ApiUi\Dto\PanelManagement\GetPanelManagementProductCatalogsDto, areas: [ 'api_ui_v2' ] }
+      - { alias: GetPanelManagementProductCatalogDto, type: Wise\SearchProduct\ApiUi\Dto\PanelManagement\GetPanelManagementProductCatalogDto, areas: [ 'api_ui_v2' ] }
+      - { alias: PutPanelManagementProductCatalogDto, type: Wise\SearchProduct\ApiUi\Dto\PanelManagement\PutPanelManagementProductCatalogDto, areas: [ 'api_ui_v2' ] }

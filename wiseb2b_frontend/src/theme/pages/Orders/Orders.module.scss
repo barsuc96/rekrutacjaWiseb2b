@@ -1,0 +1,135 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.wrapperComponent {
+  display: block;
+}
+
+.filtersWrapper {
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(md) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 0 16px 8px;
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    > * {
+      margin-bottom: 8px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include breakpoint(md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+.userSelectWrapper {
+  width: 300px;
+
+  > div {
+    width: 100%;
+  }
+}
+
+.mobileList {
+  .mobileListItem {
+    background: $color-white;
+    margin-bottom: 8px;
+
+    .line {
+      border-bottom: 1px solid $color-gray-border;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      .label {
+        color: $color-text-light;
+        margin-right: 8px;
+      }
+
+      .right {
+        text-align: right;
+
+        .label {
+          margin-right: 0;
+        }
+      }
+
+      .primary {
+        color: $color-primary;
+        margin-left: 16px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .highlight {
+        color: $color-text-dark;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .link {
+        color: $color-secondary;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+
+        svg {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: $color-primary;
+}
+
+.exportButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: $color-text;
+  font-size: 12px;
+
+  svg {
+    font-size: 16px;
+    margin-right: 4px;
+  }
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
+.exportLoader {
+  > div {
+    height: auto;
+  }
+}

@@ -1,0 +1,298 @@
+deptrac:
+  ruleset:
+    Core:
+    - _Collections
+    - _DBAL
+    - _HTTP
+    - _Lock
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Property Info
+    - _Security
+    - _Serializer
+    - _UUID
+    - _Validator
+    Cart:
+    - _Collections
+    - _DBAL
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Cart Integration:
+    - _Collections
+    - _DBAL
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Checkout:
+    - _Collections
+    - _DBAL
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Client:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator
+    Cms:
+    - _Collections
+    - _DBAL
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Delivery:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Translation
+    - _Validator
+    Document:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Translation
+    - _Validator
+    Export:
+    - _Collections
+    - _DBAL
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    File:
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Serializer
+    - _Validator
+    I18n:
+    - _Collections
+    - _DBAL
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator
+    Message:
+    - _CLI
+    - _Collections
+    - _DBAL
+    - _DI
+    - _HTTP
+    - _ORM
+    - _PSR Log
+    - _PhpStorm
+    - _Serializer
+    - _SwiftMailer
+    - _Twig
+    - _Validator
+    - _YAML
+    Offer:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Order:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Translation
+    - _Validator
+    Payment:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Translation
+    - _Validator
+    - _YAML
+    Pricing:
+    - _Collections
+    - _DBAL
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator
+    - _YAML
+    Product:
+    - _Collections
+    - _DBAL
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator
+    Receiver:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator
+    Search Product:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Security:
+    - _Api Doc
+    - _Collections
+    - _DBAL
+    - _Event
+    - _HTTP
+    - _OAuth
+    - _ORM
+    - _Open API
+    - _Password Hasher
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Twig
+    - _Validator
+    Service:
+    - _Collections
+    - _DBAL
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Serializer
+    - _Validator
+    Shopping List:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _Security
+    - _Serializer
+    - _Validator
+    Stock:
+    - _Collections
+    - _DBAL
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator
+    User:
+    - _Assert
+    - _Collections
+    - _DBAL
+    - _DI
+    - _Event
+    - _HTTP
+    - _ORM
+    - _Open API
+    - _PSR Event
+    - _PhpStorm
+    - _Security
+    - _Serializer
+    - _Validator

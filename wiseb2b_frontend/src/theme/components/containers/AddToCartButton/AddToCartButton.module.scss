@@ -1,0 +1,85 @@
+@import "src/theme/color";
+
+.wrapperComponent {
+  height: 44px;
+  border: 1px solid $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cart {
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-right: 1px solid $color-primary;
+    padding: 0 16px;
+    height: 33px;
+    background: transparent;
+    color: $color-primary;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    margin-right: 8px;
+
+    svg {
+      color: $color-primary;
+    }
+  }
+
+  &.large {
+    height: 54px;
+    background: $color-primary;
+
+    .cart {
+      border-right: 1px solid $color-white;
+      color: $color-white;
+      font-size: 16px;
+
+      svg {
+        margin-left: 16px;
+        font-size: 20px;
+      }
+    }
+
+    .dropdown {
+      svg {
+        color: $color-white;
+      }
+    }
+  }
+
+  &:hover {
+    background: $color-primary;
+
+    .cart {
+      border-right: 1px solid $color-white;
+      color: $color-white;
+    }
+
+    .dropdown {
+      svg {
+        color: $color-white;
+      }
+    }
+  }
+
+  &.disabled {
+    border-color: $color-gray-border;
+    background: $color-gray-background;
+
+    .cart {
+      border-right: 1px solid $color-gray-border;
+      color: $color-gray-border;
+      cursor: auto;
+    }
+
+    .dropdown {
+      svg {
+        color: $color-gray-border;
+      }
+    }
+  }
+}

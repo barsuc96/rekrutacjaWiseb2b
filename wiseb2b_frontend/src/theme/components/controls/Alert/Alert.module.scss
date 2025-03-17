@@ -1,0 +1,79 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.icon {
+  display: block;
+}
+
+.wrapperComponent {
+  display: block;
+  margin-bottom: 8px;
+
+  .MuiPaper-root {
+    border-radius: 4px;
+    padding: 2px;
+    border: 1px solid;
+    min-width: 500px;
+
+    @include breakpoint(md) {
+      min-width: 0;
+      margin: 0 8px;
+    }
+
+    &.message-success {
+      background-color: $color-alert-success-bg;
+      border-color: $color-alert-success-border;
+      color: $color-alert-success-border;
+    }
+    &.message-warning {
+      background-color: $color-alert-warning-bg;
+      border-color: $color-alert-warning-border;
+      color: $color-alert-warning-border;
+    }
+    &.message-error {
+      background-color: $color-alert-error-bg;
+      border-color: $color-alert-error-border;
+      color: $color-alert-error-border;
+    }
+
+    & div:first-of-type {
+      display: flex;
+      align-self: center;
+      align-items: center;
+      margin: 0 0 0 10px;
+      color: inherit;
+
+      @include breakpoint(md) {
+        align-self: flex-start;
+      }
+    }
+
+    & div:last-of-type {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-text-dark;
+
+      @include breakpoint(md) {
+        font-size: 10px;
+        line-height: 120%;
+      }
+
+      > span {
+        margin-right: 8px;
+      }
+
+      .alert-close {
+        margin: 0 0 0 20px;
+
+        :hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

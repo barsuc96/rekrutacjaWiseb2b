@@ -1,0 +1,12 @@
+.wrapperComponent {
+  width: 100%;
+  &.formElementHalfWidth {
+    width: calc(50% - 10px);
+  }
+  margin-bottom: 12px;
+  label {
+    font-weight: 700;
+    display: block;
+    padding-bottom: 2px;
+  }
+}

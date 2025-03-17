@@ -1,0 +1,27 @@
+doctrine:
+  orm:
+    mappings:
+      Contract:
+        is_bundle: false
+        type: yml
+        dir: '%wiseb2b_dir%/Wise/Agreement/Resources/entity/contract'
+        prefix: 'Wise\Agreement\Domain\Contract'
+        alias: Contract
+      ContractAgreement:
+        is_bundle: false
+        type: yml
+        dir: '%wiseb2b_dir%/Wise/Agreement/Resources/entity/contractAgreement'
+        prefix: 'Wise\Agreement\Domain\ContractAgreement'
+        alias: ContractAgreement
+      ContractTranslation:
+        is_bundle: false
+        type: yml
+        dir: '%wiseb2b_dir%/Wise/Agreement/Resources/entity/contractTranslation'
+        prefix: 'Wise\Agreement\Repository\Doctrine\ContractTranslation'
+        alias: ContractTranslation
+      ContractTypeDictionary:
+        is_bundle: false
+        type: yml
+        dir: '%wiseb2b_dir%/Wise/Agreement/Resources/entity/contractTypeDictionary'
+        prefix: 'Wise\Agreement\Domain\ContractTypeDictionary'
+        alias: ContractTypeDictionary

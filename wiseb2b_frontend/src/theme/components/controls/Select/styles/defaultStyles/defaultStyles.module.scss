@@ -1,0 +1,115 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.container {
+  height: 100%;
+  .control {
+    min-height: 36px;
+    border-radius: 0;
+    padding: 0 16px;
+
+    @include breakpoint(md) {
+      height: 100%;
+      padding: 0;
+    }
+
+    box-shadow: none;
+    border-color: $color-gray-border;
+    flex-wrap: nowrap !important;
+
+    svg {
+      transform: rotateX(0);
+      transition: all 100ms ease;
+    }
+    &.controlOpen {
+      svg {
+        transform: rotateX(180deg);
+      }
+    }
+    &:hover {
+      border-color: $color-gray-border;
+    }
+  }
+
+  .option {
+    border-bottom: 0;
+    padding: 0 18px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 8px;
+    color: $color-text;
+    font-weight: 400;
+
+    @include breakpoint(md) {
+      padding: 0 10px;
+    }
+
+    &.optionSelected {
+      font-weight: 600;
+    }
+
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-secondary-border;
+    }
+  }
+
+  .indicatorSeparator {
+    display: none;
+  }
+  .indicatorsContainer {
+    padding: 0 10px;
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    margin-left: 8px;
+  }
+  .dropdownIndicator {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    padding: 0;
+  }
+  .valueContainer {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  input {
+    position: absolute;
+    left: 0;
+  }
+
+  .singleValue {
+    font-size: 14px;
+    color: $color-text-dark;
+    font-weight: 500;
+  }
+  .placeholder {
+    font-size: 14px;
+    color: $color-label;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .menu {
+    top: calc(100% - 1px);
+    margin: 0;
+    width: max-content;
+    min-width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid $color-search-border;
+    box-shadow: 0px 14px 21px -1px rgba(6, 25, 56, 0.05);
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .menuList {
+    padding: 0;
+    overflow: auto;
+    max-height: 200;
+  }
+}

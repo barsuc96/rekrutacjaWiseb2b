@@ -1,0 +1,5 @@
+wise_security:
+
+  # ======= KONFIGURACJA RECAPTCHA =========
+  allow_recaptcha: false
+  recaptcha_secret: ta0gc86b02zf9xvij6nytoz8s3ok2b0uqk2cpr8kp0pm1ol5

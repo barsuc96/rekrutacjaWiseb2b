@@ -1,0 +1,9 @@
+receiver:
+    address:
+        empty: 'Odbiorca nie posiada uzupełnionego adresu.'
+
+exceptions:
+    receiver:
+        access_to_add_receiver_disabled: 'Opcja dodawania odbiorcy jest wyłączona. W celu dodania odbiorcy skontaktuj się z działem obsługi klienta.'
+        access_to_modify_receiver_disabled: 'Opcja modyfikacji odbiorcy jest wyłączona. W celu zmiany danych skontaktuj się z działem obsługi klienta.'
+

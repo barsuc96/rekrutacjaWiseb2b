@@ -1,0 +1,9 @@
+owsianka:
+  name: Owsianka Jakub
+  title: PHP Developer
+  image_url: https://avatars.githubusercontent.com/u/133957794?v=4
+  page:
+    # customize the url of the author page at /blog/authors/<permalink>
+    permalink: '/owsianka'
+  socials:
+    github: OwsiankaJakub

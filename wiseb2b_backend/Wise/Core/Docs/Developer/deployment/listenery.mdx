@@ -1,0 +1,256 @@
+# Listener | Eventy
+
+W systemie Wise jest emitowane wiele eventów, które pozwalają nam na reakcję na zmiany w systemie. W celu obsługi tych zdarzeń, możemy skorzystać z mechanizmu listenerów.
+
+Użycie listenerów pozwala na odseparowanie logiki. Nie musimy wtedy nadpisywać działanie serwisów.
+Dodatkowo pozwala nam na reagowanie na pewne sytuacje niezależnie od miejsca gdzie one nastąpiły (rekacja na modyfikacje pewnych parametrów niezależnie czy stały się one przez AdminApi/UiApi/Komende czy inną część systemu).
+
+## Przykładowy listener
+
+```php
+<?php
+
+namespace Wise\Cart\Domain\Cart\Listeners;
+
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Wise\Cart\Domain\Cart\Cart;
+use Wise\Cart\Domain\Cart\CartRepositoryInterface;
+use Wise\Client\Domain\Client\Events\ClientViesChangedEvent;
+use Wise\Core\Service\DomainEventsDispatcher;
+
+/**
+ * W momencie modyfikacji flagi, isVies na kliencie, przelicz koszyki (głównie zależy nam na strategii wyliczania koszyka)
+ */
+#[AsEventListener(event: 'client.vies_changed')]
+class CartRecalculateWhenIsViesOnClientWasChangedListener
+{
+    public function __construct(
+        private readonly CartRepositoryInterface $cartRepository,
+        private readonly DomainEventsDispatcher $eventsDispatcher,
+    ){}
+
+    public function __invoke(ClientViesChangedEvent $event): void
+    {
+        $carts = $this->cartRepository->findBy(['clientId' => $event->getId(), 'isActive' => true]);
+
+        /** @var Cart $cart */
+        foreach ($carts as $cart) {
+            $cart->emitRecalculateEvent();
+
+            $this->eventsDispatcher->flushInternalEvents();
+            $this->cartRepository->save($cart, true);
+            $this->eventsDispatcher->flush();
+        }
+    }
+}
+```
+
+## Tworzenie eventów
+
+W systemie Wise mamy podstawowe eventy dla każdej encji, które są emitowane w odpowiednich momentach. Dodatkowo możemy emitować własne eventy.
+
+### Podstawowe eventy
+
+Do podstawowych eventów należą:
+- `hasCreated` - emitowany w momencie utworzenia encji. Przykład:  `ClientHasCreatedEvent`
+- `hasChanged` - emitowany w momencie aktualizacji encji. Przykład:  `ClientHasChangedEvent`
+- `BeforeRemove` - emitowany przed usunięciem encji. Przykład:  `ClientBeforeRemoveEvent`
+- `hasDeleted` - emitowany po usunięciu encji. Przykład:  `ClientHasDeletedEvent`
+
+Każda encja może posiadać dodatkowe eventy, które zostały zdefiniowane do istniejącej logiki (niektórych serwisów standardu), dlatego warto sprawdzić jakie eventy zostały przygotowane na standardzie.
+Możemy je zobaczyć w katalogu danej encji w folderze `Event`.
+
+### Emitowanie własnych eventów
+
+Aby stworzyć własny event wystarczy stworzyć nową klasę w odpowiednim miejscu w systemie i go emitować.
+Jeśli event dotyczy konkretnej encji to umieszczamy go w folderze `Event` danej encji.
+Jeśli event dotyczy pewnej logiki systemowej to umieszczamy go w folderze `Event` w odpowiednim module w katalogu Service.
+
+Poniżej przedstawiono implementacje eventu `ClientViesChangedEvent`
+
+```php
+<?php
+
+namespace Wise\Client\Domain\Client\Events;
+
+use Wise\Core\Domain\Event\ExternalDomainEvent;
+
+class ClientViesChangedEvent implements ExternalDomainEvent
+{
+    public const NAME = 'client.vies_changed';
+
+    public function __construct(
+        protected int $id,
+    ) {}
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public static function getName(): ?string
+    {
+        return self::NAME;
+    }
+}
+```
+
+Aby poprawnie event był obsługiwany musi on implementować jeden z interfejsów:
+
+- `Wise\Core\Domain\Event\InternalDomainEvent` - event emitowany przed dodaniem lub zmianą encji
+- `Wise\Core\Domain\Event\ExternalDomainEvent` - event emitowany po dodaniu lub zmianie encji
+
+W powyższym przykładzie event `ClientViesChangedEvent` jest eventem emitowanym po zmianie flagi `isVies` na kliencie.
+
+Każdy event musi posiadać swoją nazwe, która jest unikalna w systemie. W powyższym przykładzie nazwa eventu to `client.vies_changed`.
+Służy ona do identyfikacji eventu w listenerach (szczegóły w sekcji listenerów).
+
+W konstruktorze przekazujemy informacje, które chcemy później przekazać do listenerów.
+
+
+## Emitowanie eventów
+
+### Przykład emisji eventu
+
+Tak jak wcześniej wspomniano eventy są emitowane w odpowiednich momentach.
+
+- `Wise\Core\Domain\Event\InternalDomainEvent` - event emitowany przed dodaniem lub zmianą encji
+- `Wise\Core\Domain\Event\ExternalDomainEvent` - event emitowany po dodaniu lub zmianie encji
+
+Każdy serwis Add/Modify/Remove obsługuje emisje eventów.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Wise\Client\Domain\Client;
+
+class Client extends AbstractEntity
+{
+    protected ?bool $isVies = null;
+
+
+    public function setIsVies(?bool $isVies): self
+    {
+        if($this->isVies !== $isVies){
+            $this->isVies = $isVies;
+
+            DomainEventManager::instance()->post(new ClientViesChangedEvent($this->getId()));
+        }
+
+        return $this;
+    }
+
+}
+
+```
+
+W powyższym przykładzie w momencie zmiany flagi `isVies` na kliencie emitowany jest event `ClientViesChangedEvent` z id klienta.
+Metoda post umieszcza Event w kolejce/tablicy eventów, które mają być emitowane w odpowiednim momencie .
+
+Można powiedzieć, że mówimy... Ja wiem, że po zmianie flagi `isVies` na kliencie chcę wyemitować event `ClientViesChangedEvent` z id klienta. Jeśli tak się stało to chce wyemitować ten event (metoda post()). Jeszcze w tym momencie listenery nie dostaną informacji o zmianie flagi `isVies` na kliencie ale system już wie że takie zdarzenie miało miejsce i w odpowiednim momencie wyemituje event.
+
+
+---
+
+W powyższym przypadku nic więcej nie trzeba robić ponieważ serwis modify obsługuje emisje eventów i w odpowiednim momencie wyemituje event `ClientViesChangedEvent`. W związku, że ten event implementuje interfejs `Wise\Core\Domain\Event\ExternalDomainEvent` to zostanie on obsłużony po zapisanie zmiany w bazie danych czyli po wykonaniu `Repository::save()`.
+
+
+Zaś jeśli chcemy emitować event w innych miejscach, to musimy skorzystać z `Wise\Core\Service\DomainEventsDispatcher`
+Udostępnia on nam metody do emisji eventów.
+
+### DomainEventsDispatcher - dispatchEvent()
+
+Metoda pozwala nam na bezpośrednie wyemitowanie eventu.
+
+```php
+public function dispatchEvent(DomainEvent $event): void
+{
+    $eventName = null;
+
+    if (method_exists($event, 'getName')) {
+        $eventName = $event::getName();
+    }
+
+    $this->eventDispatcher->dispatch($event, $eventName);
+}
+```
+
+### DomainEventsDispatcher - flushInternalEvents()
+
+Pozwala nam wyemitować wszystkie eventy zapisane w kolejce które implementują interfejs `Wise\Core\Domain\Event\InternalDomainEvent`
+
+### DomainEventsDispatcher - flush()
+
+Pozwala nam wyemitować wszystkie eventy niezależnie od tego czy implementują interfejs `Wise\Core\Domain\Event\InternalDomainEvent` czy `Wise\Core\Domain\Event\ExternalDomainEvent`
+
+
+## Obsługa eventów
+
+
+### Jak stworzyć Listener
+Aby obsłużyć event, który został wyemitowany musimy stworzyć listenera.
+Każdy listener musi posiadać metode `__invoke()` która będzie obsługiwała event, w której jako parametr przyjmuje event.
+
+
+### Symfony - rejestrowanie listenerów
+
+Aby powiedzieć Symfony że nasza klasa jest listenerem i ma nasłuchiwać eventów możemy to zrobić na dwa sposoby.
+
+1. Atrybut `AsEventListener`
+
+Musimy dodać atrybut na klasę `#[AsEventListener(event: 'EVENT_NAME')]` np. `#[AsEventListener(event: 'client.vies_changed')]` gdzie w event podajemy nazwę zadeklarowaną w evencie.
+
+
+2. Konfiguracja `services.yaml`
+
+Jest również drugi sposób rejestrowania listenerów w Symfony, który polega na dodaniu do pliku `services.yaml` wpisu z tagiem `kernel.event_listener`.
+
+```yaml
+    Wise\Cart\Domain\Cart\Listeners\CartRecalculateWhenIsViesOnClientWasChangedListener:
+        tags:
+            - { name: kernel.event_listener, event: client.vies_changed }
+```
+
+
+### Przykładowy listener
+
+```php
+<?php
+
+namespace Wise\Cart\Domain\Cart\Listeners;
+
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Wise\Cart\Domain\Cart\Cart;
+use Wise\Cart\Domain\Cart\CartRepositoryInterface;
+use Wise\Client\Domain\Client\Events\ClientViesChangedEvent;
+use Wise\Core\Service\DomainEventsDispatcher;
+
+/**
+ * W momencie modyfikacji flagi, isVies na kliencie, przelicz koszyki (głównie zależy nam na strategii wyliczania koszyka)
+ */
+#[AsEventListener(event: 'client.vies_changed')]
+class CartRecalculateWhenIsViesOnClientWasChangedListener
+{
+    public function __construct(
+        private readonly CartRepositoryInterface $cartRepository,
+        private readonly DomainEventsDispatcher $eventsDispatcher,
+    ){}
+
+    public function __invoke(ClientViesChangedEvent $event): void
+    {
+        $carts = $this->cartRepository->findBy(['clientId' => $event->getId(), 'isActive' => true]);
+
+        /** @var Cart $cart */
+        foreach ($carts as $cart) {
+            $cart->emitRecalculateEvent();
+
+            $this->eventsDispatcher->flushInternalEvents();
+            $this->cartRepository->save($cart, true);
+            $this->eventsDispatcher->flush();
+        }
+    }
+}
+
+```

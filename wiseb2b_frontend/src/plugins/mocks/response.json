@@ -1,0 +1,144 @@
+{
+  "page_symbol": "clients_page",
+  "components": [
+    {
+      "filters": [
+        {
+          "type": "search",
+          "label": "Szukaj klienta...",
+          "value_name": "search_keyword"
+        },
+        {
+          "type": "select",
+          "label": "Wybierz status...",
+          "dictionary": {
+            "values": [
+              {
+                "value": 1,
+                "text": "W rejestracji"
+              },
+              {
+                "value": 2,
+                "text": "Aktywny"
+              }
+            ],
+            "multi_choice": false,
+            "values_get_u_i_api": null
+          },
+          "value_name": "status"
+        },
+        {
+          "type": "select",
+          "label": "Wybierz aktywność...",
+          "dictionary": {
+            "values": [
+              {
+                "value": true,
+                "text": "Aktywne"
+              },
+              {
+                "value": false,
+                "text": "Nieaktywne"
+              },
+              {
+                "value": null,
+                "text": "Wszystkie"
+              }
+            ],
+            "multi_choice": false,
+            "values_get_u_i_api": null
+          },
+          "value_name": "is_active"
+        }
+      ],
+      "columns": [
+        {
+          "type": "text",
+          "label": "LP",
+          "field_symbol": "lp",
+          "align": "center"
+        },
+        {
+          "type": "text",
+          "label": "Nazwa odbiorcy",
+          "field_symbol": "name",
+          "align": "center"
+        },
+        {
+          "type": "text",
+          "label": "Status",
+          "field_symbol": "status_formatted",
+          "align": "center"
+        },
+        {
+          "type": "text",
+          "label": "Ilość ofert",
+          "field_symbol": "offers_count",
+          "align": "center"
+        },
+        {
+          "type": "text",
+          "label": "Ilość zamówień",
+          "field_symbol": "orders_count",
+          "align": "center"
+        },
+        {
+          "type": "address",
+          "label": "Adres",
+          "field_symbol": "address",
+          "align": "center"
+        }
+      ],
+      "loadDataParams": {
+        "get_url": "/clients"
+      },
+      "actions": [
+        {
+          "type": "CONTEXT_ADDITIONAL",
+          "label": "Akceptacja klienta",
+          "method": "CallCommand",
+          "method_params": {
+            "command_url": "/clients/:id/accept",
+            "params_list": null
+          },
+          "refresh_data_mode": "ONSUCCESS"
+        },
+        {
+          "type": "NO_CONTEXT",
+          "label": "Utwórz",
+          "method": "OpenComponent",
+          "method_params": {
+            "component_name": "ClientForm",
+            "params_list": "mode='NEW'"
+          },
+          "refresh_data_mode": "ONSUCCESS"
+        },
+        {
+          "type": "CONTEXT_MAIN",
+          "label": "Edytuj",
+          "style": "ACTION_EDIT",
+          "method": "OpenComponent",
+          "method_params": {
+            "component_name": "ClientForm",
+            "params_list": "mode=EDIT&id=:id"
+          },
+          "refresh_data_mode": "ONSUCCESS"
+        },
+        {
+          "type": "COLUMN",
+          "column_field_symbol": "name",
+          "label": "Edycja z kolumny nazwa",
+          "method": "OpenComponent",
+          "method_params": {
+            "component_name": "ClientForm",
+            "params_list": "mode=EDIT&id=:id"
+          },
+          "refresh_data_mode": "ONSUCCESS"
+        }
+      ],
+      "type": "table",
+      "symbol": "TABLE",
+      "label": "Lista klientów"
+    }
+  ]
+}

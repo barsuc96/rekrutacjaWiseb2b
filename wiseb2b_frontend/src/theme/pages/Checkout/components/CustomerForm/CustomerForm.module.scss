@@ -1,0 +1,31 @@
+.componentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.formElement {
+  width: 100%;
+  margin-bottom: 12px;
+
+  label {
+    font-weight: 700;
+  }
+
+  &.halfWidth {
+    width: calc(50% - 10px);
+  }
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}

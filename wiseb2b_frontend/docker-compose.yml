@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  frontend:
+    container_name: WiseB2B_frontend
+    image: build:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3001:80
+    volumes:
+      - ./:/frontend
+      - /frontend/node_modules

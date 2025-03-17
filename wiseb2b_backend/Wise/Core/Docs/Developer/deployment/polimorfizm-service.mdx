@@ -1,0 +1,89 @@
+# Nadpisywanie logiki serwisu
+
+W przypadku, gdy zachodzi potrzeba nadpisania logiki serwisu, należy postępować zgodnie z poniższymi krokami:
+
+1. Utwórz nowy serwis, który dziedziczy po serwisie, którego logikę chcesz nadpisać.
+
+Poniżej dodano logike, która nadpisuje domyślną logikę serwisu `AddClientService`.
+Pilnuje aby zawsze ustawiać domyślną metodę dostawy dla klienta (To samo można zrobić przeciążając Factory)
+
+*UWAGA! Serwis musi dziedziczyć po serwisie bazowym + musi implementować interfejs tego serwisu, który chcemy nadpisać.*
+
+
+```php
+<?php
+
+namespace YourProject\Client\Service\Client;
+
+use Wise\Client\Domain\Client\ClientRepositoryInterface;
+use Wise\Client\Domain\Client\Factory\ClientFactory;
+use Wise\Client\Service\Client\Interfaces\AddClientServiceInterface;
+use Wise\Client\Service\Client\Interfaces\ClientGroupHelperInterface;
+use Wise\Client\Service\Client\Interfaces\ClientHelperInterface;
+use Wise\Core\Helper\PersistenceShareMethodsHelper;
+use Wise\Delivery\Service\DeliveryMethod\Interfaces\DeliveryMethodHelperInterface;
+use Wise\Payment\Service\PaymentMethod\Helper\Interfaces\PaymentMethodHelperInterface;
+use Wise\Pricing\Service\PriceList\Interfaces\PriceListHelperInterface;
+use Wise\User\Service\Trader\Interfaces\TraderHelperInterface;
+
+class AddClientService extends \Wise\Client\Service\Client\AddClientService implements AddClientServiceInterface
+{
+    protected const DEFAULT_DELIVERY_METHOD = 1;
+
+    public function __construct(
+        private readonly ClientRepositoryInterface $repository,
+        private readonly ClientFactory $entityFactory,
+        private readonly PersistenceShareMethodsHelper $persistenceShareMethodsHelper,
+        private readonly PaymentMethodHelperInterface $paymentMethodHelper,
+        private readonly DeliveryMethodHelperInterface $deliveryMethodHelper,
+        private readonly ClientGroupHelperInterface $clientGroupHelper,
+        private readonly TraderHelperInterface $traderHelper,
+        private readonly PriceListHelperInterface $priceListHelper,
+        private readonly ClientHelperInterface $clientHelper,
+    ){
+        parent::__construct($repository, $entityFactory, $persistenceShareMethodsHelper, $paymentMethodHelper, $deliveryMethodHelper, $clientGroupHelper, $traderHelper, $priceListHelper, $clientHelper);
+    }
+
+    /**
+     * Umożliwia przygotowanie danych do utworzenia encji w fabryce.
+     * @param array|null $data
+     * @return array
+     */
+    protected function prepareDataBeforeCreateEntity(?array &$data): array
+    {
+        $data = parent::prepareDataBeforeCreateEntity($data);
+
+        if(!isset($data['defaultDeliveryMethodId'])){
+            $data['defaultDeliveryMethodId'] = self::DEFAULT_DELIVERY_METHOD;
+        }
+
+        return $data;
+    }
+}
+```
+
+Zwróć uwagę, że w powyższym przykładzie nadpisano metodę `prepareDataBeforeCreateEntity`, która jest odpowiedzialna za przygotowanie danych przed utworzeniem encji.
+Wykonuje ona metodę z klasy bazowej, a następnie dodaje własną logikę (powinieneś zawsze wywoływać metodę z klasy bazowej, aby zachować domyślną logikę ponieważ podczas rozwoju standardu może logika się zmienić/rozbudować a w taki sposób będziesz od tego odporny).
+
+
+2. Zarejestruj nowy serwis w kontenerze serwisów.
+
+Jak już mamy serwis z nową logiką w tym celu w pliku `services.yaml` dodajemy nowy wpis:
+
+```yaml
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  YourProject\Client\:
+    resource: '../../'
+
+
+  Wise\Client\Service\Client\Interfaces\AddClientServiceInterface: '@YourProject\Client\Service\Client\AddClientService'
+```
+
+Powyższa konfiguracja mówi, że serwis `AddClientServiceInterface` ma być zastąpiony przez serwis `AddClientService` z naszego projektu.
+Czyli przy każdym wywołaniu serwisu `AddClientServiceInterface` zostanie wywołany serwis `AddClientService` a że dziedziczy on po `AddClientService` to zostanie wywołana jego logika.
+
+I tak naprawdę to wszystko co musisz zrobić aby nadpisać logikę serwisu. Warto zdebugować w tym miejscu kod i sprawdzić czy wszystko działa poprawnie.

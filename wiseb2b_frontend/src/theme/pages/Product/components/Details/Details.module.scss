@@ -1,0 +1,268 @@
+@import 'src/theme/color';
+@import 'src/theme/font';
+@import 'src/theme/breakpoints';
+
+.productDetails {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  padding: 25px 0 0 38px;
+
+  @include breakpoint(md) {
+    padding: 0;
+  }
+
+  .mainContent {
+    padding-right: 35px;
+
+    @include breakpoint(md) {
+      padding: 0 8px;
+    }
+  }
+}
+
+//h1
+.title {
+  display: block;
+  width: 100%;
+  margin: 0 0 16px 0;
+  font-family: $font-poppins;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.01em;
+  color: $color-text-dark;
+}
+
+//ul
+.list {
+  display: flex;
+  flex-flow: wrap row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+//li
+.listItem {
+  position: relative;
+  display: block;
+  width: auto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-text;
+
+  &:not(:last-child) {
+    padding-right: 15px;
+    margin-right: 14px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 5px);
+      right: 0;
+      width: 1px;
+      height: 10px;
+      background-color: $color-text;
+    }
+  }
+
+  strong {
+    display: inline;
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      color: $color-primary;
+    }
+  }
+}
+
+.description {
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+//span
+.label {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-text;
+}
+
+.text {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-text;
+}
+
+.technicalAttributes {
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+  margin-bottom: 30px;
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    line-height: 20px;
+    color: $color-primary;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+
+    > svg {
+      margin-left: 4px;
+    }
+  }
+}
+
+.dashedBlock {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-top: 1px dashed $color-gray-border;
+  min-height: 48px;
+}
+
+.technicalAttributeItem {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: $color-text;
+  margin-right: 24px;
+  margin-bottom: 4px;
+
+  .value {
+    font-weight: 700;
+    margin-left: 4px;
+    display: inline-flex;
+    align-items: center;
+
+    .green {
+      color: $color-success;
+    }
+
+    .red {
+      color: $color-error;
+    }
+
+    svg {
+      font-size: 20px;
+    }
+  }
+}
+
+.block {
+  display: flex;
+  flex-flow: wrap row;
+  width: 100%;
+}
+
+.promotion {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  color: $color-violet;
+  font-size: 14px;
+  line-height: 20px;
+
+  svg {
+    font-size: 20px;
+    margin-right: 4px;
+  }
+
+  strong {
+    font-weight: 700;
+    margin-left: 4px;
+  }
+
+  a {
+    font-size: 12px;
+    color: $color-black;
+    text-decoration: none;
+    margin-left: 8px;
+  }
+}
+
+.options {
+  margin-bottom: 24px;
+
+  @include breakpoint(md) {
+    border-top: 1px dashed $color-gray-border;
+    padding-top: 32px;
+  }
+
+  .optionsTitle {
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: $color-text;
+  }
+
+  .versionsWrapper {
+    [class$='-control'] {
+      background: transparent;
+    }
+  }
+
+  .colorsWrapper {
+    margin: 2px 0;
+
+    .color {
+      display: inline-block;
+      margin: 6px;
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      cursor: pointer;
+      border: 1px solid transparent;
+
+      &.current {
+        border-color: $color-text;
+      }
+    }
+  }
+}
+
+.gpsrDataRow {
+  td:first-child {
+    font-weight: 700;
+    width: 150px;
+  }
+}
+
+.gpsrButton {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.gpsrAddress {
+  display: flex;
+  align-items: flex-start;
+}
+
+.confirmationModalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 32px;
+
+  button + button {
+    margin-left: 16px;
+  }
+}

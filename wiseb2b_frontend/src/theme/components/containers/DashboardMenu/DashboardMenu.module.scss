@@ -1,0 +1,96 @@
+@import 'src/theme/color';
+
+.wrapperComponent {
+  width: 100%;
+  padding-top: 20px;
+}
+
+.menuItem {
+  display: flex;
+  flex-flow: wrap column;
+  align-items: center;
+  padding: 0 0 16px;
+  width: 100%;
+
+  &:not(:first-child) {
+    padding: 16px 0;
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px dashed $color-table-border;
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: $color-text-dark;
+
+  .arrow {
+    margin-left: auto;
+  }
+
+  &.open {
+    .arrow {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// import { Link as NavLink } from 'components/controls';
+.link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: $color-text-dark;
+
+  .arrow {
+    margin-left: auto;
+  }
+
+  text-decoration: none;
+  color: inherit;
+
+  &.active {
+    color: $color-secondary;
+  }
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  width: 22px;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.subItemsWrapper {
+  display: flex;
+  flex-flow: wrap column;
+  width: 100%;
+  padding-left: 30px;
+}
+
+// import { Link as NavLink } from 'components/controls';
+.subItem {
+  display: flex;
+  padding: 12px 0 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  text-decoration: none;
+  color: $color-text;
+
+  &.current {
+    color: $color-secondary;
+  }
+}

@@ -1,0 +1,9 @@
+admin_api
+#wiseb2b*_backend*
+postgresql
+db
+.idea
+/documents/
+docker-compose.*.yml
+certbot
+composer_cache/*

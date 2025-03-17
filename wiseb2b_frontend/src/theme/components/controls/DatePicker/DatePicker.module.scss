@@ -1,0 +1,55 @@
+@import 'src/theme/color';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border: 1px solid $color-gray-border;
+  padding: 0 16px;
+  font-size: 14px;
+  background: $color-gray;
+
+  span {
+    text-align: left;
+    width: 175px;
+    color: $color-text-dark;
+
+    &.placeholder {
+      color: $color-text-light;
+    }
+  }
+
+  svg {
+    color: $color-primary;
+    font-size: 20px;
+    margin-left: 8px;
+  }
+}
+
+.clear {
+  padding: 0;
+  border: unset;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+
+  svg {
+    margin: 0;
+    fill: $color-text-light;
+  }
+
+  &:hover {
+    svg {
+      fill: $color-text;
+    }
+  }
+}
+
+.timePicker {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}

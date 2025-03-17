@@ -1,0 +1,16 @@
+Wise\Client\Domain\ClientGroup\ClientGroup:
+    type: entity
+    table: client_group
+    repositoryClass: Wise\Client\Repository\Doctrine\ClientGroupRepository
+
+    fields:
+        idExternal: { type: string, nullable: true }
+        name: { type: string, nullable: true }
+        storeId: { type: integer, nullable: true }
+
+    oneToMany:
+        priceLists:
+            targetEntity: Wise\Client\Domain\ClientPriceList\ClientPriceList
+            mappedBy: clientGroup
+            cascade: [ persist, remove ]
+            orphanRemoval: true

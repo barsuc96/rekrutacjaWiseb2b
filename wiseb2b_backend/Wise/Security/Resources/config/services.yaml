@@ -1,0 +1,100 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    ###>>> Subscribers
+    Wise\Security\EventSubscriber\AccessTokenSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ###>>> Listeners
+    Wise\Security\EventListener\UserResolveListener:
+        arguments:
+            - '@Wise\Security\Domain\Provider\UserProvider'
+            - '@Wise\Security\Domain\UserPasswordHasher'
+        tags:
+            - { name: kernel.event_listener, event: league.oauth2_server.event.user_resolve, method: onUserResolve }
+
+    ###>>> ADMIN API
+    # Oauth2 - Interface
+    Wise\Security\ApiAdmin\Controller\Oauth2\PostTokenController:
+        tags:
+            - { name: controller.service_arguments }
+    # Oauth2 - Persistence
+    Wise\Security\Repository\Doctrine\ApiClientRepository: ~
+    Wise\Security\Domain\Oauth2\ApiClientRepositoryInterface: '@Wise\Security\Repository\Doctrine\ApiClientRepository'
+
+    Wise\Security\EventSubscriber\AccessToken\AccessTokenCommonBaseControllerProvider:
+        tags:
+            - { name: wise_security.access_token, priority: 1000 }
+
+    ###>>> CLIENT API
+
+    ###>>> UI API
+    # Auth - Interface
+    Wise\Security\ApiUi\Controller\GetOverloginUsersController: ~
+    Wise\Security\ApiUi\Controller\PostLogoutController: ~
+    Wise\Security\ApiUi\Controller\PostPasswordChangeController: ~
+    Wise\Security\ApiUi\Controller\PostPasswordForgotController: ~
+    Wise\Security\ApiUi\Controller\PostPasswordResetController: ~
+    Wise\Security\ApiUi\Controller\PostOverLoginController: ~
+    Wise\Security\ApiUi\Controller\PostOverLogoutController: ~
+
+    Wise\Security\ApiUi\Service\UserLoginTransformer: ~
+    Wise\Security\ApiUi\Service\UserLoginTransformerInterface: '@Wise\Security\ApiUi\Service\UserLoginTransformer'
+    Wise\Security\ApiUi\Service\PostLogoutService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostLogoutServiceInterface: '@Wise\Security\ApiUi\Service\PostLogoutService'
+    Wise\Security\ApiUi\Service\PostPasswordChangeService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostPasswordChangeServiceInterface: '@Wise\Security\ApiUi\Service\PostPasswordChangeService'
+    Wise\Security\ApiUi\Service\PostPasswordForgotService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostPasswordForgotServiceInterface: '@Wise\Security\ApiUi\Service\PostPasswordForgotService'
+    Wise\Security\ApiUi\Service\PostPasswordResetService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostPasswordResetServiceInterface: '@Wise\Security\ApiUi\Service\PostPasswordResetService'
+    Wise\Security\ApiUi\Model\UserLoginInfo: ~
+    Wise\Security\ApiUi\Model\UserLoginInfoInterface: '@Wise\Security\ApiUi\Model\UserLoginInfo'
+    Wise\Security\ApiUi\Controller\PostLoginController:
+        tags:
+            - { name: controller.service_arguments }
+
+    Wise\Security\ApiUi\Service\GetOverloginUsersService: ~
+    Wise\Security\ApiUi\Service\Interfaces\GetOverloginUsersServiceInterface: '@Wise\Security\ApiUi\Service\GetOverloginUsersService'
+    Wise\Security\ApiUi\Service\PostOverLoginService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostOverLoginServiceInterface: '@Wise\Security\ApiUi\Service\PostOverLoginService'
+    Wise\Security\ApiUi\Service\PostOverLogoutService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostOverLogoutServiceInterface: '@Wise\Security\ApiUi\Service\PostOverLogoutService'
+
+    #Auth - Persistence
+    Wise\Security\Repository\Doctrine\AccessTokenRepository: ~
+    Wise\Security\Domain\AccessTokenRepositoryInterface: '@Wise\Security\Repository\Doctrine\AccessTokenRepository'
+    Wise\Security\Domain\Provider\UserProvider: ~
+    Wise\Security\Domain\UserPasswordHasher: ~
+
+    #Auth - Logical
+    Wise\Security\Service\LogoutService: ~
+    Wise\Security\Service\Interfaces\LogoutServiceInterface: '@Wise\Security\Service\LogoutService'
+    Wise\Security\Service\PasswordChangeService: ~
+    Wise\Security\Service\Interfaces\PasswordChangeServiceInterface: '@Wise\Security\Service\PasswordChangeService'
+    Wise\Security\Service\PasswordForgotService: ~
+    Wise\Security\Service\Interfaces\PasswordForgotServiceInterface: '@Wise\Security\Service\PasswordForgotService'
+    Wise\Security\Service\PasswordResetService: ~
+    Wise\Security\ApiUi\Service\PostLoginService: ~
+    Wise\Security\ApiUi\Service\Interfaces\PostLoginServiceInterface: '@Wise\Security\ApiUi\Service\PostLoginService'
+    Wise\Security\Service\CanLoginService: ~
+    Wise\Security\Service\Interfaces\CanLoginServiceInterface: '@Wise\Security\Service\CanLoginService'
+    Wise\Core\ApiUi\Helper\ResponsePostHelper: ~
+    Wise\Security\Service\Interfaces\PasswordResetServiceInterface: '@Wise\Security\Service\PasswordResetService'
+    Wise\Security\Service\ListOverloginUsersForCurrentUserService: ~
+    Wise\Security\Service\Interfaces\ListOverloginUsersForCurrentUserServiceInterface: '@Wise\Security\Service\ListOverloginUsersForCurrentUserService'
+    Wise\Security\Service\CurrentUserService: ~
+    Wise\Security\Service\Interfaces\CurrentUserServiceInterface: '@Wise\Security\Service\CurrentUserService'
+    Wise\Security\Service\OverLogInUserService: ~
+    Wise\Security\Service\Interfaces\OverLogInUserServiceInterface: '@Wise\Security\Service\OverLogInUserService'
+    Wise\Security\Service\OverLogOutUserService: ~
+    Wise\Security\Service\Interfaces\OverLogOutUserServiceInterface: '@Wise\Security\Service\OverLogOutUserService'
+    Wise\Security\Service\CoreAutoOverloginUserService: ~
+    Wise\Core\ServiceInterface\CoreAutoOverloginUserServiceInterface: '@Wise\Security\Service\CoreAutoOverloginUserService'
+    Wise\Security\Service\SetOauthApiClientIdService: ~
+    Wise\Security\Service\Interfaces\SetOauthApiClientIdServiceInterface: '@Wise\Security\Service\SetOauthApiClientIdService'
+
+    Wise\Security\EventSubscriber\SupportAdditionalAccessTokenProviderService: ~

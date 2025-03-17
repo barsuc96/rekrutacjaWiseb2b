@@ -1,0 +1,76 @@
+deptrac:
+  layers:
+  # Doctrine
+  - { name: _Collections, collectors: [ { type: className, value: Doctrine\\Common\\Collections\\.* } ] }
+  - { name: _DBAL, collectors: [ { type: className, value: Doctrine\\DBAL\\.* } ] }
+  - { name: _ORM, collectors: [ { type: className, value: Doctrine\\ORM\\.* }, { type: className, value: Doctrine.*Bundle.* }, { type: className, value: Doctrine.*Persistence.* } ] }
+  # JetBrains
+  - { name: _PhpStorm, collectors: [ { type: className, value: JetBrains\\.* } ] }
+  # League
+  - { name: _OAuth, collectors: [ { type: className, value: League\\Bundle\\OAuth2ServerBundle\\.* } ] }
+  # Nelmio
+  - { name: _Api Doc, collectors: [ { type: className, value: Nelmio\\ApiDocBundle\\.* } ] }
+  # Open API
+  - { name: _Open API, collectors: [ { type: className, value: OpenApi\\.* } ] }
+  # PSR
+  - { name: _PSR Event, collectors: [ { type: className, value: Psr\\EventDispatcher\\.* } ] }
+  - { name: _PSR Log, collectors: [ { type: className, value: Psr\\Log\\.* } ] }
+  # SwiftMailer
+  - { name: _SwiftMailer, collectors: [ { type: className, value: Swift_.* } ] }
+  # Symfony
+  - { name: _CLI, collectors: [ { type: className, value: Symfony\\Component\\Console\\.* } ] }
+  - { name: _DI, collectors: [ { type: className, value: Symfony\\Component\\DependencyInjection\\.* } ] }
+  - { name: _Event, collectors: [ { type: className, value: Symfony\\(Component|Contracts)\\EventDispatcher\\.* }, { type: className, value: Symfony\\Component\\Messenger\\.* } ] }
+  - { name: _HTTP, collectors: [ { type: className, value: Symfony\\Component\\HTTPKernel\\.* }, { type: className, value: Symfony\\Component\\HTTPFoundation\\.* }, { type: className, value: Symfony\\Component\\Routing\\.* }, { type: className, value: Symfony\\Bundle\\FrameworkBundle\\Controller\\.* } ] }
+  - { name: _Lock, collectors: [ { type: className, value: Symfony\\Component\\Lock\\.* } ] }
+  - { name: _Password Hasher, collectors: [ { type: className, value: Symfony\\Component\\PasswordHasher\\.* } ] }
+  - { name: _Property Info, collectors: [ { type: className, value: Symfony\\Component\\PropertyInfo\\.* } ] }
+  - { name: _Security, collectors: [ { type: className, value: Symfony\\Component\\Security\\.* } ] }
+  - { name: _Serializer, collectors: [ { type: className, value: Symfony\\Component\\Serializer\\.* }, { type: className, value: Symfony\\Component\\PropertyAccess\\.* } ] }
+  - { name: _Translation, collectors: [ { type: className, value: Symfony\\(Component|Contracts)\\Translation\\.* } ] }
+  - { name: _UUID, collectors: [ { type: className, value: Symfony\\Component\\Uid\\.* } ] }
+  - { name: _Validator, collectors: [ { type: className, value: Symfony\\Component\\Validator\\.* } ] }
+  - { name: _YAML, collectors: [ { type: className, value: Symfony\\Component\\YAML\\.* } ] }
+  # Twig
+  - { name: _Twig, collectors: [ { type: className, value: Twig\\.* } ] }
+  # Webmozart
+  - { name: _Assert, collectors: [ { type: className, value: Webmozart\\Assert\\.* } ] }
+
+  formatters:
+    graphviz:
+      groups:
+        Doctrine:
+        - _Collections
+        - _DBAL
+        - _ORM
+        JetBrains:
+        - _PhpStorm
+        League:
+        - _OAuth
+        Nelmio:
+        - _Api Doc
+        Open API:
+        - _Open API
+        PSR:
+        - _PSR Event
+        - _PSR Log
+        SwiftMailer:
+        - _SwiftMailer
+        Symfony:
+        - _CLI
+        - _DI
+        - _Event
+        - _HTTP
+        - _Lock
+        - _Password Hasher
+        - _Property Info
+        - _Security
+        - _Serializer
+        - _Translation
+        - _UUID
+        - _Validator
+        - _YAML
+        Twig:
+        - _Twig
+        Webmozart:
+        - _Assert

@@ -1,0 +1,15 @@
+doctrine:
+    orm:
+        mappings:
+            Service:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Service/Resources/entity/service'
+                prefix: 'Wise\Service\Domain\Service'
+                alias: Service
+            ServiceTranslation:
+                is_bundle: false
+                type: yml
+                dir: '%wiseb2b_dir%/Wise/Service/Resources/entity/serviceTranslation'
+                prefix: 'Wise\Service\Domain\ServiceTranslation'
+                alias: ServiceTranslation

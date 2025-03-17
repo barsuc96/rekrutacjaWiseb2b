@@ -1,0 +1,31 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  a {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
+
+.filtersWrapper {
+  display: flex;
+  align-items: center;
+
+  @include breakpoint(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 16px 8px;
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

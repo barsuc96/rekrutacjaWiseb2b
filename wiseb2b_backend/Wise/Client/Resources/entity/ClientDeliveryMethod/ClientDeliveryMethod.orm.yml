@@ -1,0 +1,14 @@
+Wise\Client\Domain\ClientDeliveryMethod\ClientDeliveryMethod:
+  type: entity
+  table: client_delivery_method
+  repositoryClass: Wise\Client\Repository\Doctrine\ClientDeliveryMethodRepository
+
+  indexes:
+    client_id_idx:
+      columns: [ client_id ]
+    delivery_method_id_idx:
+      columns: [ delivery_method_id ]
+
+  fields:
+    clientId: { type: integer }
+    deliveryMethodId: { type: integer }

@@ -1,0 +1,19 @@
+nelmio_api_doc:
+  models:
+    names:
+    # Common
+    - { alias: UnauthorizedResponseDto, type: Wise\Core\Dto\UnauthorizedResponseDto, areas: [ 'api_admin_v2', 'api_ui_v2', 'api_client_v2'] }
+    - { alias: InvalidInputDataResponseDto, type: Wise\Core\Dto\InvalidInputDataResponseDto, areas: [ 'api_admin_v2', 'api_ui_v2', 'api_client_v2' ] }
+    - { alias: CommonApiExceptionResponseDto, type: Wise\Core\Dto\CommonApiExceptionResponseDto, areas: [ 'api_admin_v2', 'api_ui_v2', 'api_client_v2' ] }
+
+    # Admin API
+    - { alias: CommonPutAdminApiDto, type: Wise\Core\ApiAdmin\Dto\CommonPutAdminApiDto, areas: [ 'api_admin_v2' ] }
+    - { alias: CommonPutResponseAdminApiDto, type: Wise\Core\ApiAdmin\Dto\CommonPutResponseAdminApiDto, areas: [ 'api_admin_v2' ] }
+    - { alias: CommonDeleteResponseAdminApiDto, type: Wise\Core\ApiAdmin\Dto\CommonDeleteResponseAdminApiDto, areas: [ 'api_admin_v2' ] }
+    - { alias: ResponseDto, type: Wise\Core\ApiAdmin\Dto\CommonResponseDto, areas: [ 'api_admin_v2' ] }
+
+    # UI API
+    - { alias: ResponseDto, type: Wise\Core\ApiAdmin\Dto\CommonResponseDto, areas: [ 'api_ui_v2' ] } }
+    - { alias: FailedResponseDto, type: Wise\Core\ApiUi\Dto\FailedResponseDto, areas: [ 'api_ui_v2' ] }
+    - { alias: Common200FormResponseDto, type: Wise\Core\ApiUi\Dto\Common200FormResponseDto, areas: [ 'api_ui_v2', 'api_client_v2' ] } }
+    - { alias: Common422FormResponseDto, type: Wise\Core\ApiUi\Dto\Common422FormResponseDto, areas: [ 'api_ui_v2', 'api_client_v2' ] } }

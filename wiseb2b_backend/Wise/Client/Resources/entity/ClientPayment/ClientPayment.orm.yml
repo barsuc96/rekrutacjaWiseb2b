@@ -1,0 +1,22 @@
+Wise\Client\Domain\ClientPayment\ClientPayment:
+  type: entity
+  table: client_payment
+  repositoryClass: Wise\Client\Domain\ClientPayment\ClientPaymentRepositoryInterface
+
+  fields:
+    clientId: { type: integer, nullable: true }
+    paymentMethodId: { type: integer, nullable: true }
+    clientDocumentId: { type: integer, nullable: true }
+    payerName: { type: string, length: 60, nullable: true }
+    payerStreet: { type: string, length: 60, nullable: true }
+    payerHouseNumber: { type: string, length: 10 }
+    payerApartmentNumber: { type: string, length: 10 }
+    payerPostalCode: { type: string, length: 10, nullable: true }
+    payerCity: { type: string, length: 60, nullable: true }
+    payerCountryCode: { type: string, length: 3, nullable: true }
+    payerEmail: { type: string, length: 150, nullable: true }
+    deadline: { type: datetime, nullable: true }
+    status: { type: integer, nullable: true }
+    valueNet: { type: float, nullable: true }
+    valueGross: { type: float, nullable: true }
+    currency: { type: string, length: 3, nullable: true }

@@ -1,0 +1,35 @@
+{
+    "page": 1,
+    "total_count": 1,
+    "total_pages": 1,
+    "items": [
+      {
+        "label": "Bool",
+        "value": "bool"
+      },
+      {
+        "label": "Integer",
+        "value": "integer"
+      },
+      {
+        "label": "Decimal",
+        "value": "decimal"
+      },
+      {
+        "label": "Html block",
+        "value": "htmlblock"
+      },
+      {
+        "label": "Image",
+        "value": "image"
+      },
+      {
+        "label": "File",
+        "value": "file"
+      },
+      {
+        "label": "Search params",
+        "value": "searchParams"
+      }
+    ]
+  }

@@ -1,0 +1,5 @@
+nelmio_api_doc:
+  models:
+    names:
+
+      - { alias: GetPanelManagementDocumentDictionaryDto, type: Wise\Document\ApiUi\Dto\PanelManagement\GetPanelManagementDocumentDictionaryDto, areas: [ 'api_ui_v2' ] }

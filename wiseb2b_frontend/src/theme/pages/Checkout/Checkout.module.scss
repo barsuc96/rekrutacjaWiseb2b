@@ -1,0 +1,140 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.componentWrapper {
+  background: $color-gray-background;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.contentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 84px;
+
+  @include breakpoint(md) {
+    background: $color-white;
+    height: auto;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(6, 25, 56, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin-bottom: 16px;
+  }
+}
+
+.link {
+  color: $color-secondary;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.backIcon {
+  margin-right: 8px;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include breakpoint(lg) {
+    display: block;
+  }
+}
+
+.content {
+  flex: 1;
+}
+
+.collapse {
+  margin-bottom: 16px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-text-dark;
+    background: $color-gray-background-dark;
+    cursor: pointer;
+    height: auto;
+
+    svg {
+      color: $color-text;
+    }
+
+    &.open {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.error {
+      color: $color-error;
+      background: $color-alert-error-bg;
+
+      .errorMessage {
+        font-size: 12px;
+        margin-left: 10px;
+      }
+    }
+
+    span {
+      flex: 1;
+    }
+
+    .positions {
+      font-size: 14px;
+      text-align: right;
+      color: $color-secondary;
+      font-weight: 400;
+      display: block;
+      margin-right: 10px;
+    }
+  }
+
+  .content {
+    padding: 16px;
+    background: $color-white;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.noStyles {
+      padding: 0;
+    }
+
+    .errorMessage {
+      color: $color-error;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.sidebar {
+  width: 350px;
+  margin-left: 16px;
+  flex-shrink: 0;
+
+  @include breakpoint(lg) {
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+}
+
+.textarea {
+  padding: 4px;
+  border: none;
+  max-width: 100%;
+  min-width: 100%;
+}

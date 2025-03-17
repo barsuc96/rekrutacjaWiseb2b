@@ -1,0 +1,44 @@
+Wise\Client\Domain\Client\Client:
+  type: entity
+  table: client
+  inheritanceType: SINGLE_TABLE
+  repositoryClass: Wise\Client\Repository\Doctrine\ClientRepository
+  indexes:
+    id_external_idx:
+      columns: [id_external]
+
+  fields:
+    idExternal: { type: string, length: 255, nullable: true }
+    name: { type: string, length: 255, nullable: true }
+    clientParentId: { type: integer, nullable: true }
+    firstName: { type: string, length: 80, nullable: true }
+    lastName: { type: string, length: 80, nullable: true }
+    email: { type: string, length: 60, nullable: true }
+    phone: { type: string, length: 60, nullable: true }
+    website: { type: string, length: 80, nullable: true }
+    taxNumber: { type: string, length: 20, nullable: true }
+    defaultPaymentMethodId: { type: integer, nullable: true }
+    defaultDeliveryMethodId: { type: integer, nullable: true }
+    flags: { type: string, length: 255, nullable: true }
+    tradeCreditTotal: { type: float, nullable: true }
+    tradeCreditFree: { type: float, nullable: true }
+    defaultCurrency: { type: string, length: 3, nullable: true }
+    type: { type: string, length: 255, nullable: true }
+    dropshippingCost: { type: float, nullable: true }
+    orderReturnCost: { type: float, nullable: true }
+    freeDeliveryLimit: { type: float, nullable: true }
+    discount: { type: float, nullable: true }
+    traderId: { type: integer, nullable: true }
+    pricelistId: { type: integer, nullable: true }
+    clientGroupId: { type: integer, nullable: true }
+    status: { type: integer, nullable: true }
+    isVies: { type: boolean, options: { default: 0 }, nullable: true }
+    viesLastUpdate: { type: datetime, nullable: true }
+
+
+  embedded:
+    clientRepresentative: { class: Wise\Client\Domain\ClientRepresentative\ClientRepresentative }
+
+  uniqueConstraints:
+        client_id_external_unique_idx:
+            columns: id_external

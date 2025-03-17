@@ -1,0 +1,72 @@
+ContractStatus:
+    IN_EDIT: 'W trakcie edycji/redakcji - Pokazuje się tylko klientom testowym'
+    ACTIVE: 'Umowa aktywna - Pokazuje się wszystkim klientom'
+    DEPRECATED: 'Umowa przestarzała - Obowiązująca umowa, do której nie można już wyrazić zgody'
+    INACTIVE: 'Umowa nieaktywna/archiwalna - (wszystkie zgody związane z tą umową są nieaktywne)'
+
+ContractContext:
+    HOME_PAGE: 'Strona główna'
+    CHECKOUT: 'Koszyk'
+    REGISTRATION_PAGE: 'Strona rejestracji'
+
+ContractImpact:
+    CLIENT: 'Oddziaływanie na klienta'
+    USER: 'Oddziaływanie na użytkownika'
+    ORDER: 'Oddziaływanie na zamówienie'
+
+ContractRequirement:
+    TO_USE_SITE: 'Do korzystania z witryny'
+    TO_PLACE_ORDER: 'Do złożenia zamówienia'
+    VOLUNTARY: 'Dobrowolna'
+
+ContractType:
+    RULES: Regulamin
+    PRIVACY_POLICY: Polityka prywatności
+    NEWSLETTER: Newsletter
+    MARKETING: Marketing
+    COOKIES: Cookies
+    RODO: RODO
+
+contract:
+    success_withdrawal: 'Umowa została wycofana'
+    success_create: 'Umowa została utworzona'
+    success_update: 'Umowa została zaktualizowana'
+
+contract_type_dictionary:
+    success_create: 'Typ został utworzony'
+    success_update: 'Typ został zmodyfikowany'
+
+property_path:
+    requirement: 'Stopień wymagalności'
+    impact: 'Oddziaływanie'
+    type: 'Typ umowy'
+    status: 'Status'
+    contexts: 'Kontekst prośby'
+
+contract_agreement:
+    success_agree: 'Zgoda została wyrażona'
+    success_disagree: 'Poprawnie zarejestrowano wycofanie zgody'
+    success_toggle: 'Informacje zostały zapisane'
+
+exceptions:
+    contract:
+        not_found: 'Nie znaleziono umowy'
+        not_found_id: 'Nie znaleziono umowy o identyfikatorze: %id%'
+        change_content_on_active_agreement: 'Nie można zmienić treści umowy, która została zaakceptowana przez jakiegokolwiek klienta'
+    agreement:
+        not_access: 'Nie masz dostępu do zarządzania zgodami'
+    contract_type_dictionary:
+        not_found: 'Nie znaleziono słownika'
+        not_found_id: 'Nie znaleziono słownika o identyfikatorze: %id%'
+        not_found_by_type: 'Nie znaleziono słownika dla typu: %type%'
+        remove_on_active_agreements: 'Nie można usunąć typu umowy, który jest przypisany do umów z aktywnymi zgodami'
+    contract_agreement:
+        not_found: 'Nie znaleziono zgody do umowy'
+        not_found_id: 'Nie znaleziono zgody identyfikatorze: %id%'
+        already_disagreed: 'Zgoda do umowy została już odrzucona'
+        disagree_contract_not_active: 'Nie można odrzucić zgody do nieaktywnej umowy'
+        agree_contract_not_active: 'Nie można wyrazić zgody na nieaktywną umowę'
+        first_must_accept: 'Najpierw musisz wyrazić zgodę aby ją odrzucić'
+        cart_id_required: 'Musisz wskazać identyfikator koszyka'
+        disagree_contract_not_voluntary: 'Wszystkie wymagane zgody muszą zostać zaakceptowane'
+

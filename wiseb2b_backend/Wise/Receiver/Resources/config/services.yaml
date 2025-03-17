@@ -1,0 +1,28 @@
+parameters:
+    receiver_entity: Wise\Receiver\Domain\Receiver\Receiver
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    Wise\Receiver\:
+        resource: '../../'
+        exclude:
+            - '../../WiseReceiverBundle.php'
+
+    ###>>> Listeners
+    Wise\Receiver\Domain\ClientCanBeRemovedListener:
+        tags:
+            - { name: kernel.event_listener }
+
+    ###>>> Providers
+
+    ###>>> Validators
+    Wise\Receiver\Domain\Receiver\Validator\ReceiverValidator:
+        tags: [ 'wise.validator' ]
+
+    ###>>> Factories
+    Wise\Receiver\Domain\Receiver\Factory\ReceiverFactory:
+        arguments:
+            $entity: '%receiver_entity%'

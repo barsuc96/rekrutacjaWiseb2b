@@ -1,0 +1,48 @@
+@import 'src/theme/color';
+@import 'src/theme/breakpoints';
+
+.listWrapper {
+  margin: 15px 0;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 43px;
+  width: calc(100% / 3 - 5px);
+  background: $color-tab-bg;
+  border: 1px solid $color-tab-border;
+  color: $color-label;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+
+  @include breakpoint(md) {
+    width: auto;
+    padding: 0 16px;
+    white-space: nowrap;
+    margin: 0 4px;
+  }
+
+  &.active {
+    cursor: default;
+    color: $color-text;
+    font-weight: 700;
+    border-color: $color-white;
+    background: $color-white;
+    box-shadow: 0 -2px 5px rgba(6, 25, 56, 0.06);
+
+    @include breakpoint(md) {
+      color: $color-secondary;
+    }
+  }
+}
+
+.tabPlaceholder {
+  height: 100px;
+}

@@ -1,0 +1,27 @@
+contract_agreement:
+    success_agree: 'Consent has been given'
+    success_disagree: 'Correctly registered withdrawal of consent'
+    success_toggle: 'Information has been saved'
+
+exceptions:
+    contract:
+        not_found: 'Contract not found'
+        not_found_id: 'Contract with id: %id% not found'
+        change_content_on_active_agreement: 'Cannot change content of agreement that has been accepted by any client'
+    agreement:
+        not_access: 'You do not have access to manage agreements'
+    contract_type_dictionary:
+        not_found: 'Dictionary not found'
+        not_found_id: 'Dictionary with id: %id% not found'
+        not_found_by_type: 'Dictionary for type: %type% not found'
+        remove_on_active_agreements: 'You cannot delete a contract type that is assigned to contracts with active consents'
+    contract_agreement:
+        not_found: 'Agreement not found'
+        not_found_id: 'Agreement with id: %id% not found'
+        already_disagreed: 'Agreement has already been disagreed'
+        disagree_contract_not_active: 'Cannot disagree to not active contract'
+        agree_contract_not_active: 'Cannot agree to not active contract'
+        first_must_accept: 'First you must accept to disagree'
+        cart_id_required: 'You must specify cart id'
+        disagree_contract_not_voluntary: 'All required approvals must be accepted'
+

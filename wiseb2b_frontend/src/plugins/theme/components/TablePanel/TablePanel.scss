@@ -1,0 +1,23 @@
+@import 'src/theme/color';
+
+.TablePanel {
+  margin-bottom: 20px;
+}
+
+.filterWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.filter {
+  margin-right: 20px;
+}
+
+.clearFilters {
+  background-color: transparent;
+  border: unset;
+  cursor: pointer;
+  color: $color-primary;
+}
