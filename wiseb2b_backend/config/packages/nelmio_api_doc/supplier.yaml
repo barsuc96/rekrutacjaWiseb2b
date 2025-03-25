@@ -4,6 +4,7 @@ nelmio_api_doc:
 
     - { alias: PutGpsrSupplierDto, type: Wise\GPSR\ApiAdmin\Dto\GpsrSupplier\PutGpsrSupplierDto, areas: [ 'api_admin_v2' ] }
     - { alias: PutGpsrSuppliersDto, type: Wise\GPSR\ApiAdmin\Dto\GpsrSupplier\PutGpsrSuppliersDto, areas: [ 'api_admin_v2' ] }
+    - { alias: GetGpsrSuppliersDto, type: Wise\GPSR\ApiAdmin\Dto\GpsrSupplier\GetGpsrSuppliersDto, areas: [ 'api_admin_v2' ] }
 
     - { alias: GetPanelManagementSupplierDto, type: Wise\GPSR\ApiUi\Dto\PanelManagement\GetPanelManagementSupplierDto, areas: [ 'api_ui_v2' ] }
     - { alias: GetPanelManagementSuppliersDto, type: Wise\GPSR\ApiUi\Dto\PanelManagement\GetPanelManagementSuppliersDto, areas: [ 'api_ui_v2' ] }
