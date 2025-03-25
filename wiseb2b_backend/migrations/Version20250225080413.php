@@ -10,37 +10,27 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250225080413 extends AbstractMigration
+final class Version20250324132608 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'fill country AE';
+        return '';
     }
 
     public function up(Schema $schema): void
     {
-        foreach ($this->getCountryList() as $iso => $country){
-            $this->addSql("INSERT INTO country (id, id_external, is_active, sys_insert_date, sys_update_date) VALUES
-                        ((SELECT nextval('country_id_seq')), '{$iso}', true, NOW(), NOW())");
-            $this->addSql("INSERT INTO country_translation (id, country_id, language, name, is_active, sys_insert_date, sys_update_date) VALUES
-                        ((SELECT nextval('country_translation_id_seq')), (SELECT id FROM country WHERE id_external = '{$iso}' LIMIT 1), 'pl', '{$country['pl']}', true, NOW(), NOW())");
-            $this->addSql("INSERT INTO country_translation (id, country_id, language, name, is_active, sys_insert_date, sys_update_date) VALUES
-                        ((SELECT nextval('country_translation_id_seq')), (SELECT id FROM country WHERE id_external = '{$iso}' LIMIT 1), 'en', '{$country['en']}', true, NOW(), NOW())");
-        }
+      
+        $this->addSql("INSERT INTO supplier(id, is_active, sys_insert_date, sys_update_date, entity_hash, sort_order, payload_bag, id_external, symbol, tax_number, email, phone, registered_trade_name, dtype) 
+        VALUES((SELECT nextval('supplier_id_seq')), true, '2025-12-24 12:12:12', '2025-12-24 12:12:12', 'asdasd', 0, NULL, NULL, 'WiseB2B2', '1234567890', 'przykladowy_jan_kowalski@example.com', '000111999', 'WiseB2B Sp. z o.o.', 'gpsrsupplier')");
+
+        
+        $this->addSql("INSERT INTO global_address(id, is_active, sys_insert_date, sys_update_date, entity_hash, sort_order, payload_bag, entity_name, field_name, entity_id, name, street, house_number, apartment_number, city, postal_code, country_code, state)
+        VALUES((SELECT nextval('global_address_id_seq')), true, '2025-03-24 12:43:30.000', '2025-03-24 12:43:30.000', NULL, 0, NULL, 'supplier', 'address', (SELECT currval('supplier_id_seq')), 'Domowy2', 'Przykładowa', '44', '26', 'Warszawa', '00-000', 'pl', 'example')");
+        
     }
 
     public function down(Schema $schema): void
     {
-        foreach ($this->getCountryList() as $iso => $country){
-            $this->addSql("DELETE FROM country_translation WHERE country_id = (SELECT id FROM country WHERE id_external = '{$iso}' LIMIT 1)");
-            $this->addSql("DELETE FROM country WHERE id_external = '{$iso}'");
-        }
-    }
-
-    private function getCountryList()
-    {
-        return [
-            'AE' => ['pl' => 'Zjednoczone Emiraty Arabskie', 'en' => 'United Arab Emirates'],
-        ];
+       
     }
 }
